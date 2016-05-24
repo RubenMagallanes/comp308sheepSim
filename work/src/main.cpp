@@ -44,7 +44,6 @@ float g_zfar = 1000.0;
 //
 bool g_leftMouseDown = false;
 vec2 g_mousePosition;
-float newYaw= 00;
 float g_pitch = 20;
 float g_yaw = -40;
 float g_zoom = 1;
@@ -75,7 +74,7 @@ GLfloat light_position1[] = { 0.0,1.0,1.0 ,0.0}; // direc light dir
 /*float angle = 30.0f;
 int rotating = 0;*/
 
-int w_down=0, a_down=0, s_down=0, d_down=0, f_down=0, v_down=0;
+int w_down=0, a_down=0, s_down=0, d_down=0, q_down=0, e_down=0;
 float sensitivity = 0.5; // how sensitive the mouse is
 
 // Mouse Button callback
@@ -112,6 +111,13 @@ void mouseButtonCallback(GLFWwindow *win, int button, int action, int mods) {
 	}*/
 }
 
+/*
+	resets the screent to the center of the scene. 
+*/
+void resetScreen(){
+
+//TODO
+}
 
 // Scroll callback
 // Called for scroll event on since the last glfwPollEvents
@@ -126,30 +132,37 @@ void scrollCallback(GLFWwindow *win, double xoffset, double yoffset) {
 // Called for every key event on since the last glfwPollEvents
 //
 void keyCallback(GLFWwindow *win, int key, int scancode, int action, int mods) {
-	cout << "Key Callback :: key=" << key << "scancode=" << scancode
-	 	<< "action=" << action << "mods=" << mods << endl;
+	//cout << "Key Callback :: key=" << key << " scancode=" << scancode
+	 	//<< " action=" << action << " mods=" << mods << endl;
 
 
-	 	if (key == 87){ // W
-	 		w_down = action;
-	 	} else if (key == 65){ // A
-			a_down = action;
-	 	}else if (key == 83){ // S
-			s_down = action;
-	 	}else if (key == 68){ // D
-			d_down = action;
-	 	}else if (key == 70){ // F
-			f_down = action;
-	 	}else if (key == 86){ // V
-			v_down = action;
-	 	} else if (key == 32){//space i think
-	 		//
-	 	} else if (key == 84){// t i think
-	 		
+	 	switch (char(key))
+	 	{
+	 		case 'W': 
+				w_down = action;
+	 		break;
+	 		case 'A':
+				a_down = action;
+	 		break;
+	 		case 'S':
+				s_down = action;
+	 		break;
+	 		case 'D':
+				d_down = action;
+	 		break;
+	 		case 'Q':
+				q_down = action;
+	 		break;
+	 		case 'E':
+				e_down = action;
+	 		break;
+	 		case ' ':
+	 			if (action)
+	 				resetScreen();
+	 		break;
+	 		//default:
+	 		//do nothing
 	 	}
-
-
-
 }
 
 
@@ -157,8 +170,9 @@ void keyCallback(GLFWwindow *win, int key, int scancode, int action, int mods) {
 // Called for every character input event on since the last glfwPollEvents
 //
 void charCallback(GLFWwindow *win, unsigned int c) {
-	 cout << "Char Callback :: c=" << char(c) << endl;
+	// cout << "Char Callback :: c=" << char(c) << endl;
 	// Not needed for this assignment, but useful to have later on
+	 
 }
 
 
@@ -357,26 +371,14 @@ void render(int width, int height) {
 
 	setupCamera(width, height);
 
-	if(w_down)
+	if (q_down)
+		g_yaw --;
+	if (e_down)
+		g_yaw ++;
 		
-	if(a_down)
-		
-
-	if(s_down)
 	
-
-	if(d_down)
 		
 
-	if(f_down){
-		
-	}
-
-	if(v_down){
-		
-
-
-	}
 	//if (rotating){
 		
 
