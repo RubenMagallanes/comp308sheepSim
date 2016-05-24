@@ -24,7 +24,7 @@
 #include "simple_shader.hpp"
 #include "opengl.hpp"
 #include "geometry.cpp"
-#include "terrain.cpp"
+#include "terrain.hpp"
 
 using namespace std;
 using namespace cgra;
@@ -381,11 +381,13 @@ void initGeometry(){
 double lastTime = glfwGetTime();
 int nbFrames = 0;
 
-void render(int width, int height) {
+//for testing 
+// struct terrain t; 
+// void render(int width, int height) {
 /*
 fps counter
 */
- 
+ //init_terrain(&t);
 
 
 
@@ -416,17 +418,6 @@ fps counter
 
 	setupCamera(width, height);
 
-		
-	
-		
-
-	//if (rotating){
-		
-
-	//
-
-
-
 	//glLightfv(GL_LIGHT3, GL_POSITION, light_position3); // 
 
 	//glLightfv(GL_LIGHT2, GL_POSITION, light_position2); // spot
@@ -441,35 +432,12 @@ fps counter
 	if (!g_useShader) {
 
 
+
+
         //glDisable(GL_COLOR_MATERIAL);
         glEnable(GL_COLOR_MATERIAL);
 
-	/*
-	GLfloat mat_specularW3 [] = { 0.3, 0.3, 0.3, 1.0 };  
-		GLfloat mat_shininessW3[] = { 100.0 };  
-
-		glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW3);  
-		glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW3);
-		GLfloat white3[] = {0.8f, 0.8f, 0.8f, 1.f};
-		glMaterialfv(GL_FRONT, GL_DIFFUSE, white3);
-
-	// Enable Drawing texures
-		glEnable(GL_TEXTURE_2D);
-		// Use Texture as the color
-		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-		// Set the location for binding the texture
-		glActiveTexture(GL_TEXTURE0);
-		// Bind the texture
-		glBindTexture(GL_TEXTURE_2D, g_texture1);
-        //box
-		glPushMatrix();
-		glTranslatef(5.0,2.0,-3.0);
-
-        geo_box->renderGeometry();
-
-        glPopMatrix();
-        glDisable(GL_TEXTURE_2D);
-    */
+	
         //GOLD SPHERE
         GLfloat mat_ambientG  [] = {0.25, 0.2, 0.07, 1};
         GLfloat mat_specularG [] = { 1.0,1.0,1.0 ,1};  
