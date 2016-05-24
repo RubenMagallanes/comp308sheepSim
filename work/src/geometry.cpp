@@ -30,13 +30,14 @@ using namespace std;
 using namespace cgra;
 
 
-Geometry::Geometry(string filename) {
+Geometry::Geometry(string filename, bool wireframe) {
 	m_filename = filename;
 	readOBJ(filename);
 	if (m_triangles.size() > 0) {
 		createDisplayListPoly();
 		createDisplayListWire();
 	}
+	m_wireFrameOn = wireframe;
 }
 
 
@@ -338,7 +339,7 @@ void Geometry::renderGeometry() {
 		//wire_cow();
        /* glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         glCallList(m_displayListWire);*///TODO switch back yo poly not wire
-        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);// GL_FILL for whole polygons
         glCallList(m_displayListPoly);
 
 	}

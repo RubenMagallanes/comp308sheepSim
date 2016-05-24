@@ -45,8 +45,8 @@ float g_zfar = 1000.0;
 bool g_leftMouseDown = false;
 vec2 g_mousePosition;
 float newYaw= 00;
-float g_pitch = 10;
-float g_yaw = -10;
+float g_pitch = 20;
+float g_yaw = -40;
 float g_zoom = 1;
 
 // Values and fields to showcase the use of shaders
@@ -96,8 +96,9 @@ void cursorPosCallback(GLFWwindow* win, double xpos, double ypos) {
 //
 void mouseButtonCallback(GLFWwindow *win, int button, int action, int mods) {
 	cout << "Mouse Button Callback :: button=" << button << "action=" << action << "mods=" << mods << endl;
-	if (button == GLFW_MOUSE_BUTTON_RIGHT)
-		g_leftMouseDown = (action == GLFW_PRESS);
+	if (button == GLFW_MOUSE_BUTTON_RIGHT){
+		//g_leftMouseDown = (action == GLFW_PRESS);//comment to disable mouse movement
+	}
 
 	/*if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
 		if (g_useShader) {
@@ -318,6 +319,9 @@ void setupCamera(int width, int height) {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
+	//translate around area.
+
+	//zoom, rotate and pitch. 
 	glTranslatef(-0, -1, -50 * g_zoom);
 	glRotatef(g_pitch, 1, 0, 0);
 	glRotatef(g_yaw, 0, 1, 0);
@@ -328,12 +332,13 @@ void initGeometry(){
     /*
     geo_box    = new Geometry("./work/res/assets/box.obj");
     geo_bunny  = new Geometry("./work/res/assets/bunny.obj");
-    */geo_sphere = new Geometry("./work/res/assets/sphere.obj");
+    */
+    geo_sphere = new Geometry("./work/res/assets/sphere.obj", false);
     /*
     geo_teapot = new Geometry("./work/res/assets/teapot.obj");
     geo_torus  = new Geometry("./work/res/assets/torus.obj");
 */
-    geo_table  = new Geometry("./work/res/assets/table.obj");
+    geo_table  = new Geometry("./work/res/assets/table.obj", true);
 }
 
 // Draw function

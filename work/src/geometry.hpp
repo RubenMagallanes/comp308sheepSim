@@ -57,7 +57,7 @@ private:
 	void createDisplayListWire();
 
 public:
-	Geometry(std::string);
+	Geometry(std::string, bool);
 	~Geometry();
 
 	void renderGeometry();
