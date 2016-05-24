@@ -375,8 +375,33 @@ void initGeometry(){
 }
 
 // Draw function
-//
+
+//for fps counter
+double lastTime = glfwGetTime();
+int nbFrames = 0;
+
 void render(int width, int height) {
+/*
+fps counter
+*/
+ 
+
+
+
+     // Measure speed
+    double currentTime = glfwGetTime();
+    nbFrames++;
+    if ( currentTime - lastTime >= 1.0 ){ // If last prinf() was more than 1 sec ago
+        // printf and reset timer
+        printf("%.4f ms/frame, ", 1000.0/double(nbFrames));
+        printf("%.1f fps\n", 1/(1/double(nbFrames)));
+        nbFrames = 0;
+        lastTime += 1.0;
+    }
+
+     ///main render loop
+
+
 
 	// Grey/Blueish background
 	glClearColor(0.3f, 0.3f, 0.4f, 1.0f);
