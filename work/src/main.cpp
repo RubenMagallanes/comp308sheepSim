@@ -48,6 +48,8 @@ float g_pitch = 0;//20
 float g_yaw = 0; // -40
 float g_zoom = 1;
 
+float keySensitivity = 0.5;
+
 // Values and fields to showcase the use of shaders
 // Remove when modifying main.cpp for Assignment 3
 //
@@ -76,7 +78,7 @@ int rotating = 0;*/
 
 //w,a,s,d = camera movement (translation) q,e = rotation, f,c = pitch up/down
 int w_down=0, a_down=0, s_down=0, d_down=0, q_down=0, e_down=0, f_down=0, c_down=0; 
-float sensitivity = 0.5; // how sensitive the mouse is
+float sensitivity = 0.5; // how sensitive the mouse is 
 
 // Mouse Button callback
 // Called for mouse movement event on since the last glfwPollEvents
@@ -347,17 +349,17 @@ void setupCamera(int width, int height) {
 
 	//pitch from keys
 	if (f_down)
-		g_pitch --;
+		g_pitch -= keySensitivity;
 	if (c_down)
-		g_pitch ++;
+		g_pitch += keySensitivity;
 
 	glRotatef(g_pitch, 1, 0, 0);
 
 	//rotation from keys	
 	if (q_down)
-		g_yaw ++;
+		g_yaw += keySensitivity;
 	if (e_down)
-		g_yaw --;
+		g_yaw -= keySensitivity;
 	glRotatef(g_yaw, 0, 1, 0);
 	
 }
