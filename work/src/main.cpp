@@ -24,6 +24,7 @@
 #include "simple_shader.hpp"
 #include "opengl.hpp"
 #include "geometry.cpp"
+#include "terrain.cpp"
 
 using namespace std;
 using namespace cgra;
