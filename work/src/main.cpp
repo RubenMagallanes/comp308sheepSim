@@ -44,8 +44,8 @@ float g_zfar = 1000.0;
 //
 bool g_leftMouseDown = false;
 vec2 g_mousePosition;
-float g_pitch = 20;
-float g_yaw = -40;
+float g_pitch = 0;//20
+float g_yaw = 0; // -40
 float g_zoom = 1;
 
 // Values and fields to showcase the use of shaders
@@ -74,7 +74,8 @@ GLfloat light_position1[] = { 0.0,1.0,1.0 ,0.0}; // direc light dir
 /*float angle = 30.0f;
 int rotating = 0;*/
 
-int w_down=0, a_down=0, s_down=0, d_down=0, q_down=0, e_down=0;
+//w,a,s,d = camera movement (translation) q,e = rotation, f,c = pitch up/down
+int w_down=0, a_down=0, s_down=0, d_down=0, q_down=0, e_down=0, f_down=0, c_down=0; 
 float sensitivity = 0.5; // how sensitive the mouse is
 
 // Mouse Button callback
@@ -155,6 +156,12 @@ void keyCallback(GLFWwindow *win, int key, int scancode, int action, int mods) {
 	 		break;
 	 		case 'E':
 				e_down = action;
+	 		break;
+	 		case 'F':
+				f_down = action;
+	 		break;
+	 		case 'C':
+				c_down = action;
 	 		break;
 	 		case ' ':
 	 			if (action)
@@ -337,8 +344,22 @@ void setupCamera(int width, int height) {
 
 	//zoom, rotate and pitch. 
 	glTranslatef(-0, -1, -50 * g_zoom);
+
+	//pitch from keys
+	if (f_down)
+		g_pitch --;
+	if (c_down)
+		g_pitch ++;
+
 	glRotatef(g_pitch, 1, 0, 0);
+
+	//rotation from keys	
+	if (q_down)
+		g_yaw ++;
+	if (e_down)
+		g_yaw --;
 	glRotatef(g_yaw, 0, 1, 0);
+	
 }
 
 void initGeometry(){
@@ -371,10 +392,6 @@ void render(int width, int height) {
 
 	setupCamera(width, height);
 
-	if (q_down)
-		g_yaw --;
-	if (e_down)
-		g_yaw ++;
 		
 	
 		
