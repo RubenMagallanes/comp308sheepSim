@@ -44,8 +44,8 @@ float g_zfar = 1000.0;
 //
 bool g_leftMouseDown = false;
 vec2 g_mousePosition;
-float g_pitch = 0;//20
-float g_yaw = 0; // -40
+float g_pitch = 20;//20
+float g_yaw = -40; // -40
 float g_zoom = 1;
 
 // Values and fields to showcase the use of shaders
@@ -364,12 +364,12 @@ void initGeometry(){
     geo_box    = new Geometry("./work/res/assets/box.obj");
     geo_bunny  = new Geometry("./work/res/assets/bunny.obj");
     */
-    geo_sphere = new Geometry("..\\work\\res\\assets\\sphere.obj", false);
+    geo_sphere = new Geometry("./work/res/assets/sphere.obj", false);
     /*
     geo_teapot = new Geometry("./work/res/assets/teapot.obj");
     geo_torus  = new Geometry("./work/res/assets/torus.obj");
 */
-    geo_table  = new Geometry("..\\work\\res\\assets\\table.obj", true);
+    geo_table  = new Geometry("./work/res/assets/table.obj", true);
 }
 
 // Draw function
