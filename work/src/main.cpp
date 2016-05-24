@@ -44,8 +44,8 @@ float g_zfar = 1000.0;
 //
 bool g_leftMouseDown = false;
 vec2 g_mousePosition;
-float g_pitch = 0;//20
-float g_yaw = 0; // -40
+float g_pitch = 20;//20
+float g_yaw = -40; // -40
 float g_zoom = 1;
 
 float keySensitivity = 0.5;
@@ -322,11 +322,7 @@ void initTexture() { //save incase i ruin the one above
 // An example of how to load a shader from a hardcoded location
 //
 void initShader() {
-	// To create a shader program we use a helper function
-	// We pass it an array of the types of shaders we want to compile
-	// and the corrosponding locations for the files of each stage
-	g_shader = makeShaderProgramFromFile({GL_VERTEX_SHADER, GL_FRAGMENT_SHADER }, 
-		{ "./work/res/shaders/shaderDemo.vert", "./work/res/shaders/shaderDemo.frag" });
+
 }
 
 
