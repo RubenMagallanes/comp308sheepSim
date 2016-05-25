@@ -401,9 +401,9 @@ fps counter
     double currentTime = glfwGetTime();
     nbFrames++;
     if ( currentTime - lastTime >= 1.0 ){ // If last prinf() was more than 1 sec ago
-        // printf and reset timer
-        printf("%.4f ms/frame, ", 1000.0/double(nbFrames));
-        printf("%.1f fps\n", 1/(1/double(nbFrames)));
+        // printf and reset timer //TODO UNCOMMENT TO DISPLAY FPS IN TERMINAL
+        //printf("%.4f ms/frame, ", 1000.0/double(nbFrames));
+        //printf("%.1f fps\n", 1/(1/double(nbFrames)));
         nbFrames = 0;
         lastTime += 1.0;
     }
@@ -470,6 +470,12 @@ fps counter
         glPushMatrix();
         glTranslatef(0.0f, -0.4f, 0.0f);
         geo_table->renderGeometry();//TODO uncomment
+        glPopMatrix();
+
+
+        glPushMatrix();
+        glTranslatef(3.0, 1.0, 0.5);
+        geo_sheep->renderGeometry();
         glPopMatrix();
         //glDisable(GL_TEXTURE_2D);
 
