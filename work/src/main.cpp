@@ -64,6 +64,10 @@ GLuint g_shader = 0;
 
 Geometry *geo_sphere = nullptr;
 Geometry *geo_table = nullptr;
+//obj file for sheep. 
+//should only really need one ref to this, have each boid store
+//it's own transform and rotation vectors. 
+Geometry *geo_sheep = nullptr;
 
 //GLfloat light_position2[] = { 0.0, 20.0, -35.0, 1.0 };//spot light pos
 //float spot_direction2[] = {0.0, -1.0, 0.0}; // spot light dir
@@ -373,6 +377,8 @@ void initGeometry(){
     geo_torus  = new Geometry("./work/res/assets/torus.obj");
 */
     geo_table  = new Geometry("./work/res/assets/table.obj", true);
+
+    geo_sheep  = new Geometry("./work/res/assets/sheep.obj", false);
 }
 
 // Draw function
@@ -383,7 +389,7 @@ int nbFrames = 0;
 
 //for testing 
 // struct terrain t; 
-// void render(int width, int height) {
+ void render(int width, int height) {
 /*
 fps counter
 */
