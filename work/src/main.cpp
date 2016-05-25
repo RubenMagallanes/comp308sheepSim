@@ -50,9 +50,9 @@ vec2 g_mousePosition;
 //x and y of this vector are actually x, z of our land
 vec2 translate_map = vec2(0,0); 
 
-float g_pitch = 20;//20
+float g_pitch = 50;//20
 float g_yaw = -40; // -40
-float g_zoom = 1;
+float g_zoom = 2.0;
 
 float keySensitivity = 0.5;
 
@@ -76,13 +76,19 @@ Geometry *geo_sheep = nullptr;
 
 //GLfloat light_position2[] = { 0.0, 20.0, -35.0, 1.0 };//spot light pos
 //float spot_direction2[] = {0.0, -1.0, 0.0}; // spot light dir
-//GLfloat light_position3[] = { 0.0, 0.0, -10.0, 1.0 }; // point light location
+//
 
 /*GLfloat light_position2[] = { 0.0, 7.0, 0.0, 1.0 };//spot light pos
 float spot_direction2[] = {0.0, -1.0, 0.0}; // spot light dir
 GLfloat light_position3[] = { 5.0, 5.0, 5.0, 1.0 }; // point light dir
 */
 GLfloat light_position1[] = { 0.0,1.0,1.0 ,0.0}; // direc light dir
+
+GLfloat point_1_pos[] = { 10.0, 5.0, -10.0, 1.0 }; // point light 1 location
+GLfloat point_2_pos[] = { 10.0, 5.0, 10.0, 1.0 }; // point light 1 location
+GLfloat point_3_pos[] = { -10.0, 5.0, -10.0, 1.0 }; // point light 1 location
+GLfloat point_4_pos[] = { -10.0, 5.0, 10.0, 1.0 }; // point light 1 location
+
 /*float angle = 30.0f;
 int rotating = 0;*/
 
@@ -261,26 +267,36 @@ void initLight() {
     glLightfv(GL_LIGHT2, GL_DIFFUSE, diffuse_color2);
     //glLightfv(GL_LIGHT2, GL_SPECULAR, specular_color2);
     glEnable(GL_LIGHT2);//disable spotlight
+
 */
-    // POINT LIGHT
-	// 1.0, 1.0, 1.0, 0.0 };
-    /*
-    float diffuse_color3[] = {0.7,0.7,0.7,1.0};//{1,1,1,1};
-    float specular_color3[] = {1.0,1.0,1.0,1.0};//{1,1,1,1} 
-  
+	//-----fields------------------
+	
+	//-----local-----------
+
+	float point_diffuse[] = {0.2, 0.2, 0.2, 1.0};
+	float point_specular[] = {0.3, 0.3, 0.3, 1.0};
 
 
 
-    glLightfv(GL_LIGHT3, GL_POSITION, light_position3); // position as point light
+	glLightfv(GL_LIGHT3, GL_POSITION, point_1_pos); // position point light
+	glLightfv(GL_LIGHT3, GL_DIFFUSE, point_diffuse); // set diffuse color
+    glLightfv(GL_LIGHT3, GL_SPECULAR, point_specular); // set specular color
+    glEnable(GL_LIGHT3);//right
 
-    glLightfv(GL_LIGHT3, GL_DIFFUSE, diffuse_color3);
-    glLightfv(GL_LIGHT3, GL_SPECULAR, specular_color3);
-    glEnable(GL_LIGHT3);
+    glLightfv(GL_LIGHT4, GL_POSITION, point_2_pos); // position point light
+	glLightfv(GL_LIGHT4, GL_DIFFUSE, point_diffuse); // set diffuse color
+    glLightfv(GL_LIGHT4, GL_SPECULAR, point_specular); // set specular color
+    glEnable(GL_LIGHT4); // close
 
-	glEnable(GL_LIGHTING);
-	*/
-	glEnable(GL_DEPTH_TEST);
+    glLightfv(GL_LIGHT5, GL_POSITION, point_3_pos); // position point light
+	glLightfv(GL_LIGHT5, GL_DIFFUSE, point_diffuse); // set diffuse color
+    glLightfv(GL_LIGHT5, GL_SPECULAR, point_specular); // set specular color
+    glEnable(GL_LIGHT5); // back
 
+    glLightfv(GL_LIGHT6, GL_POSITION, point_4_pos); // position point light
+	glLightfv(GL_LIGHT6, GL_DIFFUSE, point_diffuse); // set diffuse color
+    glLightfv(GL_LIGHT6, GL_SPECULAR, point_specular); // set specular color
+    glEnable(GL_LIGHT6); // left
 
 
 
@@ -288,6 +304,9 @@ void initLight() {
 	//now we can use glcolor to set material color i think
 	//these make eerything flat again
 	//glColorMaterial ( GL_FRONT_AND_BACK, GL_EMISSION ) ;
+	glEnable(GL_LIGHTING);
+	
+	glEnable(GL_DEPTH_TEST);
     glEnable ( GL_COLOR_MATERIAL ) ;
 
 
@@ -454,6 +473,10 @@ fps counter
 	//glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, angle); // angle
 	// Without shaders
 
+	glLightfv(GL_LIGHT3, GL_POSITION, point_1_pos);
+	glLightfv(GL_LIGHT4, GL_POSITION, point_2_pos);
+	glLightfv(GL_LIGHT5, GL_POSITION, point_3_pos);
+	glLightfv(GL_LIGHT6, GL_POSITION, point_4_pos);
 
 	// Uses the default OpenGL pipeline
 	//
@@ -467,20 +490,11 @@ fps counter
 
 
         // render sphere at corners// TODO add point lights later at these points
-        glPushMatrix();
-        glTranslatef(10.0, 1.0, -10.0);
-        cgraSphere(0.5); //back right corner
-       	glTranslatef(0.0, 0.0, 20);
-       	cgraSphere(0.5); //front right corner
-       	glTranslatef(-20.0, 0.0, 0.0);
-       	cgraSphere(0.5);
-       	glTranslatef(0.0, 0.0, -20.0);
-       	cgraSphere(0.5);
-        glPopMatrix();
+        
 
 
-		GLfloat mat_specularW [] = { 1.0, 1.0, 1.0, 1.0 };  
-		GLfloat mat_shininessW[] = { 50.0 };  
+		GLfloat mat_specularW [] = { 0.5, 0.5, 0.5, 1.0 };  
+		GLfloat mat_shininessW[] = { 120.0 };  
 
 		glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW);  
 		glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW);
@@ -501,9 +515,19 @@ fps counter
 		geo_table->renderGeometry();
 
         glPopMatrix();
+        glPushMatrix();
+        glTranslatef(10.0, 5.0, -10.0);
+        cgraSphere(0.5); //back right corner
+       	glTranslatef(0.0, 0.0, 20);
+       	cgraSphere(0.5); //front right corner
+       	glTranslatef(-20.0, 0.0, 0.0);
+       	cgraSphere(0.5);
+       	glTranslatef(0.0, 0.0, -20.0);
+       	cgraSphere(0.5);
+        glPopMatrix();
 
 
-		GLfloat mat_specularW2 [] = { 1.0, 1.0, 1.0, 1.0 };  
+		GLfloat mat_specularW2 [] = { 0.2, 0.2, 0.2, 1.0 };  
 		GLfloat mat_shininessW2[] = { 100.0 };  
 
 		glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW2);  
@@ -590,7 +614,8 @@ int main(int argc, char **argv) {
 	glfwGetVersion(&glfwMajor, &glfwMinor, &glfwRevision);
 
 	// Create a windowed mode window and its OpenGL context
-	g_window = glfwCreateWindow(640, 480, "Hello World", nullptr, nullptr);
+	g_window = glfwCreateWindow(880, 660, "Hello World", nullptr, nullptr);
+	//640, 480
 	if (!g_window) {
 		cerr << "Error: Could not create GLFW window" << endl;
 		abort(); // Unrecoverable error
