@@ -82,7 +82,10 @@ GLfloat light_position1[] = { 0.0,1.0,1.0 ,0.0}; // direc light dir
 int rotating = 0;*/
 
 //w,a,s,d = camera movement (translation) q,e = rotation, f,c = pitch up/down
-int w_down=0, a_down=0, s_down=0, d_down=0, q_down=0, e_down=0, f_down=0, c_down=0; 
+int w_down=0, a_down=0, s_down=0, d_down=0, 
+	q_down=0, e_down=0, 
+	f_down=0, c_down=0,
+	z_down=0, x_down=0; 
 float sensitivity = 0.5; // how sensitive the mouse is 
 
 // Mouse Button callback
@@ -132,7 +135,7 @@ void resetScreen(){
 //
 void scrollCallback(GLFWwindow *win, double xoffset, double yoffset) {
 	// cout << "Scroll Callback :: xoffset=" << xoffset << "yoffset=" << yoffset << endl;
-	g_zoom -= yoffset * g_zoom * 0.2;
+	//g_zoom -= yoffset * g_zoom * 0.2; // UNCOMMENT TO ENABLE MOUSE SCROLL ZOOMING
 }
 
 
@@ -169,6 +172,12 @@ void keyCallback(GLFWwindow *win, int key, int scancode, int action, int mods) {
 	 		break;
 	 		case 'C':
 				c_down = action;
+	 		break;
+	 		case 'Z':
+	 			z_down = action;
+	 		break;
+	 		case 'X':
+	 			x_down = action;
 	 		break;
 	 		case ' ':
 	 			if (action)
@@ -346,6 +355,10 @@ void setupCamera(int width, int height) {
 	//translate around area.
 
 	//zoom, rotate and pitch. 
+	if (z_down)
+		g_zoom += 0.1 * keySensitivity;
+	if (x_down)
+		g_zoom -= 0.1 * keySensitivity;
 	glTranslatef(-0, -1, -50 * g_zoom);
 
 	//pitch from keys
@@ -445,7 +458,7 @@ fps counter
 
 
         // render sphere at corners// TODO add point lights later at these points
-       /* glPushMatrix();
+        glPushMatrix();
         glTranslatef(10.0, 1.0, -10.0);
         cgraSphere(0.5); //back right corner
        	glTranslatef(0.0, 0.0, 20);
@@ -454,7 +467,7 @@ fps counter
        	cgraSphere(0.5);
        	glTranslatef(0.0, 0.0, -20.0);
        	cgraSphere(0.5);
-        glPopMatrix();*/
+        glPopMatrix();
 
 
 		GLfloat mat_specularW [] = { 1.0, 1.0, 1.0, 1.0 };  
@@ -466,6 +479,7 @@ fps counter
 		glMaterialfv(GL_FRONT, GL_DIFFUSE, white);
         glPushMatrix();
         glTranslatef(0.0f, -0.4f, 0.0f);
+        //glScalef(2.0, 0.0, 2.0); // make table huge
         geo_table->renderGeometry();//TODO uncomment
         glPopMatrix();
 
