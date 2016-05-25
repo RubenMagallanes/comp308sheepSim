@@ -376,7 +376,7 @@ void initGeometry(){
     geo_teapot = new Geometry("./work/res/assets/teapot.obj");
     geo_torus  = new Geometry("./work/res/assets/torus.obj");
 */
-    geo_table  = new Geometry("./work/res/assets/table.obj", true);
+    geo_table  = new Geometry("./work/res/assets/table.obj", false);
 
     geo_sheep  = new Geometry("./work/res/assets/sheep.obj", false);
 }
@@ -440,25 +440,22 @@ fps counter
 
 
 
-        //glDisable(GL_COLOR_MATERIAL);
-        glEnable(GL_COLOR_MATERIAL);
+        glDisable(GL_COLOR_MATERIAL);
+        //glEnable(GL_COLOR_MATERIAL);
 
-	
-        //GOLD SPHERE
-        GLfloat mat_ambientG  [] = {0.25, 0.2, 0.07, 1};
-        GLfloat mat_specularG [] = { 1.0,1.0,1.0 ,1};  
-		GLfloat mat_shininessG[] = { 5 };  
 
-		glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambientG);
-		glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularG);  
-		glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessG);
-		GLfloat gold[] = {0.75, 0.61, 0.23, 1.f};
-		glMaterialfv(GL_FRONT, GL_DIFFUSE, gold);
+        // render sphere at corners// TODO add point lights later at these points
+       /* glPushMatrix();
+        glTranslatef(10.0, 1.0, -10.0);
+        cgraSphere(0.5); //back right corner
+       	glTranslatef(0.0, 0.0, 20);
+       	cgraSphere(0.5); //front right corner
+       	glTranslatef(-20.0, 0.0, 0.0);
+       	cgraSphere(0.5);
+       	glTranslatef(0.0, 0.0, -20.0);
+       	cgraSphere(0.5);
+        glPopMatrix();*/
 
-        glPushMatrix();
-        glTranslatef(0.0,1.5,0.0);
-        geo_sphere->renderGeometry();
-        glPopMatrix();
 
 		GLfloat mat_specularW [] = { 1.0, 1.0, 1.0, 1.0 };  
 		GLfloat mat_shininessW[] = { 50.0 };  
@@ -473,8 +470,17 @@ fps counter
         glPopMatrix();
 
 
+		GLfloat mat_specularW2 [] = { 1.0, 1.0, 1.0, 1.0 };  
+		GLfloat mat_shininessW2[] = { 100.0 };  
+
+		glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW2);  
+		glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW2);
+		GLfloat white2[] = {0.9f, 0.9f, 0.9f, 1.f};
+		GLfloat blue[] = {0.2, 0.2, 0.9, 1.f};
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, blue);
+
         glPushMatrix();
-        glTranslatef(3.0, 1.0, 0.5);
+        glTranslatef(0.0, 1.0, 0.0);
         geo_sheep->renderGeometry();
         glPopMatrix();
         //glDisable(GL_TEXTURE_2D);
