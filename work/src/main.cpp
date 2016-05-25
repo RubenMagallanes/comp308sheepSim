@@ -25,6 +25,7 @@
 #include "opengl.hpp"
 #include "geometry.cpp"
 #include "terrain.hpp"
+#include "flocking.hpp"
 
 using namespace std;
 using namespace cgra;
