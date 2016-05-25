@@ -7,3 +7,11 @@ struct boid
 	vec2 direction;
 	float speed; 
 };
+
+struct flock {
+	
+};
+
+void update (boid *, flock *);
+
+void render (boid *);
