@@ -45,6 +45,11 @@ float g_zfar = 1000.0;
 //
 bool g_leftMouseDown = false;
 vec2 g_mousePosition;
+
+//translation across the land
+//x and y of this vector are actually x, z of our land
+vec2 translate_map = vec2(0,0); 
+
 float g_pitch = 20;//20
 float g_yaw = -40; // -40
 float g_zoom = 1;
@@ -105,11 +110,11 @@ void cursorPosCallback(GLFWwindow* win, double xpos, double ypos) {
 // Called for mouse button event on since the last glfwPollEvents
 //
 void mouseButtonCallback(GLFWwindow *win, int button, int action, int mods) {
-	cout << "Mouse Button Callback :: button=" << button << "action=" << action << "mods=" << mods << endl;
+	//cout << "Mouse Button Callback :: button=" << button << "action=" << action << "mods=" << mods << endl;
 	if (button == GLFW_MOUSE_BUTTON_RIGHT){
 		//g_leftMouseDown = (action == GLFW_PRESS);//comment to disable mouse movement
 	}
-
+	//TODO cast rays from mouse clicks to affect sheep
 	/*if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
 		if (g_useShader) {
 			g_useShader = false;
@@ -353,6 +358,10 @@ void setupCamera(int width, int height) {
 	glLoadIdentity();
 
 	//translate around area.
+	if (w_down)
+		translate_map.y -= 0.3;
+
+	//glTranslatef(translate_map.x, translate_map.y, 0.0);
 
 	//zoom, rotate and pitch. 
 	if (z_down)
@@ -480,7 +489,17 @@ fps counter
         glPushMatrix();
         glTranslatef(0.0f, -0.4f, 0.0f);
         //glScalef(2.0, 0.0, 2.0); // make table huge
-        geo_table->renderGeometry();//TODO uncomment
+        geo_table->renderGeometry();
+        //draw more tables for reference
+        glTranslatef(20.0, 0.0, 20.0);
+		geo_table->renderGeometry();
+		glTranslatef(0.0, 0.0, -40.0);
+		geo_table->renderGeometry();
+		glTranslatef(-40.0, 0.0, 0.0);
+		geo_table->renderGeometry();
+		glTranslatef(0.0, 0.0, 40.0);
+		geo_table->renderGeometry();
+
         glPopMatrix();
 
 
