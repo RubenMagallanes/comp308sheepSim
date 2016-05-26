@@ -5,8 +5,8 @@
 struct boid
 {
 	Geometry *model;
-	vec2 position;
-	vec2 direction;
+	cgra::vec2 position;
+	cgra::vec2 direction;
 	float speed; 
 	//int id 	//maybe needed for equivence testing
 };
@@ -34,7 +34,9 @@ void add_boid (flock *, Geometry *);
  */
 void update_all (flock *);
 
-//void render_all (flock *); // TODO tell each boid to render itself
+/*	tell each boid to render itself.
+ */
+void render_all (flock *); 
 
 /*     BOID FUNCTIONS     */
 

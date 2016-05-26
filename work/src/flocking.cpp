@@ -18,8 +18,8 @@ add_boid (flock *fl, Geometry *m)
 {
 	boid b = boid ();
 	b.model = m;
-	b.position = vec2 (0, 0);		
-	b.direction = vec2 (0, 1);		//x,z coords
+	b.position = cgra::vec2 (0, 0);		
+	b.direction = cgra::vec2 (0, 1);		//x,z coords
 	b.speed = 1;
 	fl->members.push_back (b);
 }
@@ -30,7 +30,17 @@ update_all (flock *fl)
 	int i;
 	for (i= 0; i< fl->members.size(); i++)
 	{
-		update(fl->members[i], fl);
+		update(&(fl->members[i]), fl);
+	}
+}
+
+void
+render_all (flock *fl)
+{
+	int i;
+	for (i= 0; i< fl->members.size(); i++)
+	{
+		render (&(fl->members[i]));
 	}
 }
 
@@ -46,5 +56,5 @@ void
 render (boid *b)
 {
 	//todo translate and rotate
-	b->model.renderGeometry();
+	b->model->renderGeometry();
 }
