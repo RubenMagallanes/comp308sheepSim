@@ -11,13 +11,18 @@ SET(headers
 	"simple_shader.hpp"
 	"simple_image.hpp"
 	"terrain.hpp"
+	"flocking.hpp"
+	"geometry.hpp"
 )
 
 
 # TODO list your source files (.cpp) here
 SET(sources
 	"main.cpp"
+	"geometry.cpp"
 	"terrain.cpp"
+	"flocking.cpp"
+
 )
 
 # Add executable target and link libraries
