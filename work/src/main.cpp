@@ -23,7 +23,7 @@
 #include "simple_image.hpp"
 #include "simple_shader.hpp"
 #include "opengl.hpp"
-#include "geometry.cpp"
+#include "geometry.hpp"
 #include "terrain.hpp"
 #include "flocking.hpp"
 
@@ -75,7 +75,7 @@ Geometry *geo_table = nullptr;
 //it's own transform and rotation vectors. 
 Geometry *geo_sheep = nullptr;
 
-flock fl;
+flock herd;
 
 //GLfloat light_position2[] = { 0.0, 20.0, -35.0, 1.0 };//spot light pos
 //float spot_direction2[] = {0.0, -1.0, 0.0}; // spot light dir
@@ -544,9 +544,13 @@ fps counter
 
         glPushMatrix();
         glTranslatef(0.0, 1.0, 0.0);
-        geo_sheep->renderGeometry();
+        //geo_sheep->renderGeometry();
         glPopMatrix();
         //glDisable(GL_TEXTURE_2D);
+
+        //RENDER FLOCK AND SHIT
+        update_all(&herd); // update all boids position and intention
+        render_all(&herd);
 
 
 	}
@@ -685,7 +689,7 @@ int main(int argc, char **argv) {
 
 	
 	//initialise flock fl, size 1, with geo_sheep as boid's geometry
-	init_flock(&fl, 1, &geo_sheep);
+	init_flock(&herd, 1, geo_sheep);
 
 
 
