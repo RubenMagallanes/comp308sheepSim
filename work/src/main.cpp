@@ -495,7 +495,7 @@ fps counter
         //glEnable(GL_COLOR_MATERIAL);
 
 
-        // render sphere at corners// TODO add point lights later at these points
+        
         
 
 
@@ -552,6 +552,7 @@ fps counter
         update_all(&herd); // update all boids position and intention
         render_all(&herd);
 
+   
 
 	}
 

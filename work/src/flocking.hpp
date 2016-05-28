@@ -6,8 +6,9 @@ struct boid
 {
 	Geometry *model;
 	cgra::vec2 position;
-	cgra::vec2 direction;
-	float speed; 
+	//cgra::vec2 direction;
+	//float speed; 
+	cgra::vec2 velocity;
 	//int id 	//maybe needed for equivence testing
 };
 
@@ -40,6 +41,11 @@ void render_all (flock *);
 
 /*     BOID FUNCTIONS     */
 
+/*	render boid on the screen. 
+
+ */
+void render (boid *);
+
 /*	update specified boid's actions, influenced by each other boid
 	in specified flock. 
 	TODO: change argument to array of boids that should affect this,
@@ -48,7 +54,9 @@ void render_all (flock *);
 */
 void update (boid *, flock *);
 
-/*	render boid on the screen. 
+/* helper functions for update */
+cgra::vec2 seperation (boid *, flock *);
+cgra::vec2 cohesion (boid *, flock *);
+cgra::vec2 alignment (boid *, flock *);
 
- */
-void render (boid *);
+
