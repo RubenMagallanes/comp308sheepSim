@@ -65,8 +65,18 @@ render (boid *b)
 void 
 update (boid *b, flock *fl)
 {
-	
+	cgra::vec2 sep = seperation (b, fl);
+	cgra::vec2 coh = cohesion	(b, fl);
+	cgra::vec2 ali = alignment	(b, fl);
+
+	b->velocity += sep;
+	b->velocity += coh; 
+	b->velocity += ali;
+
+	//impose speed restrictions here
+	b->position += b->velocity;
 }
+//----------- helper functions for update
 /*return seperation vector*/
 cgra::vec2 seperation(boid *b, flock *fl){
 	

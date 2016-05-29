@@ -49,7 +49,8 @@ void render (boid *);
 /*	update specified boid's actions, influenced by each other boid
 	in specified flock. 
 	TODO: change argument to array of boids that should affect this,
-	let flock choose whih other boids to pass in.  
+	let flock choose whih other boids to pass in,   
+	or work out which inside as seperate function.
 
 */
 void update (boid *, flock *);
