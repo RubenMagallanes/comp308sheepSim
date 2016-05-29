@@ -2,6 +2,21 @@
 #include "cgra_math.hpp"
 #include "geometry.hpp"
 
+#define COHESION_FACTOR 1
+#define SEPERATION_THRESHOLD 5
+#define ALIGNMENT_FACTOR 8
+
+/*
+	0 < COHESION_FACTOR <= 100
+	percent of the way to move towards the average center of flock
+	
+	0 < SEPERATION_THRESHOLD < 10?
+	distance before boids repel each other
+
+	0 < ALIGNMENT_FACTOR < 
+
+*/
+
 struct boid
 {
 	Geometry *model;
@@ -56,7 +71,7 @@ void render (boid *);
 void update (boid *, flock *);
 
 /* helper functions for update */
-void construct_flock_list(std::vector<boid *>, flock *);
+void construct_flock_list(std::vector<boid *> *, flock *, char );
 
 cgra::vec2 seperation (boid *, flock *);
 cgra::vec2 cohesion (boid *, flock *);
