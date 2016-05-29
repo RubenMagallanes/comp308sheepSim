@@ -109,13 +109,14 @@ cohesion(boid *current, flock *fl){
 	{
 		if (other->id != current->id) 				// if not this one
 		{
-			average_position += other->position;
+			average_position += other->position;	//add it's position to the average
 			n++;
 		}
 	}
 
 	average_position /= n; 							// divide vector size by number of other boids
 	float factor = COHESION_FACTOR / 100;			//factor is float from 0.01 to 1, explained in flocking.hpp
+													//return vector pointing at average_pos scaled by $factor
 	return (average_position - current->position) * factor;
 }
 
