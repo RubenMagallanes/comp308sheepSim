@@ -82,6 +82,11 @@ construct_flock_list (std::vector<boid *> *list, flock * fl, char caller)
 {
 	//take flock, add to list of boid pointers depending on calling function
 	//initially, add all. later change this
+
+	for (boid b : fl->members)
+	{
+		list->push_back(&b);
+	}
 }
 
 /*return seperation vector*/
