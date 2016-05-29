@@ -68,7 +68,7 @@ update (boid *b, flock *fl)
 		
 //------------------ fake code ------*/
 	//cgra::vec2 velocity = b->velocity; //TODO make it direction affected my the speed scalar
-	b->position += b->velocity;
+	b->position += b->velocity; // may need to scale by an amount
 }
 /*return seperation vector*/
 cgra::vec2 seperation(boid *b, flock *fl){
