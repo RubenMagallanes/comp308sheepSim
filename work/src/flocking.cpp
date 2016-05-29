@@ -6,6 +6,7 @@
 void /* initialise flock $fl with $amt boids, each using $model as their geometry */
 init_flock (flock *fl, int amt, Geometry* model)
 {
+	fl->id_index = 0; // init id index
 	int i; 
 	for (i= 0; i< amt; i++)
 	{
@@ -20,7 +21,8 @@ add_boid (flock *fl, Geometry *m)
 	b.model = m;
 	b.position = cgra::vec2 (0, 0);		
 	b.velocity = cgra::vec2 (0, 1);		//x,z coords
-	//b.speed = 1;
+	b.id = fl->id_index++;				//each boid should have unique id
+
 	fl->members.push_back (b);
 }
 
@@ -64,11 +66,6 @@ void
 update (boid *b, flock *fl)
 {
 	
-	
-		
-//------------------ fake code ------*/
-	//cgra::vec2 velocity = b->velocity; //TODO make it direction affected my the speed scalar
-	b->position += b->velocity; // may need to scale by an amount
 }
 /*return seperation vector*/
 cgra::vec2 seperation(boid *b, flock *fl){

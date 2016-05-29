@@ -6,13 +6,13 @@ struct boid
 {
 	Geometry *model;
 	cgra::vec2 position;
-	//cgra::vec2 direction;
-	//float speed; 
+
 	cgra::vec2 velocity;
-	//int id 	//maybe needed for equivence testing
+	int id; 	//maybe needed for equivence testing
 };
 
 struct flock {
+	int id_index;
 	std::vector<boid> members; // 
 };
 
