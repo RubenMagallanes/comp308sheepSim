@@ -56,7 +56,7 @@ void render (boid *);
 void update (boid *, flock *);
 
 /* helper functions for update */
-std::vector<boid *> construct_flock_list(flock *);
+void construct_flock_list(std::vector<boid *>, flock *);
 
 cgra::vec2 seperation (boid *, flock *);
 cgra::vec2 cohesion (boid *, flock *);
