@@ -78,7 +78,7 @@ update (boid *b, flock *fl)
 }
 //----------- helper functions for update
 void 
-construct_flock_list (std::vector<boid *> *list, flock * fl, char caller)
+construct_flock_list (std::vector<boid *> *list, flock * fl, boid *current, char caller)
 {
 	//take flock, add to list of boid pointers depending on calling function
 	//initially, add all. later change this
@@ -103,7 +103,7 @@ cohesion(boid *current, flock *fl){
 	int n; 									
 	cgra::vec2 average_position = cgra::vec2 (0,0); // force vector to be returned
 	std::vector<boid *> flock;						// list of boids that affect this one
-	construct_flock_list (&flock, fl, 'c'); 		// flock is now full of relevant boids
+	construct_flock_list (&flock, fl, current, 'c');// flock is now full of relevant boids
 
 	for (boid *other : flock)
 	{
