@@ -449,8 +449,8 @@ fps counter
     nbFrames++;
     if ( currentTime - lastTime >= 1.0 ){ // If last prinf() was more than 1 sec ago
         // printf and reset timer //TODO UNCOMMENT TO DISPLAY FPS IN TERMINAL
-        //printf("%.4f ms/frame, ", 1000.0/double(nbFrames));
-        //printf("%.1f fps\n", 1/(1/double(nbFrames)));
+        printf("%.4f ms/frame, ", 1000.0/double(nbFrames));
+        printf("%.1f fps\n", 1/(1/double(nbFrames)));
         nbFrames = 0;
         lastTime += 1.0;
     }
