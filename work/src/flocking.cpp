@@ -25,9 +25,9 @@ add_boid (flock *fl, Geometry *m)
 	//b.position = cgra::vec2 (0, 0);	
 
 	if (fl->id_index == 1)
-		b.position = cgra::vec2(2,2);
+		b.position = cgra::vec2(4,4);
 	else 
-		b.position = cgra::vec2(-2,-2);
+		b.position = cgra::vec2(-4,-4);
 
 	b.velocity = cgra::vec2 (0, 0);		//x,z coords
 	b.id = fl->id_index++;				//each boid should have unique id
@@ -92,6 +92,13 @@ update (boid *b, flock *fl)
 	b->velocity += ali;
 
 	//impose speed restrictions here
+	//if (cgra::length(b->velocity) > )
+	std::cout << "speed: " << cgra::length(b->velocity) << std::endl;
+	if (cgra::length (b->velocity) > MAX_SPEED)
+	{
+			cgra::normalize(b->velocity);
+			b->velocity *= MAX_SPEED; 	 // clamp speed to max value
+	}
 	b->position += b->velocity;
 	//std::cout << "update successfull " << std::endl;
 	//std::cout <<  std::endl;
@@ -114,12 +121,32 @@ construct_flock_list (std::vector<boid *> *list, flock * fl, boid *current, char
 
 /*return seperation vector*/
 cgra::vec2 
-seperation(boid *b, flock *fl){
+seperation(boid *current, flock *fl){
+	int n=0; //dont think we need this									
+	cgra::vec2 seperation_force = cgra::vec2 (0,0); // force vector to be returned
+	std::vector<boid *> flock;						// list of boids that affect this one
+	construct_flock_list (&flock, fl, current, 's');// flock is now full of relevant boids
+
+	for (boid *other : flock)
+	{
+		if (other->id != current->id) 				// if not this one
+		{
+			cgra::vec2 dist_to_other =  other->position - current->position;
+			if (cgra::length(dist_to_other) < SEPERATION_THRESHOLD)
+			{
+				seperation_force -= dist_to_other; // foce pushes directly away from other 
+			}
+			n++;
+		}
+	}
+	if (n==0)
+	{	
+		return cgra::vec2(0,0); 					//if no other boids, no effect
+	}
+
+	return seperation_force;
+	//return cgra::vec2 (0,0);
 	
-
-
-
-	return cgra::vec2(0,0);
 
 }
 
@@ -153,7 +180,7 @@ cohesion(boid *current, flock *fl){
 }
 
 cgra::vec2 
-alignment(boid *b, flock *fl){
+alignment(boid *current, flock *fl){
 	return cgra::vec2(0,0);
 
 }
