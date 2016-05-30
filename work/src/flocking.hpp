@@ -2,9 +2,9 @@
 #include "cgra_math.hpp"
 #include "geometry.hpp"
 
-#define COHESION_FACTOR 1
-#define SEPERATION_THRESHOLD 5
-#define ALIGNMENT_FACTOR 8
+#define COHESION_FACTOR 1.0f
+#define SEPERATION_THRESHOLD 5.0f
+#define ALIGNMENT_FACTOR 8.0f
 
 /*
 	0 < COHESION_FACTOR <= 100

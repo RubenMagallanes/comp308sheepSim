@@ -690,9 +690,7 @@ int main(int argc, char **argv) {
 
 	
 	//initialise flock fl, size 1, with geo_sheep as boid's geometry
-	init_flock(&herd, 1, geo_sheep);
-
-
+	init_flock(&herd, 2, geo_sheep);
 
 	// Loop until the user closes the window
 	while (!glfwWindowShouldClose(g_window)) {
