@@ -33,6 +33,9 @@ using namespace cgra;
 //
 GLFWwindow* g_window;
 
+// Terrain
+//
+struct terrain t;
 
 // Projection values
 // 
@@ -65,17 +68,7 @@ GLuint g_shader = 0;
 Geometry *geo_sphere = nullptr;
 Geometry *geo_table = nullptr;
 
-//GLfloat light_position2[] = { 0.0, 20.0, -35.0, 1.0 };//spot light pos
-//float spot_direction2[] = {0.0, -1.0, 0.0}; // spot light dir
-//GLfloat light_position3[] = { 0.0, 0.0, -10.0, 1.0 }; // point light location
-
-/*GLfloat light_position2[] = { 0.0, 7.0, 0.0, 1.0 };//spot light pos
-float spot_direction2[] = {0.0, -1.0, 0.0}; // spot light dir
-GLfloat light_position3[] = { 5.0, 5.0, 5.0, 1.0 }; // point light dir
-*/
 GLfloat light_position1[] = { 0.0,1.0,1.0 ,0.0}; // direc light dir
-/*float angle = 30.0f;
-int rotating = 0;*/
 
 //w,a,s,d = camera movement (translation) q,e = rotation, f,c = pitch up/down
 int w_down=0, a_down=0, s_down=0, d_down=0, q_down=0, e_down=0, f_down=0, c_down=0; 
@@ -98,21 +91,10 @@ void cursorPosCallback(GLFWwindow* win, double xpos, double ypos) {
 // Called for mouse button event on since the last glfwPollEvents
 //
 void mouseButtonCallback(GLFWwindow *win, int button, int action, int mods) {
-	cout << "Mouse Button Callback :: button=" << button << "action=" << action << "mods=" << mods << endl;
+	// cout << "Mouse Button Callback :: button=" << button << "action=" << action << "mods=" << mods << endl;
 	if (button == GLFW_MOUSE_BUTTON_RIGHT){
 		//g_leftMouseDown = (action == GLFW_PRESS);//comment to disable mouse movement
 	}
-
-	/*if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
-		if (g_useShader) {
-			g_useShader = false;
-			cout << "Using the default OpenGL pipeline" << endl;
-		}
-		else {
-			g_useShader = true;
-			cout << "Using a shader" << endl;
-		}
-	}*/
 }
 
 /*
@@ -182,7 +164,6 @@ void keyCallback(GLFWwindow *win, int key, int scancode, int action, int mods) {
 void charCallback(GLFWwindow *win, unsigned int c) {
 	// cout << "Char Callback :: c=" << char(c) << endl;
 	// Not needed for this assignment, but useful to have later on
-	 
 }
 
 
@@ -191,10 +172,7 @@ void charCallback(GLFWwindow *win, unsigned int c) {
 // 
 void initLight() {
 
-
 	cout << "init light" << endl;
-
-
 
     glClearColor (0.0, 0.0, 0.0, 0.0);// 0,0,0,0 is initial 
     glShadeModel (GL_SMOOTH); // smooth shading not flat
@@ -214,8 +192,6 @@ void initLight() {
    glEnable(GL_LIGHT0); //ENABLE AMBIENT LIGHT
 
     // DIRECTIONAL LIGHT SOURCE
-
-    
     float diffuse_color1[] = {0.3,0.3,0.3,1.0};//{1,1,1,1};
     float specular_color1[] = {1.0,1.0,1.0,1.0};//{1,1,1,1} // odnt know we need this for directional
 
@@ -223,53 +199,8 @@ void initLight() {
     glLightfv(GL_LIGHT1, GL_POSITION, light_position1);
 
     glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuse_color1);
-    //glLightfv(GL_LIGHT1, GL_SPECULAR, specular_color1);
    glEnable(GL_LIGHT1);
-
-    //SPOTLIGHT
-
-     // pointing down
-    
-/*
-    float diffuse_color2[] = {1.0,1.0,1.0,1.0};//{1,1,1,1};
-   // float specular_color2[] = {1.0,1.0,1.0,1.0};//{1,1,1,1} 
-  
-
-    glLightfv(GL_LIGHT2, GL_POSITION, light_position2); // position as spot light
-    glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, spot_direction2); // point
-    //glLightf(GL_LIGHT2,GL_SPOT_EXPONENT,10.0f); // how focused is spotlight
-    glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 30.0f); // angle
-
-    glLightfv(GL_LIGHT2, GL_DIFFUSE, diffuse_color2);
-    //glLightfv(GL_LIGHT2, GL_SPECULAR, specular_color2);
-    glEnable(GL_LIGHT2);//disable spotlight
-*/
-    // POINT LIGHT
-	// 1.0, 1.0, 1.0, 0.0 };
-    /*
-    float diffuse_color3[] = {0.7,0.7,0.7,1.0};//{1,1,1,1};
-    float specular_color3[] = {1.0,1.0,1.0,1.0};//{1,1,1,1} 
-  
-
-
-
-    glLightfv(GL_LIGHT3, GL_POSITION, light_position3); // position as point light
-
-    glLightfv(GL_LIGHT3, GL_DIFFUSE, diffuse_color3);
-    glLightfv(GL_LIGHT3, GL_SPECULAR, specular_color3);
-    glEnable(GL_LIGHT3);
-
-	glEnable(GL_LIGHTING);
-	*/
 	glEnable(GL_DEPTH_TEST);
-
-
-
-
-
-	//now we can use glcolor to set material color i think
-	//these make eerything flat again
-	//glColorMaterial ( GL_FRONT_AND_BACK, GL_EMISSION ) ;
     glEnable ( GL_COLOR_MATERIAL ) ;
 
 
@@ -294,30 +225,7 @@ void initTexture() { //save incase i ruin the one above
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
 	// Finnaly, actually fill the data into our texture
-	gluBuild2DMipmaps(GL_TEXTURE_2D, 3, tex.w, tex.h, tex.glFormat(), GL_UNSIGNED_BYTE, tex.dataPointer());
-
-//NOW DO FOR BRICK
-
-	Image tex2("./work/res/textures/brick.jpg");
-	// Use slot 0, need to use GL_TEXTURE1 ... etc if using more than one texture PER OBJECT
-	glActiveTexture(GL_TEXTURE0); 
-	glGenTextures(1, &g_texture1); // Generate texture ID
-	glBindTexture(GL_TEXTURE_2D, g_texture1); // Bind it as a 2D texture
-
-	// Setup sampling strategies
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-	// Finnaly, actually fill the data into our texture
-	gluBuild2DMipmaps(GL_TEXTURE_2D, 3, tex2.w, tex2.h, tex2.glFormat(), GL_UNSIGNED_BYTE, tex2.dataPointer());
-
-
-
-*/
-
+	gluBuild2DMipmaps(GL_TEXTURE_2D, 3, tex.w, tex.h, tex.glFormat(), GL_UNSIGNED_BYTE, tex.dataPointer()); */
 }
 
 // An example of how to load a shader from a hardcoded location
@@ -375,21 +283,18 @@ void initGeometry(){
     geo_table  = new Geometry("./work/res/assets/table.obj", true);
 }
 
+void initTerrain() {
+	init_terrain(&t);
+	generate_terrain(&t);
+}
+
 // Draw function
 
 //for fps counter
 double lastTime = glfwGetTime();
 int nbFrames = 0;
-
-//for testing 
-// struct terrain t; 
-// void render(int width, int height) {
-/*
-fps counter
-*/
- //init_terrain(&t);
-
-
+ 
+void render(int width, int height) {
 
      // Measure speed
     double currentTime = glfwGetTime();
@@ -402,9 +307,7 @@ fps counter
         lastTime += 1.0;
     }
 
-     ///main render loop
-
-
+    // main render loop
 
 	// Grey/Blueish background
 	glClearColor(0.3f, 0.3f, 0.4f, 1.0f);
@@ -418,99 +321,39 @@ fps counter
 
 	setupCamera(width, height);
 
-	//glLightfv(GL_LIGHT3, GL_POSITION, light_position3); // 
+	glLightfv(GL_LIGHT1, GL_POSITION, light_position1);// directional light
 
-	//glLightfv(GL_LIGHT2, GL_POSITION, light_position2); // spot
-	//glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, spot_direction2); // point
-	glLightfv(GL_LIGHT1, GL_POSITION, light_position1);// directional light 
-	//glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, angle); // angle
-	// Without shaders
+    //glDisable(GL_COLOR_MATERIAL);
+    glEnable(GL_COLOR_MATERIAL);
 
+    //GOLD SPHERE
+    GLfloat mat_ambientG  [] = {0.25, 0.2, 0.07, 1};
+    GLfloat mat_specularG [] = { 1.0,1.0,1.0 ,1};  
+	GLfloat mat_shininessG[] = { 5 };  
 
-	// Uses the default OpenGL pipeline
-	//
-	if (!g_useShader) {
+	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambientG);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularG);  
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessG);
+	GLfloat gold[] = {0.75, 0.61, 0.23, 1.f};
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, gold);
 
+    glPushMatrix();
+    glTranslatef(0.0,1.5,0.0);
+    geo_sphere->renderGeometry();
+    glPopMatrix();
 
+	GLfloat mat_specularW [] = { 1.0, 1.0, 1.0, 1.0 };  
+	GLfloat mat_shininessW[] = { 50.0 };  
 
-
-        //glDisable(GL_COLOR_MATERIAL);
-        glEnable(GL_COLOR_MATERIAL);
-
-	
-        //GOLD SPHERE
-        GLfloat mat_ambientG  [] = {0.25, 0.2, 0.07, 1};
-        GLfloat mat_specularG [] = { 1.0,1.0,1.0 ,1};  
-		GLfloat mat_shininessG[] = { 5 };  
-
-		glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambientG);
-		glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularG);  
-		glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessG);
-		GLfloat gold[] = {0.75, 0.61, 0.23, 1.f};
-		glMaterialfv(GL_FRONT, GL_DIFFUSE, gold);
-
-        glPushMatrix();
-        glTranslatef(0.0,1.5,0.0);
-        geo_sphere->renderGeometry();
-        glPopMatrix();
-
-		GLfloat mat_specularW [] = { 1.0, 1.0, 1.0, 1.0 };  
-		GLfloat mat_shininessW[] = { 50.0 };  
-
-		glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW);  
-		glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW);
-		GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.f};
-		glMaterialfv(GL_FRONT, GL_DIFFUSE, white);
-        glPushMatrix();
-        glTranslatef(0.0f, -0.4f, 0.0f);
-        geo_table->renderGeometry();//TODO uncomment
-        glPopMatrix();
-        //glDisable(GL_TEXTURE_2D);
-
-
-	}
-
-
-	// With shaders (no lighting)
-	// Uses the shaders that you bind for the graphics pipeline
-	//
-	else {
-
-		// // Texture setup
-		// //
-		// // Enable Drawing texures
-		// glEnable(GL_TEXTURE_2D);
-		// // Set the location for binding the texture
-		// glActiveTexture(GL_TEXTURE0);
-		// // Bind the texture
-		// glBindTexture(GL_TEXTURE_2D, g_texture1);
-
-		// // Use the shader we made
-		// glUseProgram(g_shader);
-
-		// // Set our sampler (texture0) to use GL_TEXTURE0 as the source
-		// glUniform1i(glGetUniformLocation(g_shader, "texture0"), 0);
-
-
-		// // Render a single square as our geometry
-		// // You would normally render your geometry here
-		// glBegin(GL_QUADS);
-		// glNormal3f(0.0, 0.0, 1.0);
-		// glTexCoord2f(0.0, 0.0);
-		// glVertex3f(-5.0, -5.0, 0.0);
-		// glTexCoord2f(0.0, 1.0);
-		// glVertex3f(-5.0, 5.0, 0.0);
-		// glTexCoord2f(1.0, 1.0);
-		// glVertex3f(5.0, 5.0, 0.0);
-		// glTexCoord2f(1.0, 0.0);
-		// glVertex3f(5.0, -5.0, 0.0);
-		// glEnd();
-		// glFlush();
-		// glPushMatrix();
-		// glTranslatef(5.0,2.0,-3.0);
-
-	}
-
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW);  
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW);
+	GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.f};
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, white);
+    glPushMatrix();
+    glTranslatef(0.0f, -0.4f, 0.0f);
+    geo_table->renderGeometry();//TODO uncomment
+    glPopMatrix();
+    //glDisable(GL_TEXTURE_2D);
 
 	// Disable flags for cleanup (optional)
 	glDisable(GL_TEXTURE_2D);
@@ -591,12 +434,8 @@ int main(int argc, char **argv) {
 		cout << "GL_ARB_debug_output not available. No worries." << endl;
 	}
 
-
-	// Initialize Geometry/Material/Lights
-	// YOUR CODE GOES HERE
-	// ...
     initGeometry();
-    
+	initTerrain();
 	initLight();
 	initTexture();
 	initShader();
