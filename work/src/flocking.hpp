@@ -7,7 +7,7 @@
 #define SEPERATION_THRESHOLD 2.0f
 #define SEPERATION_FACTOR 1.0f
 
-#define ALIGNMENT_FACTOR 0.1f
+#define ALIGNMENT_FACTOR 1.0f
 
 #define MAX_SPEED 0.2f
 

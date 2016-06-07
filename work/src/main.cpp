@@ -99,7 +99,8 @@ int rotating = 0;*/
 int w_down=0, a_down=0, s_down=0, d_down=0, 
 	q_down=0, e_down=0, 
 	f_down=0, c_down=0,
-	z_down=0, x_down=0; 
+	z_down=0, x_down=0,
+	p_down=0; 
 float sensitivity = 0.5; // how sensitive the mouse is 
 
 // Mouse Button callback
@@ -192,6 +193,9 @@ void keyCallback(GLFWwindow *win, int key, int scancode, int action, int mods) {
 	 		break;
 	 		case 'X':
 	 			x_down = action;
+	 		break;
+	 		case 'P':
+	 			p_down = action;
 	 		break;
 	 		case ' ':
 	 			if (action)
@@ -534,10 +538,11 @@ fps counter
     //RENDER FLOCK AND SHIT
      double currentTime = glfwGetTime();
     
-    if ( currentTime - lastTime >= 0.01f ){ // If last prinf() was more than 1 sec ago
+    /* time based updating - updates at max every 0.01 sec  */
+    if ( currentTime - lastTime >= 0.017f  && p_down){ // 1/ 0.017 = 60 updates per sec (58)
         // reset timer 
         update_all(&herd); // update all boids position and intention
-        lastTime += 0.01f;
+        lastTime += 0.017f;
     }
 
     //c
