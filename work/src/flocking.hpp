@@ -2,18 +2,26 @@
 #include "cgra_math.hpp"
 #include "geometry.hpp"
 
-#define COHESION_FACTOR 1.0f
-#define SEPERATION_THRESHOLD 2.0f
+#define COHESION_FACTOR 0.8f
+
+#define SEPERATION_THRESHOLD 3.0f
+#define SEPERATION_FACTOR 0.1f
+
 #define ALIGNMENT_FACTOR 8.0f
 
-#define MAX_SPEED 0.6f
+#define MAX_SPEED 0.4f
 
 /*
 	0 < COHESION_FACTOR <= 100
-	percent of the way to move towards the average center of flock
+	percent of the way to move towards the average center of flock 
+	each frame
 	
 	0 < SEPERATION_THRESHOLD < 10?
 	distance before boids start to repel each other
+
+	0 < SEPERATION_FACTOR < 1
+	used to scale down the seperation force pushing 2 boids apart
+
 
 	0 < ALIGNMENT_FACTOR < 
 

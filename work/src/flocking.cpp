@@ -69,7 +69,10 @@ render (boid *b)
 	glPushMatrix();
 	glTranslatef(b->position.x, 0.0, b->position.y);
 	//rotate
+
 	b->model->renderGeometry();
+	
+	//draw forces affecting each boid 
 	glPopMatrix();
 
 }
@@ -87,12 +90,17 @@ update (boid *b, flock *fl)
 	cgra::vec2 coh = cohesion	(b, fl); // boids like to stick in packs
 	cgra::vec2 ali = alignment	(b, fl); // boids like to steer in same dir
 
-	//std::cout << "speed: " << cgra::length(b->velocity) << std::endl;
-
+	// std::cout << "forces of boid: " << std::endl;
+	// std::cout << "velocity before " << cgra::length(b->velocity) << std::endl;
+	// std::cout << "seperation force: " << cgra::length(sep) << std::endl;
+	// std::cout << "cohesion force: " << cgra::length(coh) << std::endl;
+	// std::cout << "alignment force: " << cgra::length(ali) << std::endl;
+	
 	b->velocity += sep;
 	b->velocity += coh; 
 	b->velocity += ali;
 
+	
 	//impose speed restrictions here
 	//if (cgra::length(b->velocity) > )
 	// std::cout << "speed: " << cgra::length(b->velocity) << std::endl;
@@ -102,6 +110,15 @@ update (boid *b, flock *fl)
 			b->velocity *= MAX_SPEED; 	 // clamp speed to max value
 	}
 	b->position += b->velocity;
+
+	std::cout << "velocity " << cgra::length(b->velocity) << std::endl;
+	// std::cout << std::endl;
+
+	if (cgra::length(b->position) > 25) // for testing, remove this later
+	{
+		b->position = cgra::normalize(b->position);
+
+	}
 	//std::cout << "update successfull " << std::endl;
 	//std::cout <<  std::endl;
 }
@@ -112,11 +129,10 @@ construct_flock_list (std::vector<boid *> *list, flock * fl, boid *current, char
 	//take flock, add to list of boid pointers depending on calling function
 	//initially, add all. later change this to only withinn a threshold
 	int i; 
-	for (i=0; i< fl->members.size(); i++)//(boid b : fl->members)
+	for (i=0; i< fl->members.size(); i++)
 	{
-
-		list->push_back(&(fl->members[i]));	// add address to list
-
+		if (fl->members[i].id != current->id) // onyl add if not this one
+			list->push_back(&(fl->members[i]));	
 	}
 	
 }
@@ -131,13 +147,18 @@ seperation(boid *current, flock *fl){
 
 	for (boid *other : flock)
 	{
-		if (other->id != current->id) 				// if not this one
+		if (cgra::distance (current->position, other->position) < SEPERATION_THRESHOLD)
 		{
-			cgra::vec2 dist_to_other =  other->position - current->position;
-			if (cgra::length(dist_to_other) < SEPERATION_THRESHOLD)
-			{
-				seperation_force -= dist_to_other; // foce pushes directly away from other 
-			}
+			/*force pushing away is stronger the closer this is to other*/
+			float push_scalar = SEPERATION_THRESHOLD - cgra::distance (current->position, other->position);
+			push_scalar *= SEPERATION_FACTOR; // scale by factor so it reasonable 
+			/* vector to be returned  = this - other */
+			cgra::vec2 push_vector = current->position - other->position;
+			//change magnitude to be push_scalar length
+			push_vector = push_vector = cgra::normalize(push_vector);
+			push_vector *= push_scalar;
+
+			seperation_force += push_vector; //add to one to be reurned
 			n++;
 		}
 	}
@@ -146,6 +167,9 @@ seperation(boid *current, flock *fl){
 		return cgra::vec2(0,0); 					//if no other boids, no effect
 	}
 
+	seperation_force /= n; // divide by no of vectors affecting this
+
+	//return cgra::vec2(0, 0);
 	return seperation_force; 
 }
 
@@ -159,11 +183,10 @@ cohesion(boid *current, flock *fl){
 
 	for (boid *other : flock)						//iterate through each boid affecting this
 	{
-		if (other->id != current->id) 				//if it's not this one //TODO remove this check 
-		{
+		
 			average_position += other->position;	//add it's position to the average
 			n++;
-		}
+		
 	}
 	if (n==0)
 	{	
@@ -171,16 +194,21 @@ cohesion(boid *current, flock *fl){
 	}
  	
 	average_position /= n;							 // divide vector size by number of other boids
-	
+	//average position is now correct; 
 		
-	float factor = (COHESION_FACTOR) / 100.0f;		//factor is float from 0.01 to 1, explained in flocking.hpp
+	float factor = (COHESION_FACTOR) / 100.0f;		//factor is float from 0.01 to 100, explained in flocking.hpp
 													//return vector pointing at average_pos scaled by $factor
+	//(average_pos - curr->pos) is vector pointing towards ave from curr
+	//it's magnitude needs to be scaled by a $factor so it only moves a small percent of the way towards the 
+	//ave position. 
 	cgra::vec2 ret = (average_position - current->position) * factor;
-	return (average_position - current->position) * factor;
+	return ret;
 }
 
 cgra::vec2 
 alignment(boid *current, flock *fl){
+	//similar to cohesion, but we average velocities, and take a small portion of the perceived velocity
+	//and return 
 	return cgra::vec2(0,0);
 
 }
