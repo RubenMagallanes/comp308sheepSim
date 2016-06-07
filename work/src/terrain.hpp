@@ -31,6 +31,5 @@ struct tri {
 void init_terrain(struct terrain *);
 void generate_terrain(struct terrain *);
 void get_height_at(int, int, struct terrain *, float *);
-void processGridCell(struct gridcell, double, struct tri *);
-vec3 vertexInterp(double, vec3, vec3, double, double);
-void drawTriangle(vec3, vec3, vec3);
+void processGridCell(float, float, float, float);
+void drawTerrain(struct terrain *);

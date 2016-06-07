@@ -283,6 +283,8 @@ void initGeometry(){
     geo_table  = new Geometry("./work/res/assets/table.obj", true);
 }
 
+GLenum tPolygonMode = GL_FILL;
+
 void initTerrain() {
 	init_terrain(&t);
 	generate_terrain(&t);
@@ -308,6 +310,12 @@ void render(int width, int height) {
     }
 
     // main render loop
+
+	// draw terrain
+	glPolygonMode(GL_FRONT_AND_BACK, tPolygonMode);
+	glPushMatrix();
+	drawTerrain(&t);
+	glPopMatrix();
 
 	// Grey/Blueish background
 	glClearColor(0.3f, 0.3f, 0.4f, 1.0f);

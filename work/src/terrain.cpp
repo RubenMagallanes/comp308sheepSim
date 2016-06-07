@@ -308,6 +308,10 @@ int edgeTable[256] = {
 	0x70c, 0x605, 0x50f, 0x406, 0x30a, 0x203, 0x109, 0x0
 };
 
+GLint worldSize = 8;
+GLfloat stepSize = 1.0 / worldSize;
+GLfloat targetValue = 48.0; // ???
+
 void init_terrain(struct terrain *t) {
 	std::cout << "===== Initializing Terrain =====" << std::endl;
 }
@@ -322,78 +326,44 @@ void get_height_at(int width, int height, struct terrain *t, int *out) {
 	std::cout << "requesting height " << std::endl;
 }
 
-void processGridCell(struct gridcell grid, double isolevel, struct tri *tris) {
-	int i, ntri;
-	int cubeindex = 0;
-	vec3 vertlist[12];
-
-	if (grid.val[0] < isolevel) cubeindex |= 1;
-	if (grid.val[1] < isolevel) cubeindex |= 2;
-	if (grid.val[2] < isolevel) cubeindex |= 4;
-	if (grid.val[3] < isolevel) cubeindex |= 8;
-	if (grid.val[4] < isolevel) cubeindex |= 16;
-	if (grid.val[5] < isolevel) cubeindex |= 32;
-	if (grid.val[6] < isolevel) cubeindex |= 64;
-	if (grid.val[7] < isolevel) cubeindex |= 128;
-
-	/* Cube is entirely in/out of the surface */
-
-	/* Find the vertices where the surface intersects the cube */
-	if (edgeTable[cubeindex] & 1)
-		vertlist[0] = vertexInterp(isolevel, grid.pos[0], grid.pos[1], grid.val[0], grid.val[1]);
-	if (edgeTable[cubeindex] & 2)
-		vertlist[1] = vertexInterp(isolevel, grid.pos[1], grid.pos[2], grid.val[1], grid.val[2]);
-	if (edgeTable[cubeindex] & 4)
-		vertlist[2] = vertexInterp(isolevel, grid.pos[2], grid.pos[3], grid.val[2], grid.val[3]);
-	if (edgeTable[cubeindex] & 8)
-		vertlist[3] = vertexInterp(isolevel, grid.pos[3], grid.pos[0], grid.val[3], grid.val[0]);
-	if (edgeTable[cubeindex] & 16)
-		vertlist[4] = vertexInterp(isolevel, grid.pos[4], grid.pos[5], grid.val[4], grid.val[5]);
-	if (edgeTable[cubeindex] & 32)
-		vertlist[5] = vertexInterp(isolevel, grid.pos[5], grid.pos[6], grid.val[5], grid.val[6]);
-	if (edgeTable[cubeindex] & 64)
-		vertlist[6] = vertexInterp(isolevel, grid.pos[6], grid.pos[7], grid.val[6], grid.val[7]);
-	if (edgeTable[cubeindex] & 128)
-		vertlist[7] = vertexInterp(isolevel, grid.pos[7], grid.pos[4], grid.val[7], grid.val[4]);
-	if (edgeTable[cubeindex] & 256)
-		vertlist[8] = vertexInterp(isolevel, grid.pos[0], grid.pos[4], grid.val[0], grid.val[4]);
-	if (edgeTable[cubeindex] & 512)
-		vertlist[9] = vertexInterp(isolevel, grid.pos[1], grid.pos[5], grid.val[1], grid.val[5]);
-	if (edgeTable[cubeindex] & 1024)
-		vertlist[10] = vertexInterp(isolevel, grid.pos[2], grid.pos[6], grid.val[2], grid.val[6]);
-	if (edgeTable[cubeindex] & 2048)
-		vertlist[11] = vertexInterp(isolevel, grid.pos[3], grid.pos[7], grid.val[3], grid.val[7]);
-
-	/* Create the triangle */
-	ntri = 0;
-	for (i = 0; testTable[cubeindex][i] != -1; i += 3) {
-		drawTriangle(	vertlist[testTable[cubeindex][i]],
-						vertlist[testTable[cubeindex][i + 1]],
-						vertlist[testTable[cubeindex][i + 2]]);
-		ntri++;
+void drawTerrain(struct terrain *t) {
+	for (int x = 0; x < worldSize; x++) {
+		for (int y = 0; y < worldSize; y++) {
+			for (int z = 0; z < worldSize; z++) {
+				processGridCell(x, y, z, stepSize);
+			}
+		}
 	}
 }
 
-vec3 vertexInterp(double isolevel, vec3 p1, vec3 p2, double valp1, double valp2)
-{
-	double mu;
-	vec3 p;
+void processGridCell(float x, float y, float z, float scale) {
+	GLint edgeFlags[256];
+	GLint connectionTable[256][16];
 
-	if (abs(isolevel - valp1) < 0.00001)
-		return(p1);
-	if (abs(isolevel - valp2) < 0.00001)
-		return(p2);
-	if (abs(valp1 - valp2) < 0.00001)
-		return(p1);
-	
-	mu = (isolevel - valp1) / (valp2 - valp1);
-	p.x = p1.x + mu * (p2.x - p1.x);
-	p.y = p1.y + mu * (p2.y - p1.y);
-	p.z = p1.z + mu * (p2.z - p1.z);
+	// Grab the values from each of the cube's vertices
+	for (int v = 0; v < 8; v++) {
+		// Sample value
+	}
 
-	return(p);
-}
+	// Figure out whether the vertex is inside or outside terrain
+	// For all 8 vertices
+		// If the vertex is less than or equal to the target value, bit shift the number of the vertex
+	// End
 
-void drawTriangle (vec3 v1, vec3 v2, vec3 v3) {
+	// Find which edges are intersected by the surface using edge flag lookup
 
+	// Return if the cube is entirely inside or outside the surface, don't need to do anything
+
+	// For each edge on the cube
+		// If there's an intersection on the edge, get vertex data
+	// End
+
+	// For each triangle that was found
+		// If the triangle connection table doesn't list a valid connection, break
+
+		// For each corner of the triangle
+			// Get the vertex from the connection table
+			// Set gl variables to corresponding vertex data points
+		// End
+	// End
 }
