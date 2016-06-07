@@ -2,7 +2,7 @@
 #include "cgra_math.hpp"
 #include "geometry.hpp"
 
-#define COHESION_FACTOR 0.8f
+#define COHESION_FACTOR 0.2f
 
 #define SEPERATION_THRESHOLD 3.0f
 #define SEPERATION_FACTOR 0.1f
@@ -41,22 +41,23 @@ struct boid
 };
 
 struct flock {
+	Geometry *model; // model all members use
 	int id_index;
 	std::vector<boid> members; // 
 };
 
 /*     FLOCK FUNCTIONS     */
 
-/* 	initialise flock to a certain number of boids. each boid will 
+/* 	initialise flock. each boid will 
 	use the supplied geometry as their model when asked to render. 
 */
-void init_flock (flock *, int, Geometry *);
+void init_flock (flock *, Geometry *);
 
 /* 	create and add a boid to given flock.
 	boid will render using the supplied geo.
 	TODO: take x,z coords as arguments as position. 
  */
-void add_boid (flock *, Geometry *);
+void add_boid (flock *, float, float);
 
 /*	updates behaviour of each boid in given flock.
 	TODO: for each boid, calculate which other boids should affect it,

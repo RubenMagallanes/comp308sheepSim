@@ -3,37 +3,24 @@
 #include <iostream>
 /*  ~  FLOCK FUNCTIONS  ~  */
 
-void /* initialise flock $fl with $amt boids, each using $model as their geometry */
-init_flock (flock *fl, int amt, Geometry* model)
+void /* initialise flock $fl with each boid using $model as their geometry */
+init_flock (flock *fl,  Geometry *model_)
 {
-	fl->id_index = 0; // init id index
-	int i; 
-	for (i= 0; i< amt; i++)
-	{
-
-		add_boid (fl, model);
-	}
+	fl->id_index = 0;  
+	fl->model = model_; 
 }
 
-void /* create and add a boid using model $m to flock $fl */
-add_boid (flock *fl, Geometry *m)
+void /* create and add a boid at position $x and $y to flock $fl */
+add_boid (flock *fl, float x_, float y_)
 {
-	////std::cout << "creating new boid" << std::endl;
-
 	boid b = boid ();
-	b.model = m;
-	//b.position = cgra::vec2 (0, 0);	
+	b.model = fl->model;
+	b.position = cgra::vec2 (x_, y_);	
 
-	if (fl->id_index == 1)
-		b.position = cgra::vec2(4,4);
-	else 
-		b.position = cgra::vec2(-4,-4);
-
-	b.velocity = cgra::vec2 (0, 0);		//x,z coords
+	b.velocity = cgra::vec2 (0, 0);		
 	b.id = fl->id_index++;				//each boid should have unique id
-	//std::cout << "creating and adding boid with id:"<< b.id << std::endl;
+
 	fl->members.push_back (b);
-	////std::cout << "new boid created and added" << std::endl;
 }
 
 void /* tells each boid in flock $fl to update. */

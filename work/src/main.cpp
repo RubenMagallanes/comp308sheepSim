@@ -689,8 +689,18 @@ int main(int argc, char **argv) {
 	initShader();
 
 	
-	//initialise flock fl, size 1, with geo_sheep as boid's geometry
-	init_flock(&herd, 2, geo_sheep);
+	//initialise flock fl,  with geo_sheep as boid's geometry
+	init_flock(&herd, geo_sheep);
+	add_boid (&herd, 5.0f, 5.0f);
+	add_boid (&herd, -5.0f, -5.0f);
+	add_boid (&herd, 5.0f, -5.0f);
+	add_boid (&herd, -5.0f, 5.0f);
+
+	add_boid (&herd, 2.0f, 2.0f);
+	add_boid (&herd, -2.0f, -2.0f);
+	add_boid (&herd, 2.0f, -2.0f);
+	add_boid (&herd, -2.0f, 2.0f);
+
 
 	// Loop until the user closes the window
 	while (!glfwWindowShouldClose(g_window)) {
