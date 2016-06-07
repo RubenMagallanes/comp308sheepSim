@@ -9,8 +9,12 @@
 
 #define ALIGNMENT_FACTOR 8.0f
 
-#define MAX_SPEED 0.4f
+#define MAX_SPEED 0.3f
 
+/*	TODO when maxspeed is hit, movement looks jumpy. 
+	fiddle around with other values so that we dont need this constant 
+	i think, or fix
+*/
 /*
 	0 < COHESION_FACTOR <= 100
 	percent of the way to move towards the average center of flock 
@@ -23,7 +27,8 @@
 	used to scale down the seperation force pushing 2 boids apart
 
 
-	0 < ALIGNMENT_FACTOR < 
+	0 < ALIGNMENT_FACTOR < 100
+	percent of the average velocity to return to affect each boid's vel
 
 */
 

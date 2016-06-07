@@ -211,4 +211,36 @@ alignment(boid *current, flock *fl){
 	//and return 
 	return cgra::vec2(0,0);
 
+	int n=0;
+	cgra::vec2 average_velocity = cgra::vec2 (0,0); 
+	std::vector<boid *> flock;						// list of boids that affect this one
+	construct_flock_list (&flock, fl, current, 'a');
+
+	for (boid *other : flock)						//iterate through each boid affecting this
+	{
+		average_velocity += other->velocity;	//add it's position to the average
+		n++;
+	}
+	if (n==0)
+	{	
+		return cgra::vec2(0,0); 					//if no other boids, no effect
+	}
+	average_velocity /= n;							//divide by num of velocities
+	float factor = (ALIGNMENT_FACTOR) / 100.0f;		//how much of ave vel to return
+	cgra::vec2 ret = average_velocity * factor;  	//scale
+	return ret; 
 }
+/*
+~
+~
+~
+~
+~
+~	
+~
+~
+~
+~
+~
+~
+*/
