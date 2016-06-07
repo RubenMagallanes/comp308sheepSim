@@ -2,14 +2,14 @@
 #include "cgra_math.hpp"
 #include "geometry.hpp"
 
-#define COHESION_FACTOR 0.2f
+#define COHESION_FACTOR 0.1f
 
-#define SEPERATION_THRESHOLD 3.0f
-#define SEPERATION_FACTOR 0.1f
+#define SEPERATION_THRESHOLD 2.0f
+#define SEPERATION_FACTOR 1.0f
 
-#define ALIGNMENT_FACTOR 8.0f
+#define ALIGNMENT_FACTOR 0.1f
 
-#define MAX_SPEED 0.3f
+#define MAX_SPEED 0.2f
 
 /*	TODO when maxspeed is hit, movement looks jumpy. 
 	fiddle around with other values so that we dont need this constant 
@@ -30,6 +30,14 @@
 	0 < ALIGNMENT_FACTOR < 100
 	percent of the average velocity to return to affect each boid's vel
 
+
+	GOOD VALUES  TODO
+	i like small cohesion factor & ave small thresg, perhaps magnified if there isnt another sheep close?
+	seperation factor -> 1 means when they are close, they collide. 
+		maybe change the implementation of sep to return weak vector if certain dist 
+		and strong vec if real close?
+	prolly weak alignment factor
+	low ish max speed coz the're sheep
 */
 
 struct boid

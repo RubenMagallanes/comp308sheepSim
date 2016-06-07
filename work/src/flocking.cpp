@@ -73,7 +73,7 @@ update (boid *b, flock *fl)
 	//std::cout << "boid pos: ["<<b->position.x <<", "<<b->position.y<<"]" << std::endl;
 	//std::cout << "boid vel: ["<<b->velocity.x <<", "<<b->velocity.y<<"]" << std::endl;
 
-	cgra::vec2 sep = seperation (b, fl);  // boids dont collide
+	cgra::vec2 sep = seperation (b, fl); // boids dont collide
 	cgra::vec2 coh = cohesion	(b, fl); // boids like to stick in packs
 	cgra::vec2 ali = alignment	(b, fl); // boids like to steer in same dir
 
@@ -87,15 +87,8 @@ update (boid *b, flock *fl)
 	b->velocity += coh; 
 	b->velocity += ali;
 
-	
-	//impose speed restrictions here
-	//if (cgra::length(b->velocity) > )
-	// std::cout << "speed: " << cgra::length(b->velocity) << std::endl;
-	if (cgra::length (b->velocity) > MAX_SPEED)
-	{
-			cgra::normalize(b->velocity);
-			b->velocity *= MAX_SPEED; 	 // clamp speed to max value
-	}
+	//clamp to $MAX_SPEED velocity
+	b->velocity = cgra::clamp (b->velocity, -MAX_SPEED, MAX_SPEED);
 	b->position += b->velocity;
 
 	std::cout << "velocity " << cgra::length(b->velocity) << std::endl;

@@ -383,8 +383,8 @@ void setupCamera(int width, int height) {
 	if (w_down)
 		translate_map.y -= 0.3;
 
-	//glTranslatef(translate_map.x, translate_map.y, 0.0);
-
+	glTranslatef(translate_map.x, translate_map.y, 0.0);
+	//rotate, translatem then tilt i think. zoom shouldnt matter
 	//zoom, rotate and pitch. 
 	if (z_down)
 		g_zoom += 0.1 * keySensitivity;
@@ -426,13 +426,66 @@ void initGeometry(){
 }
 
 
+void temp_terrain (){
+	glDisable(GL_COLOR_MATERIAL);
+    //glEnable(GL_COLOR_MATERIAL);
 
+
+    
+    
+
+
+	GLfloat mat_specularW [] = { 0.5, 0.5, 0.5, 1.0 };  
+	GLfloat mat_shininessW[] = { 120.0 };  
+
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW);  
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW);
+	GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.f};
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, white);
+    glPushMatrix();
+    glTranslatef(0.0f, -0.4f, 0.0f);
+    //glScalef(2.0, 0.0, 2.0); // make table huge
+    geo_table->renderGeometry();
+    //draw more tables for reference
+    glTranslatef(20.0, 0.0, 20.0);
+	geo_table->renderGeometry();
+	glTranslatef(0.0, 0.0, -40.0);
+	geo_table->renderGeometry();
+	glTranslatef(-40.0, 0.0, 0.0);
+	geo_table->renderGeometry();
+	glTranslatef(0.0, 0.0, 40.0);
+	geo_table->renderGeometry();
+
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(10.0, 5.0, -10.0);
+    cgraSphere(0.5); //back right corner
+   	glTranslatef(0.0, 0.0, 20);
+   	cgraSphere(0.5); //front right corner
+   	glTranslatef(-20.0, 0.0, 0.0);
+   	cgraSphere(0.5);
+   	glTranslatef(0.0, 0.0, -20.0);
+   	cgraSphere(0.5);
+    glPopMatrix();
+
+}
+void set_sheep_color (){
+	//colors for blue sheep material	
+	GLfloat mat_specularW2 [] = { 0.2, 0.2, 0.2, 1.0 };  
+	GLfloat mat_shininessW2[] = { 100.0 };  
+
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW2);  
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW2);
+	GLfloat white2[] = {0.9f, 0.9f, 0.9f, 1.f};
+	GLfloat blue[] = {0.2, 0.2, 0.9, 1.f};
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, blue);
+}
 
 // Draw function
 
-//for fps counter
+//for time based updating
 double lastTime = glfwGetTime();
-int nbFrames = 0;
+
 
 //for testing 
 // struct terrain t; 
@@ -445,16 +498,7 @@ fps counter
 
 
      // Measure speed
-    double currentTime = glfwGetTime();
-    nbFrames++;
-    if ( currentTime - lastTime >= 1.0 ){ // If last prinf() was more than 1 sec ago
-        // printf and reset timer //TODO UNCOMMENT TO DISPLAY FPS IN TERMINAL
-        printf("%.4f ms/frame, ", 1000.0/double(nbFrames));
-        printf("%.1f fps\n", 1/(1/double(nbFrames)));
-        nbFrames = 0;
-        lastTime += 1.0;
-    }
-
+   
      ///main render loop
 
 
@@ -484,118 +528,22 @@ fps counter
 	glLightfv(GL_LIGHT5, GL_POSITION, point_3_pos);
 	glLightfv(GL_LIGHT6, GL_POSITION, point_4_pos);
 
-	// Uses the default OpenGL pipeline
-	//
-	if (!g_useShader) {
+    temp_terrain(); // render my temp terrain enviro
+    //glDisable(GL_TEXTURE_2D);
 
-
-
-
-        glDisable(GL_COLOR_MATERIAL);
-        //glEnable(GL_COLOR_MATERIAL);
-
-
-        
-        
-
-
-		GLfloat mat_specularW [] = { 0.5, 0.5, 0.5, 1.0 };  
-		GLfloat mat_shininessW[] = { 120.0 };  
-
-		glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW);  
-		glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW);
-		GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.f};
-		glMaterialfv(GL_FRONT, GL_DIFFUSE, white);
-        glPushMatrix();
-        glTranslatef(0.0f, -0.4f, 0.0f);
-        //glScalef(2.0, 0.0, 2.0); // make table huge
-        geo_table->renderGeometry();
-        //draw more tables for reference
-        glTranslatef(20.0, 0.0, 20.0);
-		geo_table->renderGeometry();
-		glTranslatef(0.0, 0.0, -40.0);
-		geo_table->renderGeometry();
-		glTranslatef(-40.0, 0.0, 0.0);
-		geo_table->renderGeometry();
-		glTranslatef(0.0, 0.0, 40.0);
-		geo_table->renderGeometry();
-
-        glPopMatrix();
-        glPushMatrix();
-        glTranslatef(10.0, 5.0, -10.0);
-        cgraSphere(0.5); //back right corner
-       	glTranslatef(0.0, 0.0, 20);
-       	cgraSphere(0.5); //front right corner
-       	glTranslatef(-20.0, 0.0, 0.0);
-       	cgraSphere(0.5);
-       	glTranslatef(0.0, 0.0, -20.0);
-       	cgraSphere(0.5);
-        glPopMatrix();
-
-
-		GLfloat mat_specularW2 [] = { 0.2, 0.2, 0.2, 1.0 };  
-		GLfloat mat_shininessW2[] = { 100.0 };  
-
-		glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW2);  
-		glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW2);
-		GLfloat white2[] = {0.9f, 0.9f, 0.9f, 1.f};
-		GLfloat blue[] = {0.2, 0.2, 0.9, 1.f};
-		glMaterialfv(GL_FRONT, GL_DIFFUSE, blue);
-
-        glPushMatrix();
-        glTranslatef(0.0, 1.0, 0.0);
-        //geo_sheep->renderGeometry();
-        glPopMatrix();
-        //glDisable(GL_TEXTURE_2D);
-
-        //RENDER FLOCK AND SHIT
+    //RENDER FLOCK AND SHIT
+     double currentTime = glfwGetTime();
+    
+    if ( currentTime - lastTime >= 0.01f ){ // If last prinf() was more than 1 sec ago
+        // reset timer 
         update_all(&herd); // update all boids position and intention
-        render_all(&herd);
+        lastTime += 0.01f;
+    }
 
-   
+    //c
 
-	}
-
-
-	// With shaders (no lighting)
-	// Uses the shaders that you bind for the graphics pipeline
-	//
-	else {
-
-		// // Texture setup
-		// //
-		// // Enable Drawing texures
-		// glEnable(GL_TEXTURE_2D);
-		// // Set the location for binding the texture
-		// glActiveTexture(GL_TEXTURE0);
-		// // Bind the texture
-		// glBindTexture(GL_TEXTURE_2D, g_texture1);
-
-		// // Use the shader we made
-		// glUseProgram(g_shader);
-
-		// // Set our sampler (texture0) to use GL_TEXTURE0 as the source
-		// glUniform1i(glGetUniformLocation(g_shader, "texture0"), 0);
-
-
-		// // Render a single square as our geometry
-		// // You would normally render your geometry here
-		// glBegin(GL_QUADS);
-		// glNormal3f(0.0, 0.0, 1.0);
-		// glTexCoord2f(0.0, 0.0);
-		// glVertex3f(-5.0, -5.0, 0.0);
-		// glTexCoord2f(0.0, 1.0);
-		// glVertex3f(-5.0, 5.0, 0.0);
-		// glTexCoord2f(1.0, 1.0);
-		// glVertex3f(5.0, 5.0, 0.0);
-		// glTexCoord2f(1.0, 0.0);
-		// glVertex3f(5.0, -5.0, 0.0);
-		// glEnd();
-		// glFlush();
-		// glPushMatrix();
-		// glTranslatef(5.0,2.0,-3.0);
-
-	}
+    set_sheep_color();
+    render_all(&herd);
 
 
 	// Disable flags for cleanup (optional)
