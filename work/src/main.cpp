@@ -696,10 +696,10 @@ int main(int argc, char **argv) {
 	add_boid (&herd, 5.0f, -5.0f);
 	add_boid (&herd, -5.0f, 5.0f);
 
-	add_boid (&herd, 2.0f, 2.0f);
-	add_boid (&herd, -2.0f, -2.0f);
+	add_boid (&herd, 6.0f, 2.0f);
+	add_boid (&herd, -10.0f, -2.0f);
 	add_boid (&herd, 2.0f, -2.0f);
-	add_boid (&herd, -2.0f, 2.0f);
+	add_boid (&herd, -6.0f, 2.0f);
 
 
 	// Loop until the user closes the window
