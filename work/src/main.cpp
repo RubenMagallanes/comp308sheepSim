@@ -51,9 +51,9 @@ vec2 g_mousePosition;
 //x and y of this vector are actually x, z of our land
 vec2 translate_map = vec2(0,0); 
 
-float g_pitch = 50;//20
-float g_yaw = -40; // -40
-float g_zoom = 2.0;
+float g_pitch = 50.0f;//20
+float g_yaw = -40.0f; // -40
+float g_zoom = 3.0f;
 
 float keySensitivity = 0.5;
 

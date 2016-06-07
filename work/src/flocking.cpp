@@ -68,14 +68,14 @@ render (boid *b)
 	//todo translate and rotate
 	glPushMatrix();
 	glTranslatef(b->position.x, 0.0, b->position.y);
-
+	//rotate
 	b->model->renderGeometry();
 	glPopMatrix();
 
 }
 
 
-void 
+void /* individual boid's update function */
 update (boid *b, flock *fl)
 {
 	////std::cout << "updating boid" << std::endl;
@@ -83,9 +83,11 @@ update (boid *b, flock *fl)
 	//std::cout << "boid pos: ["<<b->position.x <<", "<<b->position.y<<"]" << std::endl;
 	//std::cout << "boid vel: ["<<b->velocity.x <<", "<<b->velocity.y<<"]" << std::endl;
 
-	cgra::vec2 sep = seperation (b, fl); // boids dont collide
+	cgra::vec2 sep = seperation (b, fl);  // boids dont collide
 	cgra::vec2 coh = cohesion	(b, fl); // boids like to stick in packs
 	cgra::vec2 ali = alignment	(b, fl); // boids like to steer in same dir
+
+	//std::cout << "speed: " << cgra::length(b->velocity) << std::endl;
 
 	b->velocity += sep;
 	b->velocity += coh; 
@@ -93,7 +95,7 @@ update (boid *b, flock *fl)
 
 	//impose speed restrictions here
 	//if (cgra::length(b->velocity) > )
-	std::cout << "speed: " << cgra::length(b->velocity) << std::endl;
+	// std::cout << "speed: " << cgra::length(b->velocity) << std::endl;
 	if (cgra::length (b->velocity) > MAX_SPEED)
 	{
 			cgra::normalize(b->velocity);
@@ -104,7 +106,7 @@ update (boid *b, flock *fl)
 	//std::cout <<  std::endl;
 }
 //----------- helper functions for update
-void 
+void //TODO change to not return the current boid , this saves us a check in each s, c ,a vector
 construct_flock_list (std::vector<boid *> *list, flock * fl, boid *current, char caller)
 {
 	//take flock, add to list of boid pointers depending on calling function
@@ -122,7 +124,7 @@ construct_flock_list (std::vector<boid *> *list, flock * fl, boid *current, char
 /*return seperation vector*/
 cgra::vec2 
 seperation(boid *current, flock *fl){
-	int n=0; //dont think we need this									
+	int n=0; 							
 	cgra::vec2 seperation_force = cgra::vec2 (0,0); // force vector to be returned
 	std::vector<boid *> flock;						// list of boids that affect this one
 	construct_flock_list (&flock, fl, current, 's');// flock is now full of relevant boids
@@ -144,22 +146,20 @@ seperation(boid *current, flock *fl){
 		return cgra::vec2(0,0); 					//if no other boids, no effect
 	}
 
-	return seperation_force;
-	//return cgra::vec2 (0,0);
-	
-
+	return seperation_force; 
 }
 
 cgra::vec2 
 cohesion(boid *current, flock *fl){
 	int n=0; 									
-	cgra::vec2 average_position = cgra::vec2 (0,0); // force vector to be returned
+	cgra::vec2 average_position = cgra::vec2 (0,0); 
 	std::vector<boid *> flock;						// list of boids that affect this one
-	construct_flock_list (&flock, fl, current, 'c');// flock is now full of relevant boids
+	construct_flock_list (&flock, fl, current, 'c');
+	// flock is now full of relevant boids
 
-	for (boid *other : flock)
+	for (boid *other : flock)						//iterate through each boid affecting this
 	{
-		if (other->id != current->id) 				// if not this one
+		if (other->id != current->id) 				//if it's not this one //TODO remove this check 
 		{
 			average_position += other->position;	//add it's position to the average
 			n++;
