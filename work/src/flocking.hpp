@@ -49,6 +49,12 @@ struct boid
 	float rotation; 
 };
 
+struct affector {
+	Geometry *model; 
+	int type; // 1 = hay, 2 = wolf
+	cgra::vec2 position; 
+};
+
 struct flock {
 	Geometry *model; // model all members use
 	int id_index;

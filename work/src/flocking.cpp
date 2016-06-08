@@ -25,6 +25,8 @@ add_boid (flock *fl, float x_, float y_)
 	fl->members.push_back (b);
 }
 
+/* 'all' functions */
+
 void /* tells each boid in flock $fl to update. */
 update_all (flock *fl)
 {

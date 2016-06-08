@@ -561,7 +561,7 @@ fps counter
     set_sheep_color();
     render_all(&herd);
 	set_hay_color();
-	
+
 
 	// Disable flags for cleanup (optional)
 	glDisable(GL_TEXTURE_2D);
@@ -657,14 +657,14 @@ int main(int argc, char **argv) {
 	//initialise ock fl,  with geo_sheep as boid's geometry
 	init_flock(&herd, geo_sheep);
 	add_boid (&herd, 5.0f, 5.0f);
-	 add_boid (&herd, -5.0f, -5.0f);
-	//  add_boid (&herd, 5.0f, -5.0f);
-	  add_boid (&herd, -5.0f, 5.0f);
+	add_boid (&herd, -5.0f, -5.0f);
+	add_boid (&herd, 5.0f, -5.0f);
+	add_boid (&herd, -5.0f, 5.0f);
 
-	// add_boid (&herd, 6.0f, 2.0f);
-	// add_boid (&herd, -10.0f, -2.0f);
-	// add_boid (&herd, 2.0f, -2.0f);
-	// add_boid (&herd, -6.0f, 2.0f);
+	add_boid (&herd, 6.0f, 2.0f);
+	add_boid (&herd, -10.0f, -2.0f);
+	add_boid (&herd, 2.0f, -2.0f);
+	add_boid (&herd, -6.0f, 2.0f);
 
 
 	// Loop until the user closes the window
