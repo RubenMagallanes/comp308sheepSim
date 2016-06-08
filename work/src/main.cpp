@@ -484,6 +484,17 @@ void set_sheep_color (){
 	GLfloat blue[] = {0.2, 0.2, 0.9, 1.f};
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, blue);
 }
+void set_hay_color (){
+	//colors for blue sheep material	
+	GLfloat mat_specularW2 [] = { 0.2, 0.2, 0.2, 1.0 };  
+	GLfloat mat_shininessW2[] = { 128.0 };//not shiny  
+
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW2);  
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW2);
+	GLfloat white2[] = {0.9f, 0.9f, 0.9f, 1.f};
+	GLfloat yello[] = {0.6, 0.6, 0.2, 1.f};
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, yello);
+}
 
 // Draw function
 
@@ -549,7 +560,8 @@ fps counter
 
     set_sheep_color();
     render_all(&herd);
-
+	set_hay_color();
+	
 
 	// Disable flags for cleanup (optional)
 	glDisable(GL_TEXTURE_2D);
@@ -642,17 +654,17 @@ int main(int argc, char **argv) {
 	initShader();
 
 	
-	//initialise flock fl,  with geo_sheep as boid's geometry
+	//initialise ock fl,  with geo_sheep as boid's geometry
 	init_flock(&herd, geo_sheep);
 	add_boid (&herd, 5.0f, 5.0f);
-	add_boid (&herd, -5.0f, -5.0f);
-	add_boid (&herd, 5.0f, -5.0f);
-	add_boid (&herd, -5.0f, 5.0f);
+	 add_boid (&herd, -5.0f, -5.0f);
+	//  add_boid (&herd, 5.0f, -5.0f);
+	  add_boid (&herd, -5.0f, 5.0f);
 
-	add_boid (&herd, 6.0f, 2.0f);
-	add_boid (&herd, -10.0f, -2.0f);
-	add_boid (&herd, 2.0f, -2.0f);
-	add_boid (&herd, -6.0f, 2.0f);
+	// add_boid (&herd, 6.0f, 2.0f);
+	// add_boid (&herd, -10.0f, -2.0f);
+	// add_boid (&herd, 2.0f, -2.0f);
+	// add_boid (&herd, -6.0f, 2.0f);
 
 
 	// Loop until the user closes the window

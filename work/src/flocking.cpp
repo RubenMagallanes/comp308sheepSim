@@ -1,6 +1,8 @@
 #include "cgra_math.hpp"
 #include "flocking.hpp"
+#include "cgra_geometry.hpp"
 #include <iostream>
+
 /*  ~  FLOCK FUNCTIONS  ~  */
 
 void /* initialise flock $fl with each boid using $model as their geometry */
@@ -17,22 +19,20 @@ add_boid (flock *fl, float x_, float y_)
 	b.model = fl->model;
 	b.position = cgra::vec2 (x_, y_);	
 
-	b.velocity = cgra::vec2 (0, 0);		
+	b.velocity = cgra::vec2 (0, 0.1);		
 	b.id = fl->id_index++;				//each boid should have unique id
-
+	b.rotation = 0;
 	fl->members.push_back (b);
 }
 
 void /* tells each boid in flock $fl to update. */
 update_all (flock *fl)
 {
-	//std::cout << "--- UPDATING ALL FLOCK --- " << std::endl;
 	int i;
 	for (i= 0; i< fl->members.size(); i++)
 	{
 		update(&(fl->members[i]), fl);
 	}
-	//std::cout << std::endl;
 }
 
 void
@@ -46,19 +46,23 @@ render_all (flock *fl)
 	}
 }
 
-/*  ~  BOID FUNCTIONS  ~  */
+/*  ~  INDIVIDUAL BOID FUNCTIONS  ~  */
 
 
 void 
 render (boid *b)
 {
-	//todo translate and rotate
 	glPushMatrix();
-	glTranslatef(b->position.x, 0.0, b->position.y);
-	//rotate
+	glTranslatef(b->position.x, 0.0, b->position.y); // z value based on terrain 
 
-	b->model->renderGeometry();
+	// rotate around y axis (-1 because vectors around wrong way)
+	glRotatef (b->rotation , 0, -1, 0); 
 	
+	b->model->renderGeometry();
+
+	glTranslatef (0.0, 1.7, 0.0);
+	float velveclen =0.1+ cgra::length(b->velocity) * 10;
+	cgra::cgraCylinder (0.15, 0.0, velveclen);
 	//draw forces affecting each boid 
 	glPopMatrix();
 
@@ -68,39 +72,41 @@ render (boid *b)
 void /* individual boid's update function */
 update (boid *b, flock *fl)
 {
-	////std::cout << "updating boid" << std::endl;
-	//std::cout << "updating boid id=" << b->id << std::endl;
-	//std::cout << "boid pos: ["<<b->position.x <<", "<<b->position.y<<"]" << std::endl;
-	//std::cout << "boid vel: ["<<b->velocity.x <<", "<<b->velocity.y<<"]" << std::endl;
-
-	cgra::vec2 sep = seperation (b, fl); // boids dont collide
+	cgra::vec2 sep = seperation (b, fl); // boids dont collide 
+	//TODO perhaps add weak seperation. current sep values prevent collisions 
 	cgra::vec2 coh = cohesion	(b, fl); // boids like to stick in packs
 	cgra::vec2 ali = alignment	(b, fl); // boids like to steer in same dir
 
-	// std::cout << "forces of boid: " << std::endl;
-	// std::cout << "velocity before " << cgra::length(b->velocity) << std::endl;
-	// std::cout << "seperation force: " << cgra::length(sep) << std::endl;
-	// std::cout << "cohesion force: " << cgra::length(coh) << std::endl;
-	// std::cout << "alignment force: " << cgra::length(ali) << std::endl;
-	
 	b->velocity += sep;
-	b->velocity += coh; 
+	b->velocity += coh;
 	b->velocity += ali;
 
 	//clamp to $MAX_SPEED velocity
 	b->velocity = cgra::clamp (b->velocity, -MAX_SPEED, MAX_SPEED);
+
+	//update rotation for rendering TODO seperate function?
+	if (cgra::length(b->velocity) != 0) // no divide by zero error
+	{
+		cgra::vec2 z , v;
+		z = cgra::vec2 (0, 1); 				// normalised z axis
+	 	v = cgra::normalize (b->velocity);  // normalzed velocity
+
+		float dp = cgra::dot (z, v); 		//dot product
+		float cp = z.x* v.y - z.y*v.x; 		//cross
+		float theta = std::atan2 (cp, dp);
+		theta = theta * (180/cgra::math::pi()); // convert to degrees
+		b->rotation = theta;				// updates rotation value
+	}
 	b->position += b->velocity;
 
-	std::cout << "velocity " << cgra::length(b->velocity) << std::endl;
+	//std::cout << "velocity " << cgra::length(b->velocity) << std::endl;
 	// std::cout << std::endl;
 
-	if (cgra::length(b->position) > 25) // for testing, remove this later
+	if (cgra::length(b->position) > 25) // for testing, remove this later when hay implemented
 	{
 		b->position = cgra::normalize(b->position);
 
 	}
-	//std::cout << "update successfull " << std::endl;
-	//std::cout <<  std::endl;
 }
 //----------- helper functions for update
 void //TODO change to not return the current boid , this saves us a check in each s, c ,a vector

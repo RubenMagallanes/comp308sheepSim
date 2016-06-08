@@ -7,7 +7,7 @@
 #define SEPERATION_THRESHOLD 2.0f
 #define SEPERATION_FACTOR 1.0f
 
-#define ALIGNMENT_FACTOR 1.0f
+#define ALIGNMENT_FACTOR 10.0f
 
 #define MAX_SPEED 0.2f
 
@@ -46,6 +46,7 @@ struct boid
 	cgra::vec2 position;
 	cgra::vec2 velocity;
 	int id; 	// needed for equivence testing
+	float rotation; 
 };
 
 struct flock {
