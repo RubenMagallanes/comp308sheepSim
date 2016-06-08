@@ -39,6 +39,21 @@ create_affector (std::vector<affector> * list_, Geometry * geo_, int type_, floa
 	list->push_back(a);
 }
 
+void
+render_affectors(std::vector<affector> *affectors_)
+{
+	int i;
+	for (i= 0; i< affectors->size(); i++)
+	{
+		glPushMatrix();
+		//todo y value affected by terrain underneath
+		glTranslatef(affectors[i].position.x, 0.0, affectors[i].position.y);
+		affectors[i].model->renderGeometry();
+		glPopMatrix();
+	}
+}
+
+
 /* 'all' functions */
 
 void /* tells each boid in flock $fl to update. */

@@ -80,6 +80,7 @@ void add_boid (flock *, float, float);
 */
 void create_affector (std::vector<affector> *, Geometry *, int, float, float);
 
+void render_affectors (std::vector<affector> *);
 
 /*	updates behaviour of each boid in given flock.
 	TODO: for each boid, calculate which other boids should affect it,
