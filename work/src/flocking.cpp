@@ -72,19 +72,21 @@ render (boid *b)
 void /* individual boid's update function */
 update (boid *b, flock *fl)
 {
+	/* CALCULATE AFFECTORS */
 	cgra::vec2 sep = seperation (b, fl); // boids dont collide 
 	//TODO perhaps add weak seperation. current sep values prevent collisions 
 	cgra::vec2 coh = cohesion	(b, fl); // boids like to stick in packs
 	cgra::vec2 ali = alignment	(b, fl); // boids like to steer in same dir
 
+	/* ADD AFFECTORS TO BOID'S VELOCITY */
 	b->velocity += sep;
 	b->velocity += coh;
 	b->velocity += ali;
 
-	//clamp to $MAX_SPEED velocity
+	/* clamp to $MAX_SPEED velocity */
 	b->velocity = cgra::clamp (b->velocity, -MAX_SPEED, MAX_SPEED);
 
-	//update rotation for rendering TODO seperate function?
+	/* UPDATE BOID'S ROTATION for rendering *///maybe in seperate function?
 	if (cgra::length(b->velocity) != 0) // no divide by zero error
 	{
 		cgra::vec2 z , v;
@@ -97,6 +99,8 @@ update (boid *b, flock *fl)
 		theta = theta * (180/cgra::math::pi()); // convert to degrees
 		b->rotation = theta;				// updates rotation value
 	}
+
+	/* UPDATE POSITION BASED ON VELOCITY */
 	b->position += b->velocity;
 
 	//std::cout << "velocity " << cgra::length(b->velocity) << std::endl;
