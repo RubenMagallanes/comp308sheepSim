@@ -74,6 +74,13 @@ void init_flock (flock *, Geometry *);
  */
 void add_boid (flock *, float, float);
 
+/*
+	creates new affector with specified type, geometry, and location, 
+	saving it to the supplied vector
+*/
+void create_affector (std::vector<affector> *, Geometry *, int, float, float);
+
+
 /*	updates behaviour of each boid in given flock.
 	TODO: for each boid, calculate which other boids should affect it,
 	construct an array containing these others and pass to update().

@@ -25,6 +25,20 @@ add_boid (flock *fl, float x_, float y_)
 	fl->members.push_back (b);
 }
 
+void /* creates an affector with type $type_, at position $x_, $y_, with model $geo_, saved in list $list_*/
+create_affector (std::vector<affector> * list_, Geometry * geo_, int type_, float x_, float y_)
+{
+	affector a = affector ();
+	a.model = geo_;
+	a.position = cgra::vec2 (x_, y_);
+	if (type_ == 1 || type_ == 2) // must match 
+		a.type = type_;
+	else 
+		1 /0; // error maybe remove this later
+
+	list->push_back(a);
+}
+
 /* 'all' functions */
 
 void /* tells each boid in flock $fl to update. */
