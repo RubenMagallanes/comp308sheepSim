@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/user/Documents/GitHub/comp308sheepSim/work
+# Install script for directory: C:/Users/Wendy/Documents/comp308sheepSim/work
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -29,11 +29,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/user/Documents/GitHub/comp308sheepSim/build/ext/glfw/cmake_install.cmake")
-  include("C:/Users/user/Documents/GitHub/comp308sheepSim/build/ext/glew-1.10.0/cmake_install.cmake")
-  include("C:/Users/user/Documents/GitHub/comp308sheepSim/build/ext/stb/cmake_install.cmake")
-  include("C:/Users/user/Documents/GitHub/comp308sheepSim/build/src/cmake_install.cmake")
-  include("C:/Users/user/Documents/GitHub/comp308sheepSim/build/res/cmake_install.cmake")
+  include("C:/Users/Wendy/Documents/comp308sheepSim/build/ext/glfw/cmake_install.cmake")
+  include("C:/Users/Wendy/Documents/comp308sheepSim/build/ext/glew-1.10.0/cmake_install.cmake")
+  include("C:/Users/Wendy/Documents/comp308sheepSim/build/ext/stb/cmake_install.cmake")
+  include("C:/Users/Wendy/Documents/comp308sheepSim/build/src/cmake_install.cmake")
+  include("C:/Users/Wendy/Documents/comp308sheepSim/build/res/cmake_install.cmake")
 
 endif()
 
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/user/Documents/GitHub/comp308sheepSim/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Wendy/Documents/comp308sheepSim/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

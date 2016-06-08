@@ -287,6 +287,7 @@ GLenum tPolygonMode = GL_FILL;
 
 void initTerrain() {
 	t = new Terrain(8);
+	t->generate();
 }
 
 // Draw function
@@ -327,13 +328,18 @@ void render(int width, int height) {
     //glDisable(GL_COLOR_MATERIAL);
     glEnable(GL_COLOR_MATERIAL);
 
+	// testing perlin noise
+	t->drawTerrain();
+
 	// draw terrain
-	glPolygonMode(GL_FRONT_AND_BACK, tPolygonMode);
+	/*glPolygonMode(GL_FRONT_AND_BACK, tPolygonMode);
 	glPushMatrix();
+		glTranslatef(-0.5, -0.5, -0.5);
+		glScalef(10000.00f, 10000.00f, 10000.00f);
 		glBegin(GL_TRIANGLES);
 		t->drawTerrain();
 		glEnd();
-	glPopMatrix();
+	glPopMatrix();*/
 
     //GOLD SPHERE
     GLfloat mat_ambientG  [] = {0.25, 0.2, 0.07, 1};
@@ -348,7 +354,7 @@ void render(int width, int height) {
 
     glPushMatrix();
     glTranslatef(0.0,1.5,0.0);
-    // geo_sphere->renderGeometry();
+    //geo_sphere->renderGeometry();
     glPopMatrix();
 
 	GLfloat mat_specularW [] = { 1.0, 1.0, 1.0, 1.0 };

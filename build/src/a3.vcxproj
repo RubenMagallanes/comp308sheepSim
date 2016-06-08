@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{5AAAB85A-6745-30B9-A7C4-4B42DFF41681}</ProjectGUID>
+    <ProjectGUID>{B729028F-5F25-3E80-9740-54BCC6D93AC5}</ProjectGUID>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
     <ProjectName>a3</ProjectName>
@@ -58,25 +58,25 @@
   <PropertyGroup Label="UserMacros" />
     <PropertyGroup>
       <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\user\Documents\GitHub\comp308sheepSim\build\bin\Debug\</OutDir>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Wendy\Documents\comp308sheepSim\build\bin\Debug\</OutDir>
       <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">a3.dir\Debug\</IntDir>
       <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">a3</TargetName>
       <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
       <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
       <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\user\Documents\GitHub\comp308sheepSim\build\bin\Release\</OutDir>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Wendy\Documents\comp308sheepSim\build\bin\Release\</OutDir>
       <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">a3.dir\Release\</IntDir>
       <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">a3</TargetName>
       <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
       <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
       <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\user\Documents\GitHub\comp308sheepSim\build\bin\MinSizeRel\</OutDir>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Wendy\Documents\comp308sheepSim\build\bin\MinSizeRel\</OutDir>
       <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">a3.dir\MinSizeRel\</IntDir>
       <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">a3</TargetName>
       <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
       <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
       <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\user\Documents\GitHub\comp308sheepSim\build\bin\RelWithDebInfo\</OutDir>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Wendy\Documents\comp308sheepSim\build\bin\RelWithDebInfo\</OutDir>
       <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">a3.dir\RelWithDebInfo\</IntDir>
       <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">a3</TargetName>
       <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
@@ -85,7 +85,7 @@
     </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -103,10 +103,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;GLEW_STATIC;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -119,8 +119,8 @@
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/user/Documents/GitHub/comp308sheepSim/build/bin/Debug/a3.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/user/Documents/GitHub/comp308sheepSim/build/bin/Debug/a3.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Wendy/Documents/comp308sheepSim/build/bin/Debug/a3.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Wendy/Documents/comp308sheepSim/build/bin/Debug/a3.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
       <Version></Version>
     </Link>
@@ -130,7 +130,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DisableSpecificWarnings>4800</DisableSpecificWarnings>
@@ -147,10 +147,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GLEW_STATIC;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -163,8 +163,8 @@
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>No</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/user/Documents/GitHub/comp308sheepSim/build/bin/Release/a3.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/user/Documents/GitHub/comp308sheepSim/build/bin/Release/a3.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Wendy/Documents/comp308sheepSim/build/bin/Release/a3.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Wendy/Documents/comp308sheepSim/build/bin/Release/a3.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
       <Version></Version>
     </Link>
@@ -174,7 +174,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DisableSpecificWarnings>4800</DisableSpecificWarnings>
@@ -191,10 +191,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GLEW_STATIC;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -207,8 +207,8 @@
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>No</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/user/Documents/GitHub/comp308sheepSim/build/bin/MinSizeRel/a3.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/user/Documents/GitHub/comp308sheepSim/build/bin/MinSizeRel/a3.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Wendy/Documents/comp308sheepSim/build/bin/MinSizeRel/a3.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Wendy/Documents/comp308sheepSim/build/bin/MinSizeRel/a3.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
       <Version></Version>
     </Link>
@@ -218,7 +218,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -235,10 +235,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GLEW_STATIC;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\include;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -251,8 +251,8 @@
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/user/Documents/GitHub/comp308sheepSim/build/bin/RelWithDebInfo/a3.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/user/Documents/GitHub/comp308sheepSim/build/bin/RelWithDebInfo/a3.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Wendy/Documents/comp308sheepSim/build/bin/RelWithDebInfo/a3.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Wendy/Documents/comp308sheepSim/build/bin/RelWithDebInfo/a3.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
       <Version></Version>
     </Link>
@@ -261,10 +261,10 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/user/Documents/GitHub/comp308sheepSim/work/src/CMakeLists.txt</Message>
+    <CustomBuild Include="C:\Users\Wendy\Documents\comp308sheepSim\work\src\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/Wendy/Documents/comp308sheepSim/work/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/user/Documents/GitHub/comp308sheepSim/work -BC:/Users/user/Documents/GitHub/comp308sheepSim/build --check-stamp-file C:\Users\user\Documents\GitHub\comp308sheepSim\build\src\CMakeFiles\generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Wendy/Documents/comp308sheepSim/work -BC:/Users/Wendy/Documents/comp308sheepSim/build --check-stamp-file C:\Users\Wendy\Documents\comp308sheepSim\build\src\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -272,12 +272,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/user/Documents/GitHub/comp308sheepSim/work/src/CMakeLists.txt;C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\CMakeLists.txt;C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\user\Documents\GitHub\comp308sheepSim\build\src\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Wendy/Documents/comp308sheepSim/work/src/CMakeLists.txt;C:\Users\Wendy\Documents\comp308sheepSim\work\src\CMakeLists.txt;C:\Users\Wendy\Documents\comp308sheepSim\work\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Wendy\Documents\comp308sheepSim\build\src\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/user/Documents/GitHub/comp308sheepSim/work/src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/Wendy/Documents/comp308sheepSim/work/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/user/Documents/GitHub/comp308sheepSim/work -BC:/Users/user/Documents/GitHub/comp308sheepSim/build --check-stamp-file C:\Users\user\Documents\GitHub\comp308sheepSim\build\src\CMakeFiles\generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Wendy/Documents/comp308sheepSim/work -BC:/Users/Wendy/Documents/comp308sheepSim/build --check-stamp-file C:\Users\Wendy\Documents\comp308sheepSim\build\src\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -285,12 +285,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/user/Documents/GitHub/comp308sheepSim/work/src/CMakeLists.txt;C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\CMakeLists.txt;C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\user\Documents\GitHub\comp308sheepSim\build\src\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Wendy/Documents/comp308sheepSim/work/src/CMakeLists.txt;C:\Users\Wendy\Documents\comp308sheepSim\work\src\CMakeLists.txt;C:\Users\Wendy\Documents\comp308sheepSim\work\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Wendy\Documents\comp308sheepSim\build\src\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/user/Documents/GitHub/comp308sheepSim/work/src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/Wendy/Documents/comp308sheepSim/work/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/user/Documents/GitHub/comp308sheepSim/work -BC:/Users/user/Documents/GitHub/comp308sheepSim/build --check-stamp-file C:\Users\user\Documents\GitHub\comp308sheepSim\build\src\CMakeFiles\generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Wendy/Documents/comp308sheepSim/work -BC:/Users/Wendy/Documents/comp308sheepSim/build --check-stamp-file C:\Users\Wendy\Documents\comp308sheepSim\build\src\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -298,12 +298,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/user/Documents/GitHub/comp308sheepSim/work/src/CMakeLists.txt;C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\CMakeLists.txt;C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\user\Documents\GitHub\comp308sheepSim\build\src\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/Wendy/Documents/comp308sheepSim/work/src/CMakeLists.txt;C:\Users\Wendy\Documents\comp308sheepSim\work\src\CMakeLists.txt;C:\Users\Wendy\Documents\comp308sheepSim\work\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Wendy\Documents\comp308sheepSim\build\src\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/user/Documents/GitHub/comp308sheepSim/work/src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/Wendy/Documents/comp308sheepSim/work/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/user/Documents/GitHub/comp308sheepSim/work -BC:/Users/user/Documents/GitHub/comp308sheepSim/build --check-stamp-file C:\Users\user\Documents\GitHub\comp308sheepSim\build\src\CMakeFiles\generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Wendy/Documents/comp308sheepSim/work -BC:/Users/Wendy/Documents/comp308sheepSim/build --check-stamp-file C:\Users\Wendy\Documents\comp308sheepSim\build\src\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -311,33 +311,35 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/user/Documents/GitHub/comp308sheepSim/work/src/CMakeLists.txt;C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\CMakeLists.txt;C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\user\Documents\GitHub\comp308sheepSim\build\src\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/Wendy/Documents/comp308sheepSim/work/src/CMakeLists.txt;C:\Users\Wendy\Documents\comp308sheepSim\work\src\CMakeLists.txt;C:\Users\Wendy\Documents\comp308sheepSim\work\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Wendy\Documents\comp308sheepSim\build\src\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\cgra_geometry.hpp" />
-    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\cgra_math.hpp" />
-    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\opengl.hpp" />
-    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\simple_shader.hpp" />
-    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\simple_image.hpp" />
-    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\terrain.hpp" />
-    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\main.cpp"  />
-    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\src\terrain.cpp"  />
+    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\src\cgra_geometry.hpp" />
+    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\src\cgra_math.hpp" />
+    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\src\opengl.hpp" />
+    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\src\simple_shader.hpp" />
+    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\src\simple_image.hpp" />
+    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\src\terrain.hpp" />
+    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\src\noise.hpp" />
+    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\src\main.cpp"  />
+    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\src\terrain.cpp"  />
+    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\src\noise.cpp"  />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:/Users/user/Documents/GitHub/comp308sheepSim/build/ZERO_CHECK.vcxproj">
-      <Project>C6F8C2F2-D72C-3761-BE23-9F2EA4AD543A</Project>
+    <ProjectReference Include="C:/Users/Wendy/Documents/comp308sheepSim/build/ZERO_CHECK.vcxproj">
+      <Project>52DDFDF1-D1E9-359A-AB9E-891EC1362A81</Project>
     </ProjectReference>
-    <ProjectReference Include="C:/Users/user/Documents/GitHub/comp308sheepSim/build/ext/glew-1.10.0/glew.vcxproj">
-      <Project>8CE62451-4948-3E09-B2FB-28DD2DCF326C</Project>
+    <ProjectReference Include="C:/Users/Wendy/Documents/comp308sheepSim/build/ext/glew-1.10.0/glew.vcxproj">
+      <Project>867FF28E-AB7E-3ECD-8714-4DEB87E001C5</Project>
     </ProjectReference>
-    <ProjectReference Include="C:/Users/user/Documents/GitHub/comp308sheepSim/build/ext/glfw/src/glfw.vcxproj">
-      <Project>BFB4B341-9F67-3F3B-9C37-B27927BB4871</Project>
+    <ProjectReference Include="C:/Users/Wendy/Documents/comp308sheepSim/build/ext/glfw/src/glfw.vcxproj">
+      <Project>4BDF8B28-7F6B-34C4-B2D0-632349619CB1</Project>
     </ProjectReference>
-    <ProjectReference Include="C:/Users/user/Documents/GitHub/comp308sheepSim/build/ext/stb/stb.vcxproj">
-      <Project>915A8B2B-D45B-3354-B8BD-8A5D76D23243</Project>
+    <ProjectReference Include="C:/Users/Wendy/Documents/comp308sheepSim/build/ext/stb/stb.vcxproj">
+      <Project>8BCF7D6D-0E33-3337-AA8D-D901A9B4FC4C</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -12,16 +12,19 @@
 #include "simple_image.hpp"
 #include "simple_shader.hpp"
 #include "opengl.hpp"
+#include "noise.hpp"
 
 using namespace std;
 using namespace cgra;
 
-
-
 Terrain::Terrain(int size) {
 	worldSize = size;
 	stepSize = 1.0 / worldSize;
+
+	n = new Noise(worldSize, worldSize, 8);
 }
+
+vector<vector<float>> noise2(8, vector<float>(8));
 
 Terrain::~Terrain() { }
 
@@ -31,15 +34,28 @@ void Terrain::initialize() {
 
 void Terrain::generate() {
 	cout << "===== Generating Terrain =====" << endl;
-
+	
+	n->generateNoise(&noise2);
+	cout << "Generated " << noise2.size() << " points of noise" << endl;
 }
 
 void Terrain::drawTerrain() {
-	for (int x = 0; x < worldSize; x++) {
+	/*for (int x = 0; x < worldSize; x++) {
 		for (int y = 0; y < worldSize; y++) {
 			for (int z = 0; z < worldSize; z++) {
-				processGridCell(x, y, z, stepSize);
+				processGridCell(x * stepSize, y * stepSize, z * stepSize, stepSize);
 			}
+		}
+	}*/
+
+	for (int x = 0; x < worldSize; x++) {
+		for (int z = 0; z < worldSize; z++) {
+			glPushMatrix();
+
+			glTranslatef(x, noise2[x][z]/5, z);
+			cgraSphere(0.1);
+
+			glPopMatrix();
 		}
 	}
 }
@@ -53,21 +69,36 @@ void Terrain::processGridCell(float x, float y, float z, float scale) {
 	vec3 edgeVertices[12];
 
 	// Grab the values from each of the cube's vertices
-	for (int vSample = 0; vSample < 8; vSample++) {
-		vertexValues[vSample] = sample (x + vertexOffsetVectors[vSample][0] * scale,
-										y + vertexOffsetVectors[vSample][1] * scale,
-										z + vertexOffsetVectors[vSample][2] * scale);
+	if (y >= 0.5) {
+		for (int vSample = 0; vSample < 8; vSample++) {
+			/*vertexValues[vSample] = sample (x + vertexOffsetVectors[vSample][0] * scale,
+			y + vertexOffsetVectors[vSample][1] * scale,
+			z + vertexOffsetVectors[vSample][2] * scale);*/
+
+			vertexValues[vSample] = -1.0;
+			cout << "Above ground" << endl;
+		}
+	}
+	else {
+		for (int vSample = 0; vSample < 8; vSample++) {
+			/*vertexValues[vSample] = sample (x + vertexOffsetVectors[vSample][0] * scale,
+			y + vertexOffsetVectors[vSample][1] * scale,
+			z + vertexOffsetVectors[vSample][2] * scale);*/
+
+			vertexValues[vSample] = 1.0;
+			cout << "============================ Below ground" << endl;
+		}
 	}
 
 	// Figure out whether the vertex is inside or outside terrain
 	int index = 0;
 	for (int vTest = 0; vTest < 8; vTest++) {
 		if (vertexValues[vTest] <= targetValue) {
-			index |= 1 << vTest; // ???
+			index |= 1 << vTest;
 		}
 	}
 
-	cout << index << endl;
+	//cout << index << endl;
 
 	edgeFlags = cubeEdgeFlags[index];
 
@@ -95,6 +126,7 @@ void Terrain::processGridCell(float x, float y, float z, float scale) {
 		}
 
 		for (int c = 0; c < 3; c++) {
+			cout << "Drawing a triangle" << endl;
 			int corner = triangleTable[index][3 * t + c];
 
 			// Get colour
@@ -107,7 +139,6 @@ void Terrain::processGridCell(float x, float y, float z, float scale) {
 
 void Terrain::setTime(float fNewTime)
 {
-	float tempTime = 0.0;
 	int fOffset;
 
 	for (int i = 0; i < 3; i++)
@@ -117,8 +148,8 @@ void Terrain::setTime(float fNewTime)
 		sourcePoint[i].z = 0.5;
 	}
 
-	tempTime = fNewTime;
-	fOffset = 1.0 + sinf(tempTime);
+	sampleTime = fNewTime;
+	fOffset = 1.0 + sinf(sampleTime);
 	sourcePoint[0].x *= fOffset;
 	sourcePoint[1].y *= fOffset;
 	sourcePoint[2].z *= fOffset;

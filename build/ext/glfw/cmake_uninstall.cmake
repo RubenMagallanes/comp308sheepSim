@@ -1,9 +1,9 @@
 
-if (NOT EXISTS "C:/Users/user/Documents/GitHub/comp308sheepSim/build/ext/glfw/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: \"C:/Users/user/Documents/GitHub/comp308sheepSim/build/ext/glfw/install_manifest.txt\"")
+if (NOT EXISTS "C:/Users/Wendy/Documents/comp308sheepSim/build/ext/glfw/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: \"C:/Users/Wendy/Documents/comp308sheepSim/build/ext/glfw/install_manifest.txt\"")
 endif()
 
-file(READ "C:/Users/user/Documents/GitHub/comp308sheepSim/build/ext/glfw/install_manifest.txt" files)
+file(READ "C:/Users/Wendy/Documents/comp308sheepSim/build/ext/glfw/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 
 foreach (file ${files})

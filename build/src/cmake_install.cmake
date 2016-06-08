@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/user/Documents/GitHub/comp308sheepSim/work/src
+# Install script for directory: C:/Users/Wendy/Documents/comp308sheepSim/work/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

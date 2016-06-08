@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/user/Documents/GitHub/comp308sheepSim/work/ext/glew-1.10.0
+# Install script for directory: C:/Users/Wendy/Documents/comp308sheepSim/work/ext/glew-1.10.0
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

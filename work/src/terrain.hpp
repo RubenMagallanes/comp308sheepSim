@@ -12,6 +12,9 @@
 #include "simple_shader.hpp"
 #include "opengl.hpp"
 #include "terrain.hpp"
+#include "noise.hpp"
+
+using namespace std;
 
 class Terrain {
 private:
@@ -330,11 +333,15 @@ private:
 	int worldSize = 0;
 	float stepSize = 0;
 
-	float targetValue = 48.0; // ???
+	// Noise
+	Noise *n = nullptr;
+	vector<vector<float>> noise;
+
+	float targetValue = 0.0;
 	cgra::vec3 sourcePoint[3]; // ???
+	float sampleTime;
 
 	void processGridCell(float, float, float, float);
-	void setTime(float);
 	float sample(float, float, float);
 	float getOffset(float, float, float);
 
@@ -346,5 +353,5 @@ public:
 	void initialize();
 	void generate();
 	void drawTerrain();
-
+	void setTime(float);
 };
