@@ -35,7 +35,7 @@ GLFWwindow* g_window;
 
 // Terrain
 //
-struct terrain t;
+Terrain *t = nullptr;
 
 // Projection values
 // 
@@ -286,8 +286,7 @@ void initGeometry(){
 GLenum tPolygonMode = GL_FILL;
 
 void initTerrain() {
-	init_terrain(&t);
-	generate_terrain(&t);
+	t = new Terrain(8);
 }
 
 // Draw function
@@ -311,12 +310,6 @@ void render(int width, int height) {
 
     // main render loop
 
-	// draw terrain
-	glPolygonMode(GL_FRONT_AND_BACK, tPolygonMode);
-	glPushMatrix();
-	drawTerrain(&t);
-	glPopMatrix();
-
 	// Grey/Blueish background
 	glClearColor(0.3f, 0.3f, 0.4f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -334,6 +327,14 @@ void render(int width, int height) {
     //glDisable(GL_COLOR_MATERIAL);
     glEnable(GL_COLOR_MATERIAL);
 
+	// draw terrain
+	glPolygonMode(GL_FRONT_AND_BACK, tPolygonMode);
+	glPushMatrix();
+		glBegin(GL_TRIANGLES);
+		t->drawTerrain();
+		glEnd();
+	glPopMatrix();
+
     //GOLD SPHERE
     GLfloat mat_ambientG  [] = {0.25, 0.2, 0.07, 1};
     GLfloat mat_specularG [] = { 1.0,1.0,1.0 ,1};  
@@ -347,10 +348,10 @@ void render(int width, int height) {
 
     glPushMatrix();
     glTranslatef(0.0,1.5,0.0);
-    geo_sphere->renderGeometry();
+    // geo_sphere->renderGeometry();
     glPopMatrix();
 
-	GLfloat mat_specularW [] = { 1.0, 1.0, 1.0, 1.0 };  
+	GLfloat mat_specularW [] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat mat_shininessW[] = { 50.0 };  
 
 	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW);  
@@ -359,7 +360,7 @@ void render(int width, int height) {
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, white);
     glPushMatrix();
     glTranslatef(0.0f, -0.4f, 0.0f);
-    geo_table->renderGeometry();//TODO uncomment
+    // geo_table->renderGeometry();//TODO uncomment
     glPopMatrix();
     //glDisable(GL_TEXTURE_2D);
 
