@@ -36,19 +36,20 @@ create_affector (std::vector<affector> * list_, Geometry * geo_, int type_, floa
 	else 
 		1 /0; // error maybe remove this later
 
-	list->push_back(a);
+	list_->push_back(a);
 }
 
 void
-render_affectors(std::vector<affector> *affectors_)
+render_affectors(std::vector<affector> *affectors)
 {
 	int i;
 	for (i= 0; i< affectors->size(); i++)
 	{
 		glPushMatrix();
-		//todo y value affected by terrain underneath
-		glTranslatef(affectors[i].position.x, 0.0, affectors[i].position.y);
-		affectors[i].model->renderGeometry();
+		struct affector a = affectors->at(i);
+		
+		 glTranslatef(a.position.x, 1.0, a.position.y);//todo y value affected by terrain underneath
+		 a.model->renderGeometry();
 		glPopMatrix();
 	}
 }

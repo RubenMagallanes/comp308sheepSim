@@ -74,8 +74,10 @@ Geometry *geo_table = nullptr;
 //should only really need one ref to this, have each boid store
 //it's own transform and rotation vectors. 
 Geometry *geo_sheep = nullptr;
+Geometry *geo_hay = nullptr;
 
 flock herd;
+std::vector<affector> hay_set; 
 
 //GLfloat light_position2[] = { 0.0, 20.0, -35.0, 1.0 };//spot light pos
 //float spot_direction2[] = {0.0, -1.0, 0.0}; // spot light dir
@@ -427,6 +429,7 @@ void initGeometry(){
     geo_table  = new Geometry("./work/res/assets/table.obj", false);
 
     geo_sheep  = new Geometry("./work/res/assets/sheep.obj", false);
+    geo_hay	   = new Geometry("./work/res/assets/hay.obj", false);
 }
 
 
@@ -561,7 +564,7 @@ fps counter
     set_sheep_color();
     render_all(&herd);
 	set_hay_color();
-
+	render_affectors(&hay_set);
 
 	// Disable flags for cleanup (optional)
 	glDisable(GL_TEXTURE_2D);
@@ -665,6 +668,11 @@ int main(int argc, char **argv) {
 	add_boid (&herd, -10.0f, -2.0f);
 	add_boid (&herd, 2.0f, -2.0f);
 	add_boid (&herd, -6.0f, 2.0f);
+
+	create_affector(&hay_set, geo_hay, 1, 0.0f, 0.0f);
+
+
+
 
 
 	// Loop until the user closes the window
