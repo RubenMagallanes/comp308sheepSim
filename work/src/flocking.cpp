@@ -35,7 +35,7 @@ create_affector (std::vector<affector> * list_, Geometry * geo_, int type_, floa
 	if (type_ == 1 || type_ == 2) // must match 
 		a.type = type_;
 	else 
-		1 /0; // error maybe remove this later
+		1 /0; 
 
 	list_->push_back(a);
 }
@@ -110,13 +110,16 @@ update (boid *b, flock *fl)
 	//TODO perhaps add weak seperation. current sep values prevent collisions only
 	cgra::vec2 coh = cohesion	(b, fl); // boids like to stick in packs
 	cgra::vec2 ali = alignment	(b, fl); // boids like to steer in same dir
-
 	
+	cgra::vec2 hay = pull_to_hay (b, fl);//SHEEP LIKE HAY LUL
+
 
 	/* ADD AFFECTORS TO BOID'S VELOCITY */
 	b->velocity += sep;
 	b->velocity += coh;
 	b->velocity += ali;
+
+	b->velocity += hay;
 
 
 	/* clamp to $MAX_SPEED velocity */
@@ -140,13 +143,7 @@ update (boid *b, flock *fl)
 	b->position += b->velocity;
 
 	//std::cout << "velocity " << cgra::length(b->velocity) << std::endl;
-	// std::cout << std::endl;
-
-	if (cgra::length(b->position) > 25) // for testing, remove this later when hay implemented
-	{
-		b->position = cgra::normalize(b->position);
-
-	}
+	
 }
 //----------- helper functions for update
 void //TODO change to not return the current boid , this saves us a check in each s, c ,a vector
@@ -161,6 +158,40 @@ construct_flock_list (std::vector<boid *> *list, flock * fl, boid *current, char
 			list->push_back(&(fl->members[i]));	
 	}
 	
+}
+
+/* returns vector pulling boid $b to all hay in $fl's $affectors that are close enough */
+cgra::vec2
+pull_to_hay (boid *current, flock *fl){
+	cgra::vec2 hay_pull = cgra::vec2 (0, 0);
+	int n = 0; 
+	int i;
+	for (i=0; i< fl->affectors->size(); i++){ // loop for each affector // later also do if check if is hay
+		cgra::vec2 hay_pos = fl->affectors->at(i).position;
+		cgra::vec2 to_hay = hay_pos - current->position;
+		float sheep_to_hay = cgra::length (to_hay);
+		float pull_strength = 0.0;  // 0- 1 - 4
+		
+
+		if (4.0f <= sheep_to_hay && sheep_to_hay < 20.0f)
+		{
+			pull_strength = (sheep_to_hay - 4.0f) /8.0f; // map 4-20 -> 0-2
+		 } //else if (16.0f <= sheep_to_hay && sheep_to_hay < 20.0f)
+		// {
+		// 	pull_strength = (((sheep_to_hay -14.0f)/6)*4); // map 8-10 -> 1-4
+		// }
+		to_hay = cgra::normalize (to_hay);
+		to_hay *= pull_strength * HAY_FACTOR; 
+		hay_pull += to_hay; // add to vector to return
+		n++;
+		std::cout << "distance to hay: " << sheep_to_hay <<std::endl;
+	}
+	if (n> 0)
+		hay_pull /= n;
+
+	
+	std::cout << "strength of hay pull: " <<  cgra::length (hay_pull)<< std::endl;
+	return hay_pull;
 }
 
 /*return seperation vector*/

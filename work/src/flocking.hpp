@@ -11,6 +11,8 @@
 
 #define MAX_SPEED 0.2f
 
+#define HAY_FACTOR 0.005f
+
 /*	TODO when maxspeed is hit, movement looks jumpy. 
 	fiddle around with other values so that we dont need this constant 
 	i think, or fix
@@ -30,6 +32,8 @@
 	0 < ALIGNMENT_FACTOR < 100
 	percent of the average velocity to return to affect each boid's vel
 
+	0 < HAY_FACTOR < ?
+	strength at which hay pulls sheep towards it. 
 
 	GOOD VALUES  TODO
 	i like small cohesion factor & ave small thresg, perhaps magnified if there isnt another sheep close?
@@ -111,6 +115,8 @@ void update (boid *, flock *);
 
 /* helper functions for update */
 void construct_flock_list(std::vector<boid *> *, flock *, boid *, char );
+
+cgra::vec2 pull_to_hay (boid *, flock *);
 
 cgra::vec2 seperation (boid *, flock *);
 cgra::vec2 cohesion (boid *, flock *);
