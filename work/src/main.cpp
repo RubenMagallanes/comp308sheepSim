@@ -591,7 +591,7 @@ fps counter
     //glDisable(GL_TEXTURE_2D);
 
     //RENDER FLOCK AND SHIT
-     double currentTime = glfwGetTime();
+      currentTime = glfwGetTime();
     
     /* time based updating - updates at max every 0.01 sec  */
     if ( currentTime - lastTime >= 0.017f  && p_down){ // 1/ 0.017 = 60 updates per sec (58)

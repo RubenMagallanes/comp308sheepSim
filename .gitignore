@@ -1,4 +1,5 @@
 .DS_STORE
 build
-build/ 
+build/
+build/* 
 SOODO_CODE
