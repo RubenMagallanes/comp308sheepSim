@@ -59,6 +59,7 @@ struct flock {
 	Geometry *model; // model all members use
 	int id_index;
 	std::vector<boid> members; // 
+	std::vector<affector> *affectors;// pointer to affector list
 };
 
 /*     FLOCK FUNCTIONS     */
@@ -66,7 +67,7 @@ struct flock {
 /* 	initialise flock. each boid will 
 	use the supplied geometry as their model when asked to render. 
 */
-void init_flock (flock *, Geometry *);
+void init_flock (flock *, Geometry *, std::vector<affector> *);
 
 /* 	create and add a boid to given flock.
 	boid will render using the supplied geo.

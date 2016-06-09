@@ -6,10 +6,11 @@
 /*  ~  FLOCK FUNCTIONS  ~  */
 
 void /* initialise flock $fl with each boid using $model as their geometry */
-init_flock (flock *fl,  Geometry *model_)
+init_flock (flock *fl,  Geometry *model_, std::vector<affector> *aff_)
 {
 	fl->id_index = 0;  
 	fl->model = model_; 
+	fl->affectors = aff_;
 }
 
 void /* create and add a boid at position $x and $y to flock $fl */
@@ -106,14 +107,17 @@ update (boid *b, flock *fl)
 {
 	/* CALCULATE AFFECTORS */
 	cgra::vec2 sep = seperation (b, fl); // boids dont collide 
-	//TODO perhaps add weak seperation. current sep values prevent collisions 
+	//TODO perhaps add weak seperation. current sep values prevent collisions only
 	cgra::vec2 coh = cohesion	(b, fl); // boids like to stick in packs
 	cgra::vec2 ali = alignment	(b, fl); // boids like to steer in same dir
+
+	
 
 	/* ADD AFFECTORS TO BOID'S VELOCITY */
 	b->velocity += sep;
 	b->velocity += coh;
 	b->velocity += ali;
+
 
 	/* clamp to $MAX_SPEED velocity */
 	b->velocity = cgra::clamp (b->velocity, -MAX_SPEED, MAX_SPEED);

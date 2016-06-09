@@ -657,8 +657,8 @@ int main(int argc, char **argv) {
 	initShader();
 
 	
-	//initialise ock fl,  with geo_sheep as boid's geometry
-	init_flock(&herd, geo_sheep);
+	//initialise flock fl,  with geo_sheep as boid's geometry
+	init_flock(&herd, geo_sheep, &hay_set);
 	add_boid (&herd, 5.0f, 5.0f);
 	add_boid (&herd, -5.0f, -5.0f);
 	add_boid (&herd, 5.0f, -5.0f);
