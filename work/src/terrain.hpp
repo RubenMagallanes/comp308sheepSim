@@ -337,6 +337,9 @@ private:
 	Noise *n = nullptr;
 	vector<vector<float>> noise;
 
+	// Noise Variables
+	float noiseResolution = 4.0;
+
 	float targetValue = 0.0;
 	cgra::vec3 sourcePoint[3]; // ???
 	float sampleTime;

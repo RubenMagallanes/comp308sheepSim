@@ -23,19 +23,19 @@ void Noise::generateNoise(vector<vector<float>> *perlinNoise) {
 	float resWidth = width * resolution;
 	float resHeight = height * resolution;
 
-	vector<vector<float>> whiteNoise (width, vector<float>(height));
+	vector<vector<float>> whiteNoise (resWidth, vector<float>(resHeight));
 	generateWhiteNoise(&whiteNoise);
 
 	// Doing this manually because I suck at pointers
-	vector<vector<float>> smoothNoise1(width, vector<float>(height));
-	vector<vector<float>> smoothNoise2(width, vector<float>(height));
-	vector<vector<float>> smoothNoise3(width, vector<float>(height));
-	vector<vector<float>> smoothNoise4(width, vector<float>(height));
-	vector<vector<float>> smoothNoise5(width, vector<float>(height));
-	vector<vector<float>> smoothNoise6(width, vector<float>(height));
-	vector<vector<float>> smoothNoise7(width, vector<float>(height));
-	vector<vector<float>> smoothNoise8(width, vector<float>(height));
-	vector<vector<vector<float>>> allNoise (octaves, vector<vector<float>>(width, vector<float>(height, NULL)));
+	vector<vector<float>> smoothNoise1(resWidth, vector<float>(resHeight));
+	vector<vector<float>> smoothNoise2(resWidth, vector<float>(resHeight));
+	vector<vector<float>> smoothNoise3(resWidth, vector<float>(resHeight));
+	vector<vector<float>> smoothNoise4(resWidth, vector<float>(resHeight));
+	vector<vector<float>> smoothNoise5(resWidth, vector<float>(resHeight));
+	vector<vector<float>> smoothNoise6(resWidth, vector<float>(resHeight));
+	vector<vector<float>> smoothNoise7(resWidth, vector<float>(resHeight));
+	vector<vector<float>> smoothNoise8(resWidth, vector<float>(resHeight));
+	vector<vector<vector<float>>> allNoise (octaves, vector<vector<float>>(resWidth, vector<float>(resHeight, NULL)));
 
 	//for (int i = 0; i < octaves; i++) {
 		generateSmoothNoise(whiteNoise, &smoothNoise1, 0);
@@ -64,16 +64,16 @@ void Noise::generateNoise(vector<vector<float>> *perlinNoise) {
 		totalAmplitude += amplitude;
 
 		// add all octaves together
-		for (int x = 0; x < width; x++) {
-			for (int y = 0; y < height; y++) {
+		for (int x = 0; x < resWidth; x++) {
+			for (int y = 0; y < resHeight; y++) {
 				(*perlinNoise)[x][y] += allNoise[o][x][y] * amplitude;
 			}
 		}
 	}
 
 	// average amplitudes
-	for (int x = 0; x < width; x++) {
-		for (int y = 0; y < height; y++) {
+	for (int x = 0; x < resWidth; x++) {
+		for (int y = 0; y < resHeight; y++) {
 			(*perlinNoise)[x][y] /= totalAmplitude;
 		}
 	}
@@ -82,8 +82,8 @@ void Noise::generateNoise(vector<vector<float>> *perlinNoise) {
 void Noise::generateWhiteNoise(vector<vector<float>> *noise) {
 	srand(static_cast <unsigned> (time(0)));
 
-	for (int x = 0; x < width; x++) {
-		for (int y = 0; y < height; y++) {
+	for (int x = 0; x < (*noise).size(); x++) {
+		for (int y = 0; y < (*noise)[0].size(); y++) {
 			(*noise)[x][y] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
 		}
 	}
@@ -93,16 +93,16 @@ void Noise::generateSmoothNoise(vector<vector<float>> baseNoise, vector<vector<f
 	int samplePeriod = 1 << octave;
 	float sampleFrequency = 1.0f / samplePeriod;
 
-	for (int i = 0; i < width; i++) {
+	for (int i = 0; i < (*smoothNoise).size(); i++) {
 		// horizontal sampling indices
 		int samplei0 = (i / samplePeriod) * samplePeriod;
-		int samplei1 = (samplei0 + samplePeriod) % width;
+		int samplei1 = (samplei0 + samplePeriod) % (*smoothNoise).size();
 		float horizBlend = (i - samplei0) * sampleFrequency;
 
-		for (int j = 0; j < height; j++) {
+		for (int j = 0; j < (*smoothNoise)[0].size(); j++) {
 			// vertical sampling indices
 			int samplej0 = (j / samplePeriod) * samplePeriod;
-			int samplej1 = (samplej0 + samplePeriod) % height;
+			int samplej1 = (samplej0 + samplePeriod) % (*smoothNoise)[0].size();
 			float vertBlend = (j - samplej0) * sampleFrequency;
 
 			float top = interpolate(baseNoise[samplei0][samplej0],

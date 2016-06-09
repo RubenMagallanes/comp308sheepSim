@@ -21,8 +21,8 @@ Terrain::Terrain(int size) {
 	worldSize = size;
 	stepSize = 1.0 / worldSize;
 
-	n = new Noise(worldSize, worldSize, 4, 8);
-	noise.resize(worldSize, vector<float>(worldSize));
+	n = new Noise(worldSize, worldSize, noiseResolution, 8);
+	noise.resize(worldSize * noiseResolution, vector<float>(worldSize * noiseResolution));
 }
 
 Terrain::~Terrain() { }
@@ -50,12 +50,12 @@ void Terrain::drawTerrain() {
 	glPushMatrix();
 	glTranslatef(-(worldSize / 2.0f) + 0.5f, 0.0f, -(worldSize / 2.0f) + 0.5f);
 
-	for (int x = 0; x < worldSize; x++) {
-		for (int z = 0; z < worldSize; z++) {
+	for (int x = 0; x < worldSize * noiseResolution; x++) {
+		for (int z = 0; z < worldSize * noiseResolution; z++) {
 			glPushMatrix();
 
-			glTranslatef(x, noise[x][z], z);
-			cgraSphere(0.1);
+			glTranslatef(x/noiseResolution, noise[x][z], z/noiseResolution);
+			cgraSphere(0.05);
 
 			glPopMatrix();
 		}
