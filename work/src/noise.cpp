@@ -37,36 +37,36 @@ void Noise::generateNoise(vector<vector<float>> *perlinNoise) {
 	vector<vector<float>> smoothNoise8(resWidth, vector<float>(resHeight));
 	vector<vector<vector<float>>> allNoise (8, vector<vector<float>>(resWidth, vector<float>(resHeight, NULL)));
 
-	int octaveTest = 1;
+	int octaveTest = 0;
 	
-	generateSmoothNoise(whiteNoise, &smoothNoise1, octaveTest + 0);
+	generateSmoothNoise(whiteNoise, &smoothNoise1, 0);
 	allNoise[0] = smoothNoise1;
 	
-	generateSmoothNoise(whiteNoise, &smoothNoise2, octaveTest + 1);
+	generateSmoothNoise(whiteNoise, &smoothNoise2, 1);
 	allNoise[1] = smoothNoise2;
 	
-	generateSmoothNoise(whiteNoise, &smoothNoise3, octaveTest + 2);
+	generateSmoothNoise(whiteNoise, &smoothNoise3, 2);
 	allNoise[2] = smoothNoise3;
 	
-	generateSmoothNoise(whiteNoise, &smoothNoise4, octaveTest + 3);
+	generateSmoothNoise(whiteNoise, &smoothNoise4, 6);
 	allNoise[3] = smoothNoise4;
 	
-	generateSmoothNoise(whiteNoise, &smoothNoise5, octaveTest + 4);
+	generateSmoothNoise(whiteNoise, &smoothNoise5, 4);
 	allNoise[4] = smoothNoise5;
 	
-	generateSmoothNoise(whiteNoise, &smoothNoise6, octaveTest + 5);
+	generateSmoothNoise(whiteNoise, &smoothNoise6, 5);
 	allNoise[5] = smoothNoise6;
 	
-	generateSmoothNoise(whiteNoise, &smoothNoise7, octaveTest + 6);
+	generateSmoothNoise(whiteNoise, &smoothNoise7, 6);
 	allNoise[6] = smoothNoise7;
 	
-	generateSmoothNoise(whiteNoise, &smoothNoise8, octaveTest + 7);
+	generateSmoothNoise(whiteNoise, &smoothNoise8, 7);
 	allNoise[7] = smoothNoise8;
 
 	float totalAmplitude = 0.0f;
 
 	// blending
-	for (int oct = 0; oct < 8; oct++) {
+	for (int oct = 3; oct >= 0; oct--) {
 		amplitude *= persistance;
 		totalAmplitude += amplitude;
 

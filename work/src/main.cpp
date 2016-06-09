@@ -23,8 +23,9 @@
 #include "simple_image.hpp"
 #include "simple_shader.hpp"
 #include "opengl.hpp"
-#include "geometry.cpp"
+#include "geometry.hpp"
 #include "terrain.hpp"
+#include "flocking.hpp"
 
 using namespace std;
 using namespace cgra;
@@ -48,12 +49,19 @@ float g_zfar = 1000.0;
 //
 bool g_leftMouseDown = false;
 vec2 g_mousePosition;
+
 float g_pan_x = 0;
 float g_pan_z = 0;
 
-float g_pitch = 20;
-float g_yaw = 45;
-float g_zoom = 1;
+float g_pitch = 20.0f;
+float g_yaw = 45.0f;
+float g_zoom = 1.0f;
+
+
+//translation across the land
+//x and y of this vector are actually x, z of our land
+vec2 translate_map = vec2(0,0); 
+
 
 float keySensitivity = 0.5;
 
@@ -69,13 +77,34 @@ GLuint g_shader = 0;
 
 Geometry *geo_sphere = nullptr;
 Geometry *geo_table = nullptr;
+//obj file for sheep. 
+//should only really need one ref to this, have each boid store
+//it's own transform and rotation vectors. 
+Geometry *geo_sheep = nullptr;
+Geometry *geo_hay = nullptr;
+
+flock herd;
+std::vector<affector> hay_set; 
 
 int terrainSize = 128;
 
+
 GLfloat light_position1[] = { 0.0,1.0,1.0 ,0.0}; // direc light dir
 
+
+GLfloat point_1_pos[] = { 10.0, 5.0, -10.0, 1.0 }; // point light 1 location
+GLfloat point_2_pos[] = { 10.0, 5.0, 10.0, 1.0 }; // point light 1 location
+GLfloat point_3_pos[] = { -10.0, 5.0, -10.0, 1.0 }; // point light 1 location
+GLfloat point_4_pos[] = { -10.0, 5.0, 10.0, 1.0 }; // point light 1 location
+
+
 //w,a,s,d = camera movement (translation) q,e = rotation, f,c = pitch up/down
-int w_down=0, a_down=0, s_down=0, d_down=0, q_down=0, e_down=0, f_down=0, c_down=0;
+int w_down=0, a_down=0, s_down=0, d_down=0, 
+	q_down=0, e_down=0, 
+	f_down=0, c_down=0,
+	z_down=0, x_down=0,
+	p_down=0; 
+
 float sensitivity = 0.5; // how sensitive the mouse is 
 
 // Mouse Button callback
@@ -95,10 +124,7 @@ void cursorPosCallback(GLFWwindow* win, double xpos, double ypos) {
 // Called for mouse button event on since the last glfwPollEvents
 //
 void mouseButtonCallback(GLFWwindow *win, int button, int action, int mods) {
-	// cout << "Mouse Button Callback :: button=" << button << "action=" << action << "mods=" << mods << endl;
-	if (button == GLFW_MOUSE_BUTTON_RIGHT){
-		//g_leftMouseDown = (action == GLFW_PRESS);//comment to disable mouse movement
-	}
+
 }
 
 /*
@@ -114,7 +140,7 @@ void resetScreen(){
 //
 void scrollCallback(GLFWwindow *win, double xoffset, double yoffset) {
 	// cout << "Scroll Callback :: xoffset=" << xoffset << "yoffset=" << yoffset << endl;
-	g_zoom -= yoffset * g_zoom * 0.2;
+	//g_zoom -= yoffset * g_zoom * 0.2; // UNCOMMENT TO ENABLE MOUSE SCROLL ZOOMING
 }
 
 
@@ -151,6 +177,15 @@ void keyCallback(GLFWwindow *win, int key, int scancode, int action, int mods) {
 	 		break;
 	 		case 'C':
 				c_down = action;
+	 		break;
+	 		case 'Z':
+	 			z_down = action;
+	 		break;
+	 		case 'X':
+	 			x_down = action;
+	 		break;
+	 		case 'P':
+	 			p_down = action;
 	 		break;
 	 		case ' ':
 	 			if (action)
@@ -204,6 +239,65 @@ void initLight() {
 
     glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuse_color1);
    glEnable(GL_LIGHT1);
+
+
+    //SPOTLIGHT
+
+     // pointing down
+    
+/*
+    float diffuse_color2[] = {1.0,1.0,1.0,1.0};//{1,1,1,1};
+   // float specular_color2[] = {1.0,1.0,1.0,1.0};//{1,1,1,1} 
+  
+
+    glLightfv(GL_LIGHT2, GL_POSITION, light_position2); // position as spot light
+    glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, spot_direction2); // point
+    //glLightf(GL_LIGHT2,GL_SPOT_EXPONENT,10.0f); // how focused is spotlight
+    glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 30.0f); // angle
+
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, diffuse_color2);
+    //glLightfv(GL_LIGHT2, GL_SPECULAR, specular_color2);
+    glEnable(GL_LIGHT2);//disable spotlight
+
+*/
+	//-----fields------------------
+	
+	//-----local-----------
+/*
+	float point_diffuse[] = {0.2, 0.2, 0.2, 1.0};
+	float point_specular[] = {0.3, 0.3, 0.3, 1.0};
+
+
+
+	glLightfv(GL_LIGHT3, GL_POSITION, point_1_pos); // position point light
+	glLightfv(GL_LIGHT3, GL_DIFFUSE, point_diffuse); // set diffuse color
+    glLightfv(GL_LIGHT3, GL_SPECULAR, point_specular); // set specular color
+    glEnable(GL_LIGHT3);//right
+
+    glLightfv(GL_LIGHT4, GL_POSITION, point_2_pos); // position point light
+	glLightfv(GL_LIGHT4, GL_DIFFUSE, point_diffuse); // set diffuse color
+    glLightfv(GL_LIGHT4, GL_SPECULAR, point_specular); // set specular color
+    glEnable(GL_LIGHT4); // close
+
+    glLightfv(GL_LIGHT5, GL_POSITION, point_3_pos); // position point light
+	glLightfv(GL_LIGHT5, GL_DIFFUSE, point_diffuse); // set diffuse color
+    glLightfv(GL_LIGHT5, GL_SPECULAR, point_specular); // set specular color
+    glEnable(GL_LIGHT5); // back
+
+    glLightfv(GL_LIGHT6, GL_POSITION, point_4_pos); // position point light
+	glLightfv(GL_LIGHT6, GL_DIFFUSE, point_diffuse); // set diffuse color
+    glLightfv(GL_LIGHT6, GL_SPECULAR, point_specular); // set specular color
+    glEnable(GL_LIGHT6); // left
+
+
+
+
+	//now we can use glcolor to set material color i think
+	//these make eerything flat again
+	//glColorMaterial ( GL_FRONT_AND_BACK, GL_EMISSION ) ;
+	glEnable(GL_LIGHTING);
+	*/
+
 	glEnable(GL_DEPTH_TEST);
     glEnable ( GL_COLOR_MATERIAL ) ;
 
@@ -251,7 +345,19 @@ void setupCamera(int width, int height) {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
+
+	// //translate around area.
+	// if (w_down)
+	// 	translate_map.y -= 0.3;
+
+	// glTranslatef(translate_map.x, translate_map.y, 0.0);
+	//rotate, translatem then tilt i think. zoom shouldnt matter
+
 	//zoom, rotate and pitch. 
+	if (z_down)
+		g_zoom += 0.1 * keySensitivity;
+	if (x_down)
+		g_zoom -= 0.1 * keySensitivity;
 	glTranslatef(-0, -1, -50 * g_zoom);
 	
 	//pitch from keys
@@ -298,7 +404,77 @@ void initGeometry(){
     geo_teapot = new Geometry("./work/res/assets/teapot.obj");
     geo_torus  = new Geometry("./work/res/assets/torus.obj");
 */
-    geo_table  = new Geometry("./work/res/assets/table.obj", true);
+    geo_table  = new Geometry("./work/res/assets/table.obj", false);
+
+    geo_sheep  = new Geometry("./work/res/assets/sheep.obj", false);
+    geo_hay	   = new Geometry("./work/res/assets/hay.obj", false);
+}
+
+
+void temp_terrain (){
+	glDisable(GL_COLOR_MATERIAL);
+    //glEnable(GL_COLOR_MATERIAL);
+
+
+    
+    
+
+
+	GLfloat mat_specularW [] = { 0.5, 0.5, 0.5, 1.0 };  
+	GLfloat mat_shininessW[] = { 120.0 };  
+
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW);  
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW);
+	GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.f};
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, white);
+    glPushMatrix();
+    glTranslatef(0.0f, -0.4f, 0.0f);
+    //glScalef(2.0, 0.0, 2.0); // make table huge
+    geo_table->renderGeometry();
+    //draw more tables for reference
+    glTranslatef(20.0, 0.0, 20.0);
+	geo_table->renderGeometry();
+	glTranslatef(0.0, 0.0, -40.0);
+	geo_table->renderGeometry();
+	glTranslatef(-40.0, 0.0, 0.0);
+	geo_table->renderGeometry();
+	glTranslatef(0.0, 0.0, 40.0);
+	geo_table->renderGeometry();
+
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(10.0, 5.0, -10.0);
+    cgraSphere(0.5); //back right corner
+   	glTranslatef(0.0, 0.0, 20);
+   	cgraSphere(0.5); //front right corner
+   	glTranslatef(-20.0, 0.0, 0.0);
+   	cgraSphere(0.5);
+   	glTranslatef(0.0, 0.0, -20.0);
+   	cgraSphere(0.5);
+    glPopMatrix();
+
+}
+void set_sheep_color (){
+	//colors for blue sheep material	
+	GLfloat mat_specularW2 [] = { 0.2, 0.2, 0.2, 1.0 };  
+	GLfloat mat_shininessW2[] = { 100.0 };  
+
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW2);  
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW2);
+	GLfloat white2[] = {0.9f, 0.9f, 0.9f, 1.f};
+	GLfloat blue[] = {0.2, 0.2, 0.9, 1.f};
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, blue);
+}
+void set_hay_color (){
+	//colors for blue sheep material	
+	GLfloat mat_specularW2 [] = { 0.2, 0.2, 0.2, 1.0 };  
+	GLfloat mat_shininessW2[] = { 128.0 };//not shiny  
+
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW2);  
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW2);
+	GLfloat white2[] = {0.9f, 0.9f, 0.9f, 1.f};
+	GLfloat yello[] = {0.6, 0.6, 0.2, 1.f};
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, yello);
 }
 
 GLenum tPolygonMode = GL_FILL;
@@ -310,8 +486,9 @@ void initTerrain() {
 
 // Draw function
 
-//for fps counter
+//for time based updating
 double lastTime = glfwGetTime();
+
 int nbFrames = 0;
  
 void render(int width, int height) {
@@ -329,6 +506,20 @@ void render(int width, int height) {
 
     // main render loop
 
+/*
+fps counter
+*/
+ //init_terrain(&t);
+
+
+
+     // Measure speed
+   
+     ///main render loop
+
+
+
+
 	// Grey/Blueish background
 	glClearColor(0.3f, 0.3f, 0.4f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -340,6 +531,7 @@ void render(int width, int height) {
 	glEnable(GL_NORMALIZE);
 
 	setupCamera(width, height);
+
 
 	glLightfv(GL_LIGHT1, GL_POSITION, light_position1);// directional light
 
@@ -353,34 +545,65 @@ void render(int width, int height) {
     //geo_sphere->renderGeometry();
     glPopMatrix();
 
-    //GOLD SPHERE
-    GLfloat mat_ambientG  [] = {0.25, 0.2, 0.07, 1};
-    GLfloat mat_specularG [] = { 1.0,1.0,1.0 ,1};  
-	GLfloat mat_shininessG[] = { 5 };  
+ //    //GOLD SPHERE
+ //    GLfloat mat_ambientG  [] = {0.25, 0.2, 0.07, 1};
+ //    GLfloat mat_specularG [] = { 1.0,1.0,1.0 ,1};  
+	// GLfloat mat_shininessG[] = { 5 };  
 
-	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambientG);
-	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularG);  
-	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessG);
-	GLfloat gold[] = {0.75, 0.61, 0.23, 1.f};
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, gold);
+	// glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambientG);
+	// glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularG);  
+	// glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessG);
+	// GLfloat gold[] = {0.75, 0.61, 0.23, 1.f};
+	// glMaterialfv(GL_FRONT, GL_DIFFUSE, gold);
 
-    glPushMatrix();
-    glTranslatef(0.0,1.5,0.0);
-    //geo_sphere->renderGeometry();
-    glPopMatrix();
+ //    glPushMatrix();
+ //    glTranslatef(0.0,1.5,0.0);
+ //    //geo_sphere->renderGeometry();
+ //    glPopMatrix();
 
-	GLfloat mat_specularW [] = { 1.0, 1.0, 1.0, 1.0 };
-	GLfloat mat_shininessW[] = { 50.0 };  
+	// GLfloat mat_specularW [] = { 1.0, 1.0, 1.0, 1.0 };
+	// GLfloat mat_shininessW[] = { 50.0 };  
 
-	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW);  
-	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW);
-	GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.f};
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, white);
-    glPushMatrix();
-    glTranslatef(0.0f, -0.4f, 0.0f);
-    // geo_table->renderGeometry();//TODO uncomment
-    glPopMatrix();
+	// glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW);  
+	// glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW);
+	// GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.f};
+	// glMaterialfv(GL_FRONT, GL_DIFFUSE, white);
+ //    glPushMatrix();
+ //    glTranslatef(0.0f, -0.4f, 0.0f);
+ //    // geo_table->renderGeometry();//TODO uncomment
+ //    glPopMatrix();
     //glDisable(GL_TEXTURE_2D);
+
+	//glLightfv(GL_LIGHT3, GL_POSITION, light_position3); // 
+
+	//glLightfv(GL_LIGHT2, GL_POSITION, light_position2); // spot
+	//glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, spot_direction2); // point
+	//glLightfv(GL_LIGHT1, GL_POSITION, light_position1);// directional light 
+	//glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, angle); // angle
+	// Without shaders
+/*
+	glLightfv(GL_LIGHT3, GL_POSITION, point_1_pos);
+	glLightfv(GL_LIGHT4, GL_POSITION, point_2_pos);
+	glLightfv(GL_LIGHT5, GL_POSITION, point_3_pos);
+	glLightfv(GL_LIGHT6, GL_POSITION, point_4_pos);*/
+
+    //temp_terrain(); // render my temp terrain enviro
+    //glDisable(GL_TEXTURE_2D);
+
+    //RENDER FLOCK AND SHIT
+      currentTime = glfwGetTime();
+    
+    /* time based updating - updates at max every 0.01 sec  */
+    if ( currentTime - lastTime >= 0.017f  && p_down){ // 1/ 0.017 = 60 updates per sec (58)
+        // reset timer 
+        update_all(&herd); // update all boids position and intention
+        lastTime += 0.017f;
+    }
+    set_sheep_color();
+    render_all(&herd);
+	set_hay_color();
+	render_affectors(&hay_set);
+
 
 	// Disable flags for cleanup (optional)
 	glDisable(GL_TEXTURE_2D);
@@ -409,7 +632,8 @@ int main(int argc, char **argv) {
 	glfwGetVersion(&glfwMajor, &glfwMinor, &glfwRevision);
 
 	// Create a windowed mode window and its OpenGL context
-	g_window = glfwCreateWindow(640, 480, "Hello World", nullptr, nullptr);
+	g_window = glfwCreateWindow(880, 660, "Hello World", nullptr, nullptr);
+	//640, 480
 	if (!g_window) {
 		cerr << "Error: Could not create GLFW window" << endl;
 		abort(); // Unrecoverable error
@@ -466,6 +690,23 @@ int main(int argc, char **argv) {
 	initLight();
 	initTexture();
 	initShader();
+
+	
+	//initialise flock fl,  with geo_sheep as boid's geometry
+	init_flock(&herd, geo_sheep, &hay_set);
+	add_boid (&herd, 5.0f, 5.0f);
+	add_boid (&herd, -5.0f, -5.0f);
+	add_boid (&herd, 5.0f, -5.0f);
+	add_boid (&herd, -5.0f, 5.0f);
+
+	add_boid (&herd, 6.0f, 2.0f);
+	add_boid (&herd, -10.0f, -2.0f);
+	add_boid (&herd, 2.0f, -2.0f);
+	add_boid (&herd, -6.0f, 2.0f);
+
+	create_affector(&hay_set, geo_hay, 1, 0.0f, 0.0f);
+
+
 
 
 

@@ -12,7 +12,7 @@ private:
 	int octaves = 8; // can't change number of octaves if not iterating through generation
 
 	// customisation variables
-	float amplitude = 100.0f;
+	float amplitude = 50.0f;
 	float persistance = 0.5f;
 
 	// private functions
