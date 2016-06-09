@@ -6,11 +6,11 @@ Id flags:
 
 The output was:
 0
-Microsoft (R) Build Engine version 14.0.25123.0
+Microsoft (R) Build Engine version 14.0.23107.0
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/06/2016 7:13:18 PM.
-Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
+Build started 8/06/2016 9:16:43 p.m..
+Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
 PrepareForBuild:
   Creating directory "Debug\".
   Creating directory "Debug\CompilerIdCXX.tlog\".
@@ -21,7 +21,7 @@ ClCompile:
   CMakeCXXCompilerId.cpp
 Link:
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdCXX.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCXXCompilerId.obj
-  CompilerIdCXX.vcxproj -> C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdCXX\.\CompilerIdCXX.exe
+  CompilerIdCXX.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdCXX\.\CompilerIdCXX.exe
 PostBuildEvent:
   for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
   :VCEnd
@@ -29,20 +29,20 @@ PostBuildEvent:
 FinalizeBuildStatus:
   Deleting file "Debug\CompilerIdCXX.tlog\unsuccessfulbuild".
   Touching "Debug\CompilerIdCXX.tlog\CompilerIdCXX.lastbuildstate".
-Done Building Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdCXX\CompilerIdCXX.vcxproj" (default targets).
+Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdCXX\CompilerIdCXX.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:04.33
+Time Elapsed 00:00:00.64
 
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
 
-The CXX compiler identification is MSVC, found in "C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/3.6.0-rc1/CompilerIdCXX/CompilerIdCXX.exe"
+The CXX compiler identification is MSVC, found in "C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/3.6.0-rc1/CompilerIdCXX/CompilerIdCXX.exe"
 
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler:  
@@ -51,11 +51,11 @@ Id flags:
 
 The output was:
 0
-Microsoft (R) Build Engine version 14.0.25123.0
+Microsoft (R) Build Engine version 14.0.23107.0
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/06/2016 7:13:24 PM.
-Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
+Build started 8/06/2016 9:16:44 p.m..
+Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
 PrepareForBuild:
   Creating directory "Debug\".
   Creating directory "Debug\CompilerIdC.tlog\".
@@ -66,7 +66,7 @@ ClCompile:
   CMakeCCompilerId.c
 Link:
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdC.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCCompilerId.obj
-  CompilerIdC.vcxproj -> C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdC\.\CompilerIdC.exe
+  CompilerIdC.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdC\.\CompilerIdC.exe
 PostBuildEvent:
   for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
   :VCEnd
@@ -74,138 +74,135 @@ PostBuildEvent:
 FinalizeBuildStatus:
   Deleting file "Debug\CompilerIdC.tlog\unsuccessfulbuild".
   Touching "Debug\CompilerIdC.tlog\CompilerIdC.lastbuildstate".
-Done Building Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdC\CompilerIdC.vcxproj" (default targets).
+Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdC\CompilerIdC.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:04.26
+Time Elapsed 00:00:00.60
 
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
 
-The C compiler identification is MSVC, found in "C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/3.6.0-rc1/CompilerIdC/CompilerIdC.exe"
+The C compiler identification is MSVC, found in "C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/3.6.0-rc1/CompilerIdC/CompilerIdC.exe"
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_58b09.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.25123.0
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_66ed2.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.23107.0
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/06/2016 7:13:29 PM.
-Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_58b09.vcxproj" on node 1 (default targets).
+Build started 8/06/2016 9:16:45 p.m..
+Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_66ed2.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_58b09.dir\Debug\".
-  Creating directory "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_58b09.dir\Debug\cmTC_58b09.tlog\".
+  Creating directory "cmTC_66ed2.dir\Debug\".
+  Creating directory "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_66ed2.dir\Debug\cmTC_66ed2.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_58b09.dir\Debug\cmTC_58b09.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_66ed2.dir\Debug\cmTC_66ed2.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_58b09.dir\Debug\\" /Fd"cmTC_58b09.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23918 for x86
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_66ed2.dir\Debug\\" /Fd"cmTC_66ed2.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23026 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_58b09.dir\Debug\\" /Fd"cmTC_58b09.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_66ed2.dir\Debug\\" /Fd"cmTC_66ed2.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
   
   testCXXCompiler.cxx
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_58b09.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_58b09.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_58b09.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_58b09.dir\Debug\testCXXCompiler.obj
-  cmTC_58b09.vcxproj -> C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_58b09.exe
-  cmTC_58b09.vcxproj -> C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_58b09.pdb (Full PDB)
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_66ed2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_66ed2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_66ed2.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_66ed2.dir\Debug\testCXXCompiler.obj
+  cmTC_66ed2.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_66ed2.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_58b09.dir\Debug\cmTC_58b09.tlog\unsuccessfulbuild".
-  Touching "cmTC_58b09.dir\Debug\cmTC_58b09.tlog\cmTC_58b09.lastbuildstate".
-Done Building Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_58b09.vcxproj" (default targets).
+  Deleting file "cmTC_66ed2.dir\Debug\cmTC_66ed2.tlog\unsuccessfulbuild".
+  Touching "cmTC_66ed2.dir\Debug\cmTC_66ed2.tlog\cmTC_66ed2.lastbuildstate".
+Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_66ed2.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:04.50
+Time Elapsed 00:00:00.92
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_21c19.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.25123.0
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_6f726.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.23107.0
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/06/2016 7:13:35 PM.
-Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_21c19.vcxproj" on node 1 (default targets).
+Build started 8/06/2016 9:16:47 p.m..
+Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_6f726.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_21c19.dir\Debug\".
-  Creating directory "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_21c19.dir\Debug\cmTC_21c19.tlog\".
+  Creating directory "cmTC_6f726.dir\Debug\".
+  Creating directory "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_6f726.dir\Debug\cmTC_6f726.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_21c19.dir\Debug\cmTC_21c19.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_6f726.dir\Debug\cmTC_6f726.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_21c19.dir\Debug\\" /Fd"cmTC_21c19.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCXXCompilerABI.cpp"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23918 for x86
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6f726.dir\Debug\\" /Fd"cmTC_6f726.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCXXCompilerABI.cpp"
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23026 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_21c19.dir\Debug\\" /Fd"cmTC_21c19.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCXXCompilerABI.cpp"
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6f726.dir\Debug\\" /Fd"cmTC_6f726.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCXXCompilerABI.cpp"
   
   CMakeCXXCompilerABI.cpp
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_21c19.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_21c19.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_21c19.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_21c19.dir\Debug\CMakeCXXCompilerABI.obj
-  cmTC_21c19.vcxproj -> C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_21c19.exe
-  cmTC_21c19.vcxproj -> C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_21c19.pdb (Full PDB)
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_6f726.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_6f726.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_6f726.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_6f726.dir\Debug\CMakeCXXCompilerABI.obj
+  cmTC_6f726.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_6f726.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_21c19.dir\Debug\cmTC_21c19.tlog\unsuccessfulbuild".
-  Touching "cmTC_21c19.dir\Debug\cmTC_21c19.tlog\cmTC_21c19.lastbuildstate".
-Done Building Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_21c19.vcxproj" (default targets).
+  Deleting file "cmTC_6f726.dir\Debug\cmTC_6f726.tlog\unsuccessfulbuild".
+  Touching "cmTC_6f726.dir\Debug\cmTC_6f726.tlog\cmTC_6f726.lastbuildstate".
+Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_6f726.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:04.55
+Time Elapsed 00:00:00.61
 
 
 
 
 Detecting CXX [] compiler features compiled with the following output:
-Change Dir: C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_7eb2f.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.25123.0
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_1260e.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.23107.0
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/06/2016 7:13:42 PM.
-Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_7eb2f.vcxproj" on node 1 (default targets).
+Build started 8/06/2016 9:16:47 p.m..
+Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_1260e.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_7eb2f.dir\Debug\".
-  Creating directory "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_7eb2f.dir\Debug\cmTC_7eb2f.tlog\".
+  Creating directory "cmTC_1260e.dir\Debug\".
+  Creating directory "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_1260e.dir\Debug\cmTC_1260e.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_7eb2f.dir\Debug\cmTC_7eb2f.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_1260e.dir\Debug\cmTC_1260e.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_7eb2f.dir\Debug\\" /Fd"cmTC_7eb2f.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\feature_tests.cxx
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23918 for x86
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_1260e.dir\Debug\\" /Fd"cmTC_1260e.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\feature_tests.cxx
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23026 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_7eb2f.dir\Debug\\" /Fd"cmTC_7eb2f.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\feature_tests.cxx
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_1260e.dir\Debug\\" /Fd"cmTC_1260e.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\feature_tests.cxx
   
   feature_tests.cxx
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_7eb2f.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_7eb2f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_7eb2f.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_7eb2f.dir\Debug\feature_tests.obj
-  cmTC_7eb2f.vcxproj -> C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_7eb2f.exe
-  cmTC_7eb2f.vcxproj -> C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_7eb2f.pdb (Full PDB)
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_1260e.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_1260e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_1260e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_1260e.dir\Debug\feature_tests.obj
+  cmTC_1260e.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_1260e.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_7eb2f.dir\Debug\cmTC_7eb2f.tlog\unsuccessfulbuild".
-  Touching "cmTC_7eb2f.dir\Debug\cmTC_7eb2f.tlog\cmTC_7eb2f.lastbuildstate".
-Done Building Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_7eb2f.vcxproj" (default targets).
+  Deleting file "cmTC_1260e.dir\Debug\cmTC_1260e.tlog\unsuccessfulbuild".
+  Touching "cmTC_1260e.dir\Debug\cmTC_1260e.tlog\cmTC_1260e.lastbuildstate".
+Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_1260e.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:04.73
+Time Elapsed 00:00:00.64
 
 
     Feature record: CXX_FEATURE:1cxx_alias_templates
@@ -259,84 +256,82 @@ Time Elapsed 00:00:04.73
     Feature record: CXX_FEATURE:1cxx_uniform_initialization
     Feature record: CXX_FEATURE:1cxx_unrestricted_unions
     Feature record: CXX_FEATURE:1cxx_user_literals
-    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variable_templates
     Feature record: CXX_FEATURE:1cxx_variadic_macros
     Feature record: CXX_FEATURE:1cxx_variadic_templates
 Determining if the C compiler works passed with the following output:
-Change Dir: C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_ead8e.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.25123.0
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_3c654.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.23107.0
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/06/2016 7:13:49 PM.
-Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_ead8e.vcxproj" on node 1 (default targets).
+Build started 8/06/2016 9:16:49 p.m..
+Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_3c654.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_ead8e.dir\Debug\".
-  Creating directory "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_ead8e.dir\Debug\cmTC_ead8e.tlog\".
+  Creating directory "cmTC_3c654.dir\Debug\".
+  Creating directory "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_3c654.dir\Debug\cmTC_3c654.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_ead8e.dir\Debug\cmTC_ead8e.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_3c654.dir\Debug\cmTC_3c654.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ead8e.dir\Debug\\" /Fd"cmTC_ead8e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\testCCompiler.c
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23918 for x86
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3c654.dir\Debug\\" /Fd"cmTC_3c654.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\testCCompiler.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23026 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ead8e.dir\Debug\\" /Fd"cmTC_ead8e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\testCCompiler.c
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3c654.dir\Debug\\" /Fd"cmTC_3c654.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\testCCompiler.c
   
   testCCompiler.c
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_ead8e.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_ead8e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_ead8e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_ead8e.dir\Debug\testCCompiler.obj
-  cmTC_ead8e.vcxproj -> C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_ead8e.exe
-  cmTC_ead8e.vcxproj -> C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_ead8e.pdb (Full PDB)
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_3c654.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_3c654.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_3c654.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_3c654.dir\Debug\testCCompiler.obj
+  cmTC_3c654.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_3c654.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_ead8e.dir\Debug\cmTC_ead8e.tlog\unsuccessfulbuild".
-  Touching "cmTC_ead8e.dir\Debug\cmTC_ead8e.tlog\cmTC_ead8e.lastbuildstate".
-Done Building Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_ead8e.vcxproj" (default targets).
+  Deleting file "cmTC_3c654.dir\Debug\cmTC_3c654.tlog\unsuccessfulbuild".
+  Touching "cmTC_3c654.dir\Debug\cmTC_3c654.tlog\cmTC_3c654.lastbuildstate".
+Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_3c654.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:04.39
+Time Elapsed 00:00:00.61
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_3ca63.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.25123.0
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_7e2ae.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) Build Engine version 14.0.23107.0
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/06/2016 7:13:54 PM.
-Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_3ca63.vcxproj" on node 1 (default targets).
+Build started 8/06/2016 9:16:49 p.m..
+Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_7e2ae.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_3ca63.dir\Debug\".
-  Creating directory "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_3ca63.dir\Debug\cmTC_3ca63.tlog\".
+  Creating directory "cmTC_7e2ae.dir\Debug\".
+  Creating directory "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_7e2ae.dir\Debug\cmTC_7e2ae.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_3ca63.dir\Debug\cmTC_3ca63.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_7e2ae.dir\Debug\cmTC_7e2ae.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3ca63.dir\Debug\\" /Fd"cmTC_3ca63.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCCompilerABI.c"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23918 for x86
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7e2ae.dir\Debug\\" /Fd"cmTC_7e2ae.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCCompilerABI.c"
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23026 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3ca63.dir\Debug\\" /Fd"cmTC_3ca63.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCCompilerABI.c"
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7e2ae.dir\Debug\\" /Fd"cmTC_7e2ae.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCCompilerABI.c"
   
   CMakeCCompilerABI.c
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_3ca63.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_3ca63.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_3ca63.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_3ca63.dir\Debug\CMakeCCompilerABI.obj
-  cmTC_3ca63.vcxproj -> C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_3ca63.exe
-  cmTC_3ca63.vcxproj -> C:/Users/Wendy/Documents/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_3ca63.pdb (Full PDB)
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_7e2ae.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_7e2ae.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_7e2ae.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_7e2ae.dir\Debug\CMakeCCompilerABI.obj
+  cmTC_7e2ae.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_7e2ae.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_3ca63.dir\Debug\cmTC_3ca63.tlog\unsuccessfulbuild".
-  Touching "cmTC_3ca63.dir\Debug\cmTC_3ca63.tlog\cmTC_3ca63.lastbuildstate".
-Done Building Project "C:\Users\Wendy\Documents\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_3ca63.vcxproj" (default targets).
+  Deleting file "cmTC_7e2ae.dir\Debug\cmTC_7e2ae.tlog\unsuccessfulbuild".
+  Touching "cmTC_7e2ae.dir\Debug\cmTC_7e2ae.tlog\cmTC_7e2ae.lastbuildstate".
+Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_7e2ae.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:04.43
+Time Elapsed 00:00:00.61
 
 

@@ -1,78 +1,78 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\context.c">
+    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\context.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\init.c">
+    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\init.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\input.c">
+    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\input.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\monitor.c">
+    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\monitor.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\window.c">
+    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\window.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\win32_init.c">
+    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\win32_init.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\win32_monitor.c">
+    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\win32_monitor.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\win32_time.c">
+    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\win32_time.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\win32_tls.c">
+    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\win32_tls.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\win32_window.c">
+    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\win32_window.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\winmm_joystick.c">
+    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\winmm_joystick.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\wgl_context.c">
+    <ClCompile Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\wgl_context.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\internal.h">
+    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\build\ext\glfw\src\glfw_config.h">
+    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\build\ext\glfw\src\glfw_config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include\GLFW\glfw3.h">
+    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include\GLFW\glfw3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include\GLFW\glfw3native.h">
+    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include\GLFW\glfw3native.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\win32_platform.h">
+    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\win32_platform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\win32_tls.h">
+    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\win32_tls.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\winmm_joystick.h">
+    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\winmm_joystick.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\wgl_context.h">
+    <ClInclude Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\wgl_context.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\src\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\src\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{68DC09D9-28D7-3316-8490-FCBC28A80C1D}</UniqueIdentifier>
+      <UniqueIdentifier>{2FA1A02B-4126-37A4-AC0B-CC2D3C913060}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{7BEA3C33-6777-3C1B-B5DE-2116849A740B}</UniqueIdentifier>
+      <UniqueIdentifier>{65115466-59BF-3FB1-B6CE-6533AEC86EB4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

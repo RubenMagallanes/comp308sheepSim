@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{852691A8-9C61-3C3B-92B8-D89CDD19676B}</ProjectGUID>
+    <ProjectGUID>{5B1832A3-1506-364D-9D75-414ACF1C2BE1}</ProjectGUID>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
     <ProjectName>ALL_BUILD</ProjectName>
@@ -65,7 +65,7 @@
     </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -75,7 +75,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -85,7 +85,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -95,7 +95,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -104,10 +104,10 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/Wendy/Documents/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt</Message>
+    <CustomBuild Include="C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/user/Documents/GitHub/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Wendy/Documents/comp308sheepSim/work -BC:/Users/Wendy/Documents/comp308sheepSim/build --check-stamp-file C:\Users\Wendy\Documents\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/user/Documents/GitHub/comp308sheepSim/work -BC:/Users/user/Documents/GitHub/comp308sheepSim/build --check-stamp-file C:\Users\user\Documents\GitHub\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -115,12 +115,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Wendy/Documents/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.6\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Wendy\Documents\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/user/Documents/GitHub/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.6\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\user\Documents\GitHub\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/Wendy/Documents/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/user/Documents/GitHub/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Wendy/Documents/comp308sheepSim/work -BC:/Users/Wendy/Documents/comp308sheepSim/build --check-stamp-file C:\Users\Wendy\Documents\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/user/Documents/GitHub/comp308sheepSim/work -BC:/Users/user/Documents/GitHub/comp308sheepSim/build --check-stamp-file C:\Users\user\Documents\GitHub\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -128,12 +128,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Wendy/Documents/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.6\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Wendy\Documents\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/user/Documents/GitHub/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.6\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\user\Documents\GitHub\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/Wendy/Documents/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/user/Documents/GitHub/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Wendy/Documents/comp308sheepSim/work -BC:/Users/Wendy/Documents/comp308sheepSim/build --check-stamp-file C:\Users\Wendy\Documents\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/user/Documents/GitHub/comp308sheepSim/work -BC:/Users/user/Documents/GitHub/comp308sheepSim/build --check-stamp-file C:\Users\user\Documents\GitHub\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -141,12 +141,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/Wendy/Documents/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.6\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Wendy\Documents\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/user/Documents/GitHub/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.6\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\user\Documents\GitHub\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/Wendy/Documents/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/user/Documents/GitHub/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Wendy/Documents/comp308sheepSim/work -BC:/Users/Wendy/Documents/comp308sheepSim/build --check-stamp-file C:\Users\Wendy\Documents\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/user/Documents/GitHub/comp308sheepSim/work -BC:/Users/user/Documents/GitHub/comp308sheepSim/build --check-stamp-file C:\Users\user\Documents\GitHub\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -154,19 +154,19 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/Wendy/Documents/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.6\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;C:\Users\Wendy\Documents\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Wendy\Documents\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/user/Documents/GitHub/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.6\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeParseArguments.cmake;C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\user\Documents\GitHub\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:/Users/Wendy/Documents/comp308sheepSim/build/ZERO_CHECK.vcxproj">
-      <Project>52DDFDF1-D1E9-359A-AB9E-891EC1362A81</Project>
+    <ProjectReference Include="C:/Users/user/Documents/GitHub/comp308sheepSim/build/ZERO_CHECK.vcxproj">
+      <Project>C6F8C2F2-D72C-3761-BE23-9F2EA4AD543A</Project>
     </ProjectReference>
-    <ProjectReference Include="C:/Users/Wendy/Documents/comp308sheepSim/build/ext/glew-1.10.0/glew.vcxproj">
-      <Project>867FF28E-AB7E-3ECD-8714-4DEB87E001C5</Project>
+    <ProjectReference Include="C:/Users/user/Documents/GitHub/comp308sheepSim/build/ext/glew-1.10.0/glew.vcxproj">
+      <Project>8CE62451-4948-3E09-B2FB-28DD2DCF326C</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

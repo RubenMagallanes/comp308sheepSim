@@ -21,10 +21,9 @@ Terrain::Terrain(int size) {
 	worldSize = size;
 	stepSize = 1.0 / worldSize;
 
-	n = new Noise(worldSize, worldSize, 8);
+	n = new Noise(worldSize, worldSize, 4, 8);
+	noise.resize(worldSize, vector<float>(worldSize));
 }
-
-vector<vector<float>> noise2(8, vector<float>(8));
 
 Terrain::~Terrain() { }
 
@@ -35,8 +34,8 @@ void Terrain::initialize() {
 void Terrain::generate() {
 	cout << "===== Generating Terrain =====" << endl;
 	
-	n->generateNoise(&noise2);
-	cout << "Generated " << noise2.size() << " points of noise" << endl;
+	n->generateNoise(&noise);
+	cout << "Generated " << noise.size() << " points of noise" << endl;
 }
 
 void Terrain::drawTerrain() {
@@ -48,16 +47,21 @@ void Terrain::drawTerrain() {
 		}
 	}*/
 
+	glPushMatrix();
+	glTranslatef(-(worldSize / 2.0f) + 0.5f, 0.0f, -(worldSize / 2.0f) + 0.5f);
+
 	for (int x = 0; x < worldSize; x++) {
 		for (int z = 0; z < worldSize; z++) {
 			glPushMatrix();
 
-			glTranslatef(x, noise2[x][z]/5, z);
+			glTranslatef(x, noise[x][z], z);
 			cgraSphere(0.1);
 
 			glPopMatrix();
 		}
 	}
+
+	glPopMatrix();
 }
 
 void Terrain::processGridCell(float x, float y, float z, float scale) {

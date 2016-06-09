@@ -1,4 +1,16 @@
-﻿  Building Custom Rule C:/Users/Wendy/Documents/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt
-  CMake does not need to re-run because C:\Users\Wendy\Documents\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp is up-to-date.
-  glew.c
-  glew.vcxproj -> C:\Users\Wendy\Documents\comp308sheepSim\build\bin\Debug\glew.lib
+﻿Build started 8/06/2016 9:17:46 p.m..
+     1>Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\ext\glew-1.10.0\glew.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Building Custom Rule C:/Users/user/Documents/GitHub/comp308sheepSim/work/ext/glew-1.10.0/CMakeLists.txt
+         CMake does not need to re-run because C:\Users\user\Documents\GitHub\comp308sheepSim\build\ext\glew-1.10.0\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /IC:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glfw\include /I"C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\include" /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D GLEW_STATIC /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"glew.dir\Debug\\" /Fd"glew.dir\Debug\glew.pdb" /Gd /TC /analyze- /errorReport:prompt "C:\Users\user\Documents\GitHub\comp308sheepSim\work\ext\glew-1.10.0\src\glew.c"
+         glew.c
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\Lib.exe /OUT:"C:\Users\user\Documents\GitHub\comp308sheepSim\build\bin\Debug\glew.lib" /NOLOGO  /machine:X86 glew.dir\Debug\glew.obj
+         glew.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\bin\Debug\glew.lib
+     1>Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\ext\glew-1.10.0\glew.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.81
