@@ -2,12 +2,13 @@
 #include "cgra_math.hpp"
 #include "geometry.hpp"
 
-#define COHESION_FACTOR 0.1f
+#define COHESION_FACTOR 0.05f
 
-#define SEPERATION_THRESHOLD 2.0f
+#define SEPERATION_DISTANCE 8.0f
+#define COLLISION_THRESHOLD 2.0f
 #define SEPERATION_FACTOR 1.0f
 
-#define ALIGNMENT_FACTOR 10.0f
+#define ALIGNMENT_FACTOR 0.4f
 
 #define MAX_SPEED 0.2f
 
@@ -23,7 +24,7 @@
 	each frame
 	
 	0 < SEPERATION_THRESHOLD < 10?
-	distance before boids start to repel each other
+	distance before boids start to repel each other for collisions
 
 	0 < SEPERATION_FACTOR < 1
 	used to scale down the seperation force pushing 2 boids apart
@@ -51,6 +52,11 @@ struct boid
 	cgra::vec2 velocity;
 	int id; 	// needed for equivence testing
 	float rotation; 
+
+	/* for state machine impl */
+	char state = 'e'; //f=flocking e=eating p=panic
+	int cooldown=0; // ticks until can transition to next state
+	int lonely = 0; // how long has been alone?  
 };
 
 struct affector {
@@ -103,6 +109,8 @@ void render_all (flock *);
 
  */
 void render (boid *);
+
+void check_state (boid *);
 
 /*	update specified boid's actions, influenced by each other boid
 	in specified flock. 

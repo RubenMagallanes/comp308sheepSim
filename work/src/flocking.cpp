@@ -3,6 +3,25 @@
 #include "cgra_geometry.hpp"
 #include <iostream>
 
+static float f_sep_strength = 1.0f; // flocking
+static float f_coh_strength = 1.0f; // ^
+static float f_ali_strength = 0.9f; // ^
+static float f_max_velocity = 0.7f; // decent - 1.4
+
+static float e_sep_strength = 1.0f; // eating- values are almost nonexistant
+static float e_coh_strength = 0.1f; // v
+static float e_ali_strength = 0.1f; // v
+static float e_max_velocity = 0.2f; // slow  - 0.4
+
+static float p_sep_strength = 1.0f; // panic
+static float p_coh_strength = 0.3f; // v
+static float p_ali_strength = 1.2f; // ^^
+static float p_max_velocity = 1.0f; // fast - 2.0
+
+
+static float sep_strength =  0.003f; // for actual seperation, not collision
+
+static float DECEL = 0.0005F;
 /*  ~  FLOCK FUNCTIONS  ~  */
 
 void /* initialise flock $fl with each boid using $model as their geometry */
@@ -86,7 +105,7 @@ void
 render (boid *b)
 {
 	glPushMatrix();
-	glTranslatef(b->position.x, 0.0, b->position.y); // z value based on terrain 
+	glTranslatef(b->position.x, 1.0, b->position.y); // z value based on terrain 
 
 	// rotate around y axis (-1 because vectors around wrong way)
 	glRotatef (b->rotation , 0, -1, 0); 
@@ -101,29 +120,72 @@ render (boid *b)
 
 }
 
+int // returns other within 20
+boids_around (boid *b, flock *fl)
+{
+	std::vector<boid *> flock;						// list of boids that affect this one
+	construct_flock_list (&flock, fl, b, 'b');// flock is now full of relevant boids
+	int count = 0;
+	for (boid *other : flock)
+	{
+		if (cgra::distance (other->position, b->position) < 20.0) // if within 20
+			count ++; 
+	}
+	return count;
+
+}
+
+void 
+check_state (boid *b, flock *fl)
+{
+	int in_view = boids_around (b, fl); // in close proximity
+	if (in_view < 3)
+		std::cout << "less that 3 aHHHHHHHHH" << std::endl;
+
+}
+
 
 void /* individual boid's update function */
 update (boid *b, flock *fl)
 {
+
+	check_state (b, fl);
 	/* CALCULATE AFFECTORS */
-	cgra::vec2 sep = seperation (b, fl); // boids dont collide 
+	cgra::vec2 sep1 = seperation (b, fl); // boids dont collide 
 	//TODO perhaps add weak seperation. current sep values prevent collisions only
+	//cgra::vec2 sep2 // actual seperation
 	cgra::vec2 coh = cohesion	(b, fl); // boids like to stick in packs
 	cgra::vec2 ali = alignment	(b, fl); // boids like to steer in same dir
 	
+	/*std::cout << "--------------" << std::endl; 
+	std::cout << "strength of sep: " << cgra::length (sep) << std::endl; 
+	std::cout << "strength of coh: " << cgra::length (coh) << std::endl; 
+	std::cout << "strength of ali: " << cgra::length (ali) << std::endl; */
+
 	cgra::vec2 hay = pull_to_hay (b, fl);//SHEEP LIKE HAY LUL
-
-
+	/*std::cout << "strength of hay: " << cgra::length (hay) << std::endl; 
+	
+	std::cout << "velocity of boi: " << cgra::length (b->velocity) << std::endl;*/ 
 	/* ADD AFFECTORS TO BOID'S VELOCITY */
-	b->velocity += sep;
+	b->velocity += sep1;
 	b->velocity += coh;
 	b->velocity += ali;
 
 	b->velocity += hay;
 
+	//std::cout << "vel of boi afte: " << cgra::length (b->velocity) << std::endl; 
 
 	/* clamp to $MAX_SPEED velocity */
 	b->velocity = cgra::clamp (b->velocity, -MAX_SPEED, MAX_SPEED);
+	//decelerate
+	float speed = cgra::length (b->velocity);
+	speed -= DECEL; // slightly slower
+	cgra::vec2 b_vel = b->velocity;
+	b_vel = cgra::normalize (b_vel);
+	b_vel *= speed; 
+	b->velocity = b_vel;
+
+	//std::cout << "boi vel decel : " << cgra::length (b->velocity) << std::endl; 
 
 	/* UPDATE BOID'S ROTATION for rendering *///maybe in seperate function?
 	if (cgra::length(b->velocity) != 0) // no divide by zero error
@@ -145,7 +207,7 @@ update (boid *b, flock *fl)
 	//std::cout << "velocity " << cgra::length(b->velocity) << std::endl;
 	
 }
-//----------- helper functions for update
+//----------- helper functions for update //FOR OPTIMIZATION
 void //TODO change to not return the current boid , this saves us a check in each s, c ,a vector
 construct_flock_list (std::vector<boid *> *list, flock * fl, boid *current, char caller)
 {
@@ -184,13 +246,10 @@ pull_to_hay (boid *current, flock *fl){
 		to_hay *= pull_strength * HAY_FACTOR; 
 		hay_pull += to_hay; // add to vector to return
 		n++;
-		std::cout << "distance to hay: " << sheep_to_hay <<std::endl;
+		//std::cout << "distance to hay: " << sheep_to_hay <<std::endl;
 	}
 	if (n> 0)
 		hay_pull /= n;
-
-	
-	std::cout << "strength of hay pull: " <<  cgra::length (hay_pull)<< std::endl;
 	return hay_pull;
 }
 
@@ -204,12 +263,25 @@ seperation(boid *current, flock *fl){
 
 	for (boid *other : flock)
 	{
-		if (cgra::distance (current->position, other->position) < SEPERATION_THRESHOLD)
+		/* closer than 2, repel strongly */
+		if (cgra::distance (current->position, other->position) < COLLISION_THRESHOLD)
 		{
 			/*force pushing away is stronger the closer this is to other*/
-			float push_scalar = SEPERATION_THRESHOLD - cgra::distance (current->position, other->position);
+			float push_scalar = COLLISION_THRESHOLD - cgra::distance (current->position, other->position);
 			push_scalar *= SEPERATION_FACTOR; // scale by factor so it reasonable 
 			/* vector to be returned  = this - other */
+			cgra::vec2 push_vector = current->position - other->position;
+			//change magnitude to be push_scalar length
+			push_vector = push_vector = cgra::normalize(push_vector);
+			push_vector *= push_scalar;
+
+			seperation_force += push_vector; //add to one to be reurned
+			n++;
+			/* closer than 8, repel weakly */
+		} else if (cgra::distance (current->position, other->position) < SEPERATION_DISTANCE)
+		{
+			float push_scalar = sep_strength;
+			//push vector pushes away from other
 			cgra::vec2 push_vector = current->position - other->position;
 			//change magnitude to be push_scalar length
 			push_vector = push_vector = cgra::normalize(push_vector);
@@ -266,7 +338,7 @@ cgra::vec2
 alignment(boid *current, flock *fl){
 	//similar to cohesion, but we average velocities, and take a small portion of the perceived velocity
 	//and return 
-	return cgra::vec2(0,0);
+	//return cgra::vec2(0,0);
 
 	int n=0;
 	cgra::vec2 average_velocity = cgra::vec2 (0,0); 

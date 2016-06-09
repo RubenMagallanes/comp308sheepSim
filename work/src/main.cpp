@@ -535,7 +535,7 @@ fps counter
 
 	glLightfv(GL_LIGHT1, GL_POSITION, light_position1);// directional light
 
-    //glDisable(GL_COLOR_MATERIAL);
+    // // DISABLE FOR COLORS SEt BY SET HAY COLOR
     glEnable(GL_COLOR_MATERIAL);
 
     // draw terrain
@@ -599,11 +599,13 @@ fps counter
         update_all(&herd); // update all boids position and intention
         lastTime += 0.017f;
     }
+    glDisable(GL_COLOR_MATERIAL);
     set_sheep_color();
     render_all(&herd);
 	set_hay_color();
 	render_affectors(&hay_set);
 
+	glEnable(GL_COLOR_MATERIAL);
 
 	// Disable flags for cleanup (optional)
 	glDisable(GL_TEXTURE_2D);
@@ -696,15 +698,21 @@ int main(int argc, char **argv) {
 	init_flock(&herd, geo_sheep, &hay_set);
 	add_boid (&herd, 5.0f, 5.0f);
 	add_boid (&herd, -5.0f, -5.0f);
-	add_boid (&herd, 5.0f, -5.0f);
-	add_boid (&herd, -5.0f, 5.0f);
+	//add_boid (&herd, 5.0f, -5.0f);
+	//add_boid (&herd, -5.0f, 5.0f);
 
-	add_boid (&herd, 6.0f, 2.0f);
-	add_boid (&herd, -10.0f, -2.0f);
-	add_boid (&herd, 2.0f, -2.0f);
-	add_boid (&herd, -6.0f, 2.0f);
+	/*add_boid (&herd, 6.0f, 10.0f);
+	add_boid (&herd, -10.0f, -2.0f);*/
+	//add_boid (&herd, 2.0f, -2.0f);
+	//add_boid (&herd, -6.0f, 2.0f);
 
-	create_affector(&hay_set, geo_hay, 1, 0.0f, 0.0f);
+	/*add_boid (&herd, 10.0f, 12.0f);
+	add_boid (&herd, -10.0f, -12.0f);
+	add_boid (&herd, 12.0f, -12.0f);
+	add_boid (&herd, -16.0f, 12.0f);*/
+
+	//create_affector(&hay_set, geo_hay, 1, 0.0f, 0.0f);
+	create_affector(&hay_set, geo_hay, 1, 20.0f, 10.0f);
 
 
 
