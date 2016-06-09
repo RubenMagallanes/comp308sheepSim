@@ -328,8 +328,11 @@ private:
 		0xf00, 0xe09, 0xd03, 0xc0a, 0xb06, 0xa0f, 0x905, 0x80c,
 		0x70c, 0x605, 0x50f, 0x406, 0x30a, 0x203, 0x109, 0x0
 	};
+	
+	// Display List
+	GLuint m_displayList = 0;
 
-	// Other variables
+	// Other Variables
 	int worldSize = 0;
 	float stepSize = 0;
 
@@ -338,10 +341,10 @@ private:
 	vector<vector<float>> noise;
 
 	// Noise Variables
-	float noiseResolution = 4.0;
+	float noiseResolution = 1.0;
 
 	float targetValue = 0.0;
-	cgra::vec3 sourcePoint[3]; // ???
+	cgra::vec3 sourcePoint[3];
 	float sampleTime;
 
 	void processGridCell(float, float, float, float);

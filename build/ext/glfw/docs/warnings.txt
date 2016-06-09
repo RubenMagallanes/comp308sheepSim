@@ -1,0 +1,4 @@
+warning: source /home/paisletimo/COMP308/comp308sheepSim/work/ext/glfw/examples is not a readable file or directory... skipping.
+/home/paisletimo/COMP308/comp308sheepSim/work/ext/glfw/docs/quick.dox:301: warning: included file simple.c is not found. Check your EXAMPLE_PATH
+/home/paisletimo/COMP308/comp308sheepSim/work/ext/glfw/docs/quick.dox:301: warning: block marked with [code] for \snippet should appear twice in file simple.c, found it 0 times
+

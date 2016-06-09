@@ -1,210 +1,161 @@
-The system is: Windows - 10.0.10586 - AMD64
+The system is: Linux - 4.2.5-1-ARCH - x86_64
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler:  
+Compiler: /bin/c++ 
 Build flags: 
 Id flags: 
 
 The output was:
 0
-Microsoft (R) Build Engine version 14.0.23107.0
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 8/06/2016 9:16:43 p.m..
-Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "Debug\".
-  Creating directory "Debug\CompilerIdCXX.tlog\".
-InitializeBuildStatus:
-  Creating "Debug\CompilerIdCXX.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /nologo /W0 /WX- /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue CMakeCXXCompilerId.cpp
-  CMakeCXXCompilerId.cpp
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdCXX.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCXXCompilerId.obj
-  CompilerIdCXX.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdCXX\.\CompilerIdCXX.exe
-PostBuildEvent:
-  for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
-  :VCEnd
-  CMAKE_CXX_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\cl.exe
-FinalizeBuildStatus:
-  Deleting file "Debug\CompilerIdCXX.tlog\unsuccessfulbuild".
-  Touching "Debug\CompilerIdCXX.tlog\CompilerIdCXX.lastbuildstate".
-Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdCXX\CompilerIdCXX.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.64
 
 
-Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
-
-The CXX compiler identification is MSVC, found in "C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/3.6.0-rc1/CompilerIdCXX/CompilerIdCXX.exe"
+The CXX compiler identification is GNU, found in "/home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/3.4.3/CompilerIdCXX/a.out"
 
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler:  
+Compiler: /bin/cc 
 Build flags: 
 Id flags: 
 
 The output was:
 0
-Microsoft (R) Build Engine version 14.0.23107.0
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 8/06/2016 9:16:44 p.m..
-Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "Debug\".
-  Creating directory "Debug\CompilerIdC.tlog\".
-InitializeBuildStatus:
-  Creating "Debug\CompilerIdC.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /nologo /W0 /WX- /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue CMakeCCompilerId.c
-  CMakeCCompilerId.c
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdC.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCCompilerId.obj
-  CompilerIdC.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdC\.\CompilerIdC.exe
-PostBuildEvent:
-  for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
-  :VCEnd
-  CMAKE_C_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\cl.exe
-FinalizeBuildStatus:
-  Deleting file "Debug\CompilerIdC.tlog\unsuccessfulbuild".
-  Touching "Debug\CompilerIdC.tlog\CompilerIdC.lastbuildstate".
-Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\3.6.0-rc1\CompilerIdC\CompilerIdC.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.60
 
 
-Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
-
-The C compiler identification is MSVC, found in "C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/3.6.0-rc1/CompilerIdC/CompilerIdC.exe"
+The C compiler identification is GNU, found in "/home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/3.4.3/CompilerIdC/a.out"
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_66ed2.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.23107.0
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 8/06/2016 9:16:45 p.m..
-Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_66ed2.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_66ed2.dir\Debug\".
-  Creating directory "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_66ed2.dir\Debug\cmTC_66ed2.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_66ed2.dir\Debug\cmTC_66ed2.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_66ed2.dir\Debug\\" /Fd"cmTC_66ed2.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23026 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_66ed2.dir\Debug\\" /Fd"cmTC_66ed2.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
-  
-  testCXXCompiler.cxx
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_66ed2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_66ed2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_66ed2.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_66ed2.dir\Debug\testCXXCompiler.obj
-  cmTC_66ed2.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_66ed2.exe
-FinalizeBuildStatus:
-  Deleting file "cmTC_66ed2.dir\Debug\cmTC_66ed2.tlog\unsuccessfulbuild".
-  Touching "cmTC_66ed2.dir\Debug\cmTC_66ed2.tlog\cmTC_66ed2.lastbuildstate".
-Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_66ed2.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.92
+Run Build Command:"/usr/local/bin/gmake" "cmTC_88590/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_88590.dir/build.make CMakeFiles/cmTC_88590.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_88590.dir/testCXXCompiler.cxx.o
+/bin/c++      -o CMakeFiles/cmTC_88590.dir/testCXXCompiler.cxx.o -c /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_88590
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_88590.dir/link.txt --verbose=1
+/bin/c++        CMakeFiles/cmTC_88590.dir/testCXXCompiler.cxx.o  -o cmTC_88590 -rdynamic 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_6f726.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.23107.0
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 8/06/2016 9:16:47 p.m..
-Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_6f726.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_6f726.dir\Debug\".
-  Creating directory "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_6f726.dir\Debug\cmTC_6f726.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_6f726.dir\Debug\cmTC_6f726.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6f726.dir\Debug\\" /Fd"cmTC_6f726.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCXXCompilerABI.cpp"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23026 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6f726.dir\Debug\\" /Fd"cmTC_6f726.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCXXCompilerABI.cpp"
-  
-  CMakeCXXCompilerABI.cpp
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_6f726.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_6f726.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_6f726.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_6f726.dir\Debug\CMakeCXXCompilerABI.obj
-  cmTC_6f726.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_6f726.exe
-FinalizeBuildStatus:
-  Deleting file "cmTC_6f726.dir\Debug\cmTC_6f726.tlog\unsuccessfulbuild".
-  Touching "cmTC_6f726.dir\Debug\cmTC_6f726.tlog\cmTC_6f726.lastbuildstate".
-Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_6f726.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.61
+Run Build Command:"/usr/local/bin/gmake" "cmTC_0da47/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_0da47.dir/build.make CMakeFiles/cmTC_0da47.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0da47.dir/CMakeCXXCompilerABI.cpp.o
+/bin/c++      -o CMakeFiles/cmTC_0da47.dir/CMakeCXXCompilerABI.cpp.o -c /usr/pkg/share/cmake-3.4/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_0da47
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0da47.dir/link.txt --verbose=1
+/bin/c++       -v CMakeFiles/cmTC_0da47.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_0da47 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper
+Target: x86_64-unknown-linux-gnu
+Configured with: /build/gcc-multilib/src/gcc-5.3.0/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking=release
+Thread model: posix
+gcc version 5.3.0 (GCC) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0da47' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/collect2 -plugin /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc6bxvB4.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_0da47 /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crt1.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crti.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtbegin.o -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0 -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../.. CMakeFiles/cmTC_0da47.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtend.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crtn.o
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
 
 
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/local/bin/gmake" "cmTC_0da47/fast"]
+  ignore line: [/usr/local/bin/gmake -f CMakeFiles/cmTC_0da47.dir/build.make CMakeFiles/cmTC_0da47.dir/build]
+  ignore line: [gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_0da47.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/bin/c++      -o CMakeFiles/cmTC_0da47.dir/CMakeCXXCompilerABI.cpp.o -c /usr/pkg/share/cmake-3.4/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_0da47]
+  ignore line: [/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0da47.dir/link.txt --verbose=1]
+  ignore line: [/bin/c++       -v CMakeFiles/cmTC_0da47.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_0da47 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper]
+  ignore line: [Target: x86_64-unknown-linux-gnu]
+  ignore line: [Configured with: /build/gcc-multilib/src/gcc-5.3.0/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking=release]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 5.3.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0da47' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/collect2 -plugin /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc6bxvB4.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_0da47 /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crt1.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crti.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtbegin.o -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0 -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../.. CMakeFiles/cmTC_0da47.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtend.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crtn.o]
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc6bxvB4.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_0da47] ==> ignore
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0] ==> dir [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0]
+    arg [-L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../..] ==> dir [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../..]
+    arg [CMakeFiles/cmTC_0da47.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtend.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0] ==> [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0]
+  collapse library dir [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0;/usr/lib;/lib]
+  implicit fwks: []
 
 
-Detecting CXX [] compiler features compiled with the following output:
-Change Dir: C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_1260e.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.23107.0
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 8/06/2016 9:16:47 p.m..
-Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_1260e.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_1260e.dir\Debug\".
-  Creating directory "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_1260e.dir\Debug\cmTC_1260e.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_1260e.dir\Debug\cmTC_1260e.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_1260e.dir\Debug\\" /Fd"cmTC_1260e.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\feature_tests.cxx
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23026 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_1260e.dir\Debug\\" /Fd"cmTC_1260e.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\feature_tests.cxx
-  
-  feature_tests.cxx
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_1260e.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_1260e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_1260e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_1260e.dir\Debug\feature_tests.obj
-  cmTC_1260e.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_1260e.exe
-FinalizeBuildStatus:
-  Deleting file "cmTC_1260e.dir\Debug\cmTC_1260e.tlog\unsuccessfulbuild".
-  Touching "cmTC_1260e.dir\Debug\cmTC_1260e.tlog\cmTC_1260e.lastbuildstate".
-Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_1260e.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.64
 
 
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_6cc93/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_6cc93.dir/build.make CMakeFiles/cmTC_6cc93.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6cc93.dir/feature_tests.cxx.o
+/bin/c++     -std=c++14 -o CMakeFiles/cmTC_6cc93.dir/feature_tests.cxx.o -c /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_6cc93
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6cc93.dir/link.txt --verbose=1
+/bin/c++        CMakeFiles/cmTC_6cc93.dir/feature_tests.cxx.o  -o cmTC_6cc93 -rdynamic 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
     Feature record: CXX_FEATURE:1cxx_alias_templates
     Feature record: CXX_FEATURE:1cxx_alignas
     Feature record: CXX_FEATURE:1cxx_alignof
@@ -216,6 +167,7 @@ Time Elapsed 00:00:00.64
     Feature record: CXX_FEATURE:1cxx_contextual_conversions
     Feature record: CXX_FEATURE:1cxx_decltype
     Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
     Feature record: CXX_FEATURE:1cxx_default_function_template_args
     Feature record: CXX_FEATURE:1cxx_defaulted_functions
     Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
@@ -243,7 +195,81 @@ Time Elapsed 00:00:00.64
     Feature record: CXX_FEATURE:1cxx_range_for
     Feature record: CXX_FEATURE:1cxx_raw_string_literals
     Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
     Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_8db85/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_8db85.dir/build.make CMakeFiles/cmTC_8db85.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8db85.dir/feature_tests.cxx.o
+/bin/c++     -std=c++11 -o CMakeFiles/cmTC_8db85.dir/feature_tests.cxx.o -c /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_8db85
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8db85.dir/link.txt --verbose=1
+/bin/c++        CMakeFiles/cmTC_8db85.dir/feature_tests.cxx.o  -o cmTC_8db85 -rdynamic 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
     Feature record: CXX_FEATURE:1cxx_right_angle_brackets
     Feature record: CXX_FEATURE:1cxx_rvalue_references
     Feature record: CXX_FEATURE:1cxx_sizeof_member
@@ -259,79 +285,392 @@ Time Elapsed 00:00:00.64
     Feature record: CXX_FEATURE:0cxx_variable_templates
     Feature record: CXX_FEATURE:1cxx_variadic_macros
     Feature record: CXX_FEATURE:1cxx_variadic_templates
-Determining if the C compiler works passed with the following output:
-Change Dir: C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_3c654.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.23107.0
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 8/06/2016 9:16:49 p.m..
-Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_3c654.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_3c654.dir\Debug\".
-  Creating directory "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_3c654.dir\Debug\cmTC_3c654.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_3c654.dir\Debug\cmTC_3c654.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3c654.dir\Debug\\" /Fd"cmTC_3c654.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\testCCompiler.c
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23026 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3c654.dir\Debug\\" /Fd"cmTC_3c654.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\testCCompiler.c
-  
-  testCCompiler.c
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_3c654.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_3c654.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_3c654.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_3c654.dir\Debug\testCCompiler.obj
-  cmTC_3c654.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_3c654.exe
-FinalizeBuildStatus:
-  Deleting file "cmTC_3c654.dir\Debug\cmTC_3c654.tlog\unsuccessfulbuild".
-  Touching "cmTC_3c654.dir\Debug\cmTC_3c654.tlog\cmTC_3c654.lastbuildstate".
-Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_3c654.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.61
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_5e2e6/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_5e2e6.dir/build.make CMakeFiles/cmTC_5e2e6.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5e2e6.dir/feature_tests.cxx.o
+/bin/c++     -std=c++98 -o CMakeFiles/cmTC_5e2e6.dir/feature_tests.cxx.o -c /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_5e2e6
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5e2e6.dir/link.txt --verbose=1
+/bin/c++        CMakeFiles/cmTC_5e2e6.dir/feature_tests.cxx.o  -o cmTC_5e2e6 -rdynamic 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_61fb7/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_61fb7.dir/build.make CMakeFiles/cmTC_61fb7.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_61fb7.dir/testCCompiler.c.o
+/bin/cc     -o CMakeFiles/cmTC_61fb7.dir/testCCompiler.c.o   -c /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_61fb7
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_61fb7.dir/link.txt --verbose=1
+/bin/cc       CMakeFiles/cmTC_61fb7.dir/testCCompiler.c.o  -o cmTC_61fb7 -rdynamic 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_7e2ae.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.23107.0
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 8/06/2016 9:16:49 p.m..
-Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_7e2ae.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_7e2ae.dir\Debug\".
-  Creating directory "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_7e2ae.dir\Debug\cmTC_7e2ae.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_7e2ae.dir\Debug\cmTC_7e2ae.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7e2ae.dir\Debug\\" /Fd"cmTC_7e2ae.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCCompilerABI.c"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23026 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7e2ae.dir\Debug\\" /Fd"cmTC_7e2ae.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCCompilerABI.c"
-  
-  CMakeCCompilerABI.c
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_7e2ae.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_7e2ae.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/user/Documents/GitHub/comp308sheepSim/build/CMakeFiles/CMakeTmp/Debug/cmTC_7e2ae.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_7e2ae.dir\Debug\CMakeCCompilerABI.obj
-  cmTC_7e2ae.vcxproj -> C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\Debug\cmTC_7e2ae.exe
-FinalizeBuildStatus:
-  Deleting file "cmTC_7e2ae.dir\Debug\cmTC_7e2ae.tlog\unsuccessfulbuild".
-  Touching "cmTC_7e2ae.dir\Debug\cmTC_7e2ae.tlog\cmTC_7e2ae.lastbuildstate".
-Done Building Project "C:\Users\user\Documents\GitHub\comp308sheepSim\build\CMakeFiles\CMakeTmp\cmTC_7e2ae.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.61
+Run Build Command:"/usr/local/bin/gmake" "cmTC_5da34/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_5da34.dir/build.make CMakeFiles/cmTC_5da34.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5da34.dir/CMakeCCompilerABI.c.o
+/bin/cc     -o CMakeFiles/cmTC_5da34.dir/CMakeCCompilerABI.c.o   -c /usr/pkg/share/cmake-3.4/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_5da34
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5da34.dir/link.txt --verbose=1
+/bin/cc      -v CMakeFiles/cmTC_5da34.dir/CMakeCCompilerABI.c.o  -o cmTC_5da34 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper
+Target: x86_64-unknown-linux-gnu
+Configured with: /build/gcc-multilib/src/gcc-5.3.0/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking=release
+Thread model: posix
+gcc version 5.3.0 (GCC) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5da34' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/collect2 -plugin /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccUaIVvH.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_5da34 /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crt1.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crti.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtbegin.o -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0 -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../.. CMakeFiles/cmTC_5da34.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtend.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crtn.o
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/local/bin/gmake" "cmTC_5da34/fast"]
+  ignore line: [/usr/local/bin/gmake -f CMakeFiles/cmTC_5da34.dir/build.make CMakeFiles/cmTC_5da34.dir/build]
+  ignore line: [gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_5da34.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/bin/cc     -o CMakeFiles/cmTC_5da34.dir/CMakeCCompilerABI.c.o   -c /usr/pkg/share/cmake-3.4/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_5da34]
+  ignore line: [/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5da34.dir/link.txt --verbose=1]
+  ignore line: [/bin/cc      -v CMakeFiles/cmTC_5da34.dir/CMakeCCompilerABI.c.o  -o cmTC_5da34 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper]
+  ignore line: [Target: x86_64-unknown-linux-gnu]
+  ignore line: [Configured with: /build/gcc-multilib/src/gcc-5.3.0/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking=release]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 5.3.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5da34' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/collect2 -plugin /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccUaIVvH.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_5da34 /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crt1.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crti.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtbegin.o -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0 -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../.. CMakeFiles/cmTC_5da34.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtend.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crtn.o]
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccUaIVvH.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_5da34] ==> ignore
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0] ==> dir [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0]
+    arg [-L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../..] ==> dir [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../..]
+    arg [CMakeFiles/cmTC_5da34.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtend.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0] ==> [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0]
+  collapse library dir [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../..] ==> [/usr/lib]
+  implicit libs: [c]
+  implicit dirs: [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0;/usr/lib;/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_d34c9/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_d34c9.dir/build.make CMakeFiles/cmTC_d34c9.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d34c9.dir/feature_tests.c.o
+/bin/cc    -std=c11 -o CMakeFiles/cmTC_d34c9.dir/feature_tests.c.o   -c /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_d34c9
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d34c9.dir/link.txt --verbose=1
+/bin/cc       CMakeFiles/cmTC_d34c9.dir/feature_tests.c.o  -o cmTC_d34c9 -rdynamic 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_f5c6a/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_f5c6a.dir/build.make CMakeFiles/cmTC_f5c6a.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f5c6a.dir/feature_tests.c.o
+/bin/cc    -std=c99 -o CMakeFiles/cmTC_f5c6a.dir/feature_tests.c.o   -c /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_f5c6a
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f5c6a.dir/link.txt --verbose=1
+/bin/cc       CMakeFiles/cmTC_f5c6a.dir/feature_tests.c.o  -o cmTC_f5c6a -rdynamic 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_cff45/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_cff45.dir/build.make CMakeFiles/cmTC_cff45.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cff45.dir/feature_tests.c.o
+/bin/cc    -std=c90 -o CMakeFiles/cmTC_cff45.dir/feature_tests.c.o   -c /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_cff45
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cff45.dir/link.txt --verbose=1
+/bin/cc       CMakeFiles/cmTC_cff45.dir/feature_tests.c.o  -o cmTC_cff45 -rdynamic 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_ed9bd/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_ed9bd.dir/build.make CMakeFiles/cmTC_ed9bd.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ed9bd.dir/CheckIncludeFile.c.o
+/bin/cc     -o CMakeFiles/cmTC_ed9bd.dir/CheckIncludeFile.c.o   -c /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_ed9bd
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ed9bd.dir/link.txt --verbose=1
+/bin/cc       CMakeFiles/cmTC_ed9bd.dir/CheckIncludeFile.c.o  -o cmTC_ed9bd -rdynamic 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_65d4f/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_65d4f.dir/build.make CMakeFiles/cmTC_65d4f.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_65d4f.dir/CheckFunctionExists.c.o
+/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_65d4f.dir/CheckFunctionExists.c.o   -c /usr/pkg/share/cmake-3.4/Modules/CheckFunctionExists.c
+Linking C executable cmTC_65d4f
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65d4f.dir/link.txt --verbose=1
+/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_65d4f.dir/CheckFunctionExists.c.o  -o cmTC_65d4f -rdynamic -lpthread 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function XOpenDisplay exists in the /lib64/libX11.so;/lib64/libXext.so passed with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_0bd91/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_0bd91.dir/build.make CMakeFiles/cmTC_0bd91.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0bd91.dir/CheckFunctionExists.c.o
+/bin/cc    -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTC_0bd91.dir/CheckFunctionExists.c.o   -c /usr/pkg/share/cmake-3.4/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0bd91
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0bd91.dir/link.txt --verbose=1
+/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTC_0bd91.dir/CheckFunctionExists.c.o  -o cmTC_0bd91 -rdynamic /lib64/libX11.so /lib64/libXext.so 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_8514b/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_8514b.dir/build.make CMakeFiles/cmTC_8514b.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8514b.dir/CheckFunctionExists.c.o
+/bin/cc    -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTC_8514b.dir/CheckFunctionExists.c.o   -c /usr/pkg/share/cmake-3.4/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8514b
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8514b.dir/link.txt --verbose=1
+/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTC_8514b.dir/CheckFunctionExists.c.o  -o cmTC_8514b -rdynamic 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_39474/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_39474.dir/build.make CMakeFiles/cmTC_39474.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_39474.dir/CheckFunctionExists.c.o
+/bin/cc    -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTC_39474.dir/CheckFunctionExists.c.o   -c /usr/pkg/share/cmake-3.4/Modules/CheckFunctionExists.c
+Linking C executable cmTC_39474
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_39474.dir/link.txt --verbose=1
+/bin/cc   -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTC_39474.dir/CheckFunctionExists.c.o  -o cmTC_39474 -rdynamic 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_adecf/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_adecf.dir/build.make CMakeFiles/cmTC_adecf.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_adecf.dir/CheckFunctionExists.c.o
+/bin/cc    -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTC_adecf.dir/CheckFunctionExists.c.o   -c /usr/pkg/share/cmake-3.4/Modules/CheckFunctionExists.c
+Linking C executable cmTC_adecf
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_adecf.dir/link.txt --verbose=1
+/bin/cc   -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTC_adecf.dir/CheckFunctionExists.c.o  -o cmTC_adecf -rdynamic 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_8feb2/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_8feb2.dir/build.make CMakeFiles/cmTC_8feb2.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8feb2.dir/CheckFunctionExists.c.o
+/bin/cc    -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTC_8feb2.dir/CheckFunctionExists.c.o   -c /usr/pkg/share/cmake-3.4/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8feb2
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8feb2.dir/link.txt --verbose=1
+/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTC_8feb2.dir/CheckFunctionExists.c.o  -o cmTC_8feb2 -rdynamic 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_6eb89/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_6eb89.dir/build.make CMakeFiles/cmTC_6eb89.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6eb89.dir/CheckFunctionExists.c.o
+/bin/cc    -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTC_6eb89.dir/CheckFunctionExists.c.o   -c /usr/pkg/share/cmake-3.4/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6eb89
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6eb89.dir/link.txt --verbose=1
+/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTC_6eb89.dir/CheckFunctionExists.c.o  -o cmTC_6eb89 -rdynamic -lICE 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function glXGetProcAddress exists passed with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_fc99f/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_fc99f.dir/build.make CMakeFiles/cmTC_fc99f.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fc99f.dir/CheckFunctionExists.c.o
+/bin/cc    -DCHECK_FUNCTION_EXISTS=glXGetProcAddress   -o CMakeFiles/cmTC_fc99f.dir/CheckFunctionExists.c.o   -c /usr/pkg/share/cmake-3.4/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fc99f
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fc99f.dir/link.txt --verbose=1
+/bin/cc   -DCHECK_FUNCTION_EXISTS=glXGetProcAddress    CMakeFiles/cmTC_fc99f.dir/CheckFunctionExists.c.o  -o cmTC_fc99f -rdynamic /lib64/libGL.so 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function glXGetProcAddressARB exists passed with the following output:
+Change Dir: /home/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/local/bin/gmake" "cmTC_a9848/fast"
+/usr/local/bin/gmake -f CMakeFiles/cmTC_a9848.dir/build.make CMakeFiles/cmTC_a9848.dir/build
+gmake[1]: Entering directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a9848.dir/CheckFunctionExists.c.o
+/bin/cc    -DCHECK_FUNCTION_EXISTS=glXGetProcAddressARB   -o CMakeFiles/cmTC_a9848.dir/CheckFunctionExists.c.o   -c /usr/pkg/share/cmake-3.4/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a9848
+/usr/pkg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a9848.dir/link.txt --verbose=1
+/bin/cc   -DCHECK_FUNCTION_EXISTS=glXGetProcAddressARB    CMakeFiles/cmTC_a9848.dir/CheckFunctionExists.c.o  -o cmTC_a9848 -rdynamic /lib64/libGL.so 
+gmake[1]: Leaving directory '/am/courtenay/home1/paisletimo/COMP308/comp308sheepSim/build/CMakeFiles/CMakeTmp'
 
 

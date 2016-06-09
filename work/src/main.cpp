@@ -48,8 +48,11 @@ float g_zfar = 1000.0;
 //
 bool g_leftMouseDown = false;
 vec2 g_mousePosition;
-float g_pitch = 20;//20
-float g_yaw = -40; // -40
+float g_pan_x = 0;
+float g_pan_z = 0;
+
+float g_pitch = 20;
+float g_yaw = 45;
 float g_zoom = 1;
 
 float keySensitivity = 0.5;
@@ -64,14 +67,15 @@ GLuint g_shader = 0;
 
 //GLuint my_texture = 1;
 
-
 Geometry *geo_sphere = nullptr;
 Geometry *geo_table = nullptr;
+
+int terrainSize = 128;
 
 GLfloat light_position1[] = { 0.0,1.0,1.0 ,0.0}; // direc light dir
 
 //w,a,s,d = camera movement (translation) q,e = rotation, f,c = pitch up/down
-int w_down=0, a_down=0, s_down=0, d_down=0, q_down=0, e_down=0, f_down=0, c_down=0; 
+int w_down=0, a_down=0, s_down=0, d_down=0, q_down=0, e_down=0, f_down=0, c_down=0;
 float sensitivity = 0.5; // how sensitive the mouse is 
 
 // Mouse Button callback
@@ -247,11 +251,9 @@ void setupCamera(int width, int height) {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	//translate around area.
-
 	//zoom, rotate and pitch. 
 	glTranslatef(-0, -1, -50 * g_zoom);
-
+	
 	//pitch from keys
 	if (f_down)
 		g_pitch -= keySensitivity;
@@ -259,12 +261,28 @@ void setupCamera(int width, int height) {
 		g_pitch += keySensitivity;
 
 	glRotatef(g_pitch, 1, 0, 0);
-
-	//rotation from keys	
+	
+	//pan forward/backward from keys
+	if (w_down)
+		g_pan_z += g_zoom;
+	if (s_down)
+		g_pan_z -= g_zoom;
+	  
+	//pan left/right from keys
+	if (a_down)
+		g_pan_x += g_zoom;
+	if (d_down)
+		g_pan_x -= g_zoom;
+	
+	//translate around area.
+	glTranslatef(g_pan_x, 0, g_pan_z);
+	
+	//rotation from keys
 	if (q_down)
 		g_yaw += keySensitivity;
 	if (e_down)
 		g_yaw -= keySensitivity;
+	
 	glRotatef(g_yaw, 0, 1, 0);
 	
 }
@@ -286,7 +304,7 @@ void initGeometry(){
 GLenum tPolygonMode = GL_FILL;
 
 void initTerrain() {
-	t = new Terrain(8);
+	t = new Terrain(terrainSize);
 	t->generate();
 }
 
@@ -328,18 +346,12 @@ void render(int width, int height) {
     //glDisable(GL_COLOR_MATERIAL);
     glEnable(GL_COLOR_MATERIAL);
 
-	// testing perlin noise
-	t->drawTerrain();
-
-	// draw terrain
-	/*glPolygonMode(GL_FRONT_AND_BACK, tPolygonMode);
-	glPushMatrix();
-		glTranslatef(-0.5, -0.5, -0.5);
-		glScalef(10000.00f, 10000.00f, 10000.00f);
-		glBegin(GL_TRIANGLES);
-		t->drawTerrain();
-		glEnd();
-	glPopMatrix();*/
+    // draw terrain
+    glPushMatrix();
+    glTranslatef(-((float)terrainSize/2), 0.0f, -((float)terrainSize/2));
+    t->drawTerrain();
+    //geo_sphere->renderGeometry();
+    glPopMatrix();
 
     //GOLD SPHERE
     GLfloat mat_ambientG  [] = {0.25, 0.2, 0.07, 1};
@@ -476,7 +488,6 @@ int main(int argc, char **argv) {
 
 	glfwTerminate();
 }
-
 
 
 

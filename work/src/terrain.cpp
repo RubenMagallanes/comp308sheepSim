@@ -36,9 +36,71 @@ void Terrain::generate() {
 	
 	n->generateNoise(&noise);
 	cout << "Generated " << noise.size() << " points of noise" << endl;
+	
+	if (m_displayList) glDeleteLists(m_displayList, 1);
+	cout << "===== Creating Terrain Display List =====" << endl;
+	
+	m_displayList = glGenLists(1);
+	glNewList(m_displayList, GL_COMPILE);
+	glBegin(GL_TRIANGLES);
+	
+	// iterate through noise grid in quads, drawing two triangles
+	for (int x = 0; x < worldSize * noiseResolution - 1; x++) {
+		for (int z = 0; z < worldSize * noiseResolution - 1; z++) {
+		  
+			// +----------+ //
+			// |v1      v2| //
+			// |     /    | // Splitting into
+			// |    /     | // two triangles
+			// |v4      v3| //
+			// +----------+ //
+		  
+			// calculate positions
+			vec3 v1p = { x/noiseResolution, noise[x][z], z/noiseResolution };
+			vec3 v2p = { x/noiseResolution, noise[x][z+1], (z+1)/noiseResolution };
+			vec3 v3p = { (x+1)/noiseResolution, noise[x+1][z+1], (z+1)/noiseResolution };
+			vec3 v4p = { (x+1)/noiseResolution, noise[x+1][z], z/noiseResolution };
+			
+			// calculate normals for each triangle based on v1 and v4
+			vec3 v1n = normalize(cross((v2p - v1p), (v4p - v1p)));
+			vec3 v2n = normalize(cross((v3p - v2p), (v1p - v2p)));
+			vec3 v3n = normalize(cross((v4p - v3p), (v2p - v3p)));
+			vec3 v4n = normalize(cross((v1p - v4p), (v3p - v4p)));
+			
+			// average normals
+			vec3 t1n = (v1n + v2n + v4n) / 3.0f;
+			vec3 t2n = (v2n + v3n + v4n) / 3.0f;
+			
+			// triangle 1
+			glVertex3f(v1p.x, v1p.y, v1p.z); // v1
+			glNormal3f(t1n.x, t1n.y, t1n.z);
+			
+			glVertex3f(v2p.x, v2p.y, v2p.z); // v2
+			glNormal3f(t1n.x, t1n.y, t1n.z);
+			
+			glVertex3f(v4p.x, v4p.y, v4p.z); // v4
+			glNormal3f(t1n.x, t1n.y, t1n.z);
+			
+			// triangle 2
+			glVertex3f(v3p.x, v3p.y, v3p.z); // v3
+			glNormal3f(t2n.x, t2n.y, t2n.z);
+			
+			glVertex3f(v2p.x, v2p.y, v2p.z); // v2
+			glNormal3f(t2n.x, t2n.y, t2n.z);
+			
+			glVertex3f(v4p.x, v4p.y, v4p.z); // v4
+			glNormal3f(t2n.x, t2n.y, t2n.z);
+		}
+	}
+	
+	glEnd();
+	glEndList();
+	
+	cout << "===== Display List Created =====" << endl;
 }
 
 void Terrain::drawTerrain() {
+	// Marching Cubes
 	/*for (int x = 0; x < worldSize; x++) {
 		for (int y = 0; y < worldSize; y++) {
 			for (int z = 0; z < worldSize; z++) {
@@ -47,21 +109,25 @@ void Terrain::drawTerrain() {
 		}
 	}*/
 
-	glPushMatrix();
-	glTranslatef(-(worldSize / 2.0f) + 0.5f, 0.0f, -(worldSize / 2.0f) + 0.5f);
+	//glPushMatrix();
+	//glTranslatef(-(worldSize / 2.0) + 0.5f, 0.0f, -(worldSize / 2.0) + 0.5f);
 
-	for (int x = 0; x < worldSize * noiseResolution; x++) {
+	// Polygons
+	/*for (int x = 0; x < worldSize * noiseResolution; x+=2) {
 		for (int z = 0; z < worldSize * noiseResolution; z++) {
-			glPushMatrix();
+			//glPushMatrix();
 
-			glTranslatef(x/noiseResolution, noise[x][z], z/noiseResolution);
-			cgraSphere(0.05);
+			//glTranslatef(x/noiseResolution, noise[x][z], z/noiseResolution);
+			//cgraSphere(0.1);
 
-			glPopMatrix();
+			//glPopMatrix();
 		}
-	}
+	}*/
+	
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        glCallList(m_displayList);
 
-	glPopMatrix();
+	//glPopMatrix();
 }
 
 void Terrain::processGridCell(float x, float y, float z, float scale) {

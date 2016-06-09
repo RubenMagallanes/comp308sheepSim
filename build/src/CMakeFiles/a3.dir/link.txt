@@ -1,0 +1,1 @@
+/bin/c++      CMakeFiles/a3.dir/main.cpp.o CMakeFiles/a3.dir/terrain.cpp.o CMakeFiles/a3.dir/noise.cpp.o  -o ../bin/a3 -rdynamic ../bin/libglew.a ../bin/libglfw3.a -lX11 -lpthread -lXrandr -lXinerama -lXi -lXxf86vm -lrt -lm -lXcursor -lGL ../bin/libstb.a -lGLU -lGL 

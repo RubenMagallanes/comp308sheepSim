@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/user/Documents/GitHub/comp308sheepSim/work
+# Install script for directory: /home/paisletimo/COMP308/comp308sheepSim/work
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/CGRA_PROJECT_a3")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Release")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -27,13 +27,18 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "0")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/user/Documents/GitHub/comp308sheepSim/build/ext/glfw/cmake_install.cmake")
-  include("C:/Users/user/Documents/GitHub/comp308sheepSim/build/ext/glew-1.10.0/cmake_install.cmake")
-  include("C:/Users/user/Documents/GitHub/comp308sheepSim/build/ext/stb/cmake_install.cmake")
-  include("C:/Users/user/Documents/GitHub/comp308sheepSim/build/src/cmake_install.cmake")
-  include("C:/Users/user/Documents/GitHub/comp308sheepSim/build/res/cmake_install.cmake")
+  include("/home/paisletimo/COMP308/comp308sheepSim/build/ext/glfw/cmake_install.cmake")
+  include("/home/paisletimo/COMP308/comp308sheepSim/build/ext/glew-1.10.0/cmake_install.cmake")
+  include("/home/paisletimo/COMP308/comp308sheepSim/build/ext/stb/cmake_install.cmake")
+  include("/home/paisletimo/COMP308/comp308sheepSim/build/src/cmake_install.cmake")
+  include("/home/paisletimo/COMP308/comp308sheepSim/build/res/cmake_install.cmake")
 
 endif()
 
@@ -45,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/user/Documents/GitHub/comp308sheepSim/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/paisletimo/COMP308/comp308sheepSim/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

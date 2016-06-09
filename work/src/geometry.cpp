@@ -179,48 +179,49 @@ void Geometry::readOBJ(string filename) {
 void Geometry::createNormals() {
 	// YOUR CODE GOES HERE
 	// per face normals
-    int i, j, normal_index = 0;
-    vec3 fn;    // face normal for triangle i
-    vec3 edge1;
-    vec3 edge2;
-    for (i= 0; i< (int) m_triangles.size(); i++) {//iterate through all triangles
+	int i, j, normal_index = 0;
+	vec3 fn;    // face normal for triangle i
+	vec3 edge1;
+	vec3 edge2;
+	for (i= 0; i< (int) m_triangles.size(); i++) {//iterate through all triangles
         
-        edge1 = m_points[m_triangles[i].v[1].p] - m_points[m_triangles[i].v[0].p];
-        edge2 = m_points[m_triangles[i].v[2].p] - m_points[m_triangles[i].v[0].p];
-        
-        fn = cross(edge1, edge2);
-        
-        //now add to all vertex normals
-        
-        for(j=0; j< 3; j++) {
-            if (m_triangles[i].v[j].n == 0) { // case 1: vertex doesnt have normal
-                
-                //ok the problem is the fact that vertices are shared - 2 triangles
-                //sharing a vertex dont share instances of a vertex strut.
-                // how to figure out dupicate vectors??
-                
-                //this points to a spot in the m_normals vector that doesnt exist yet
-                normal_index++;
+		edge1 = m_points[m_triangles[i].v[1].p] - m_points[m_triangles[i].v[0].p];
+		edge2 = m_points[m_triangles[i].v[2].p] - m_points[m_triangles[i].v[0].p];
+		  
+		fn = cross(edge1, edge2);
+		  
+		//now add to all vertex normals
+		  
+		for(j=0; j< 3; j++) {
+		      if (m_triangles[i].v[j].n == 0) { // case 1: vertex doesnt have normal
+			  
+			  //ok the problem is the fact that vertices are shared - 2 triangles
+			  //sharing a vertex dont share instances of a vertex strut.
+			  // how to figure out dupicate vectors??
+			  
+			  //this points to a spot in the m_normals vector that doesnt exist yet
+			  normal_index++;
 
-                // push face normal to back, should match index now
-                m_normals.push_back(fn);
+			  // push face normal to back, should match index now
+			  m_normals.push_back(fn);
 
-                //tell vertex where it's normal is located
-                m_triangles[i].v[j].n = normal_index;
-                
-                //whats at m_normals[m_triangles[i].v[j].n] should match fn
-                /*if(m_normals[m_triangles[i].v[j].n] == fn){
-                    cout << "fn matches whats at normal thing" <<endl;
-                }*/ //this is good
-                
-            } else { // case 2: vertex already has normal
-                //just add to it
-                cout << "VERTEX ALREADY HAS NORMAL i=" << i << endl;
-                m_normals[m_triangles[i].v[j].n] += fn;
-            }
-        }
-        //how to tell 2 of the same vertex objs?
-    }
+			  //tell vertex where it's normal is located
+			  m_triangles[i].v[j].n = normal_index;
+			  
+			  //whats at m_normals[m_triangles[i].v[j].n] should match fn
+			  /*if(m_normals[m_triangles[i].v[j].n] == fn){
+			      cout << "fn matches whats at normal thing" <<endl;
+			  }*/ //this is good
+			  
+		      } else { // case 2: vertex already has normal
+			  //just add to it
+			  cout << "VERTEX ALREADY HAS NORMAL i=" << i << endl;
+			  m_normals[m_triangles[i].v[j].n] += fn;
+		      }
+		}
+		//how to tell 2 of the same vertex objs?
+		
+	}
     cout << "all normals created /added to" << endl;
    // cout << m_normals.size() << endl;
     for (i= 1; i< (int) m_normals.size(); i++){
@@ -252,25 +253,25 @@ void Geometry::createDisplayListPoly() {
 
 	// YOUR CODE GOES HERE
     
-    glBegin(GL_TRIANGLES);
-   
-    int i;
-    for (triangle t : m_triangles){ // iterate through triangles
-        for (i= 0; i< 3; i++){ // iterate through verteces
-            vertex v = t.v[i]; // prolly slow to save each
-            vec2 uv = m_uvs[v.t];
-            glTexCoord2f(uv.x, uv.y);
-            vec3 norm = m_normals[v.n];
-            glNormal3f(norm.x, norm.y, norm.z);
-            vec3 pt = m_points[v.p];
-            glVertex3f(pt.x, pt.y, pt.z);
-            
-            //probably faster if we do it all in one step, idk tho
-            //glNormal3f(m_normals[t.v[i].n]);
-            //glVertex3f(m_points[t.v[i].p]);
-        }
-    }
-    glEnd();
+	glBegin(GL_TRIANGLES);
+      
+	int i;
+	for (triangle t : m_triangles){ // iterate through triangles
+	    for (i= 0; i< 3; i++){ // iterate through verteces
+		vertex v = t.v[i]; // prolly slow to save each
+		vec2 uv = m_uvs[v.t];
+		glTexCoord2f(uv.x, uv.y);
+		vec3 norm = m_normals[v.n];
+		glNormal3f(norm.x, norm.y, norm.z);
+		vec3 pt = m_points[v.p];
+		glVertex3f(pt.x, pt.y, pt.z);
+		
+		//probably faster if we do it all in one step, idk tho
+		//glNormal3f(m_normals[t.v[i].n]);
+		//glVertex3f(m_points[t.v[i].p]);
+	    }
+	}
+	glEnd();
     
 	//MY CODE ENDS HERE
 	glEndList();

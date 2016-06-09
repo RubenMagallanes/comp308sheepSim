@@ -35,38 +35,31 @@ void Noise::generateNoise(vector<vector<float>> *perlinNoise) {
 	vector<vector<float>> smoothNoise6(resWidth, vector<float>(resHeight));
 	vector<vector<float>> smoothNoise7(resWidth, vector<float>(resHeight));
 	vector<vector<float>> smoothNoise8(resWidth, vector<float>(resHeight));
-	vector<vector<vector<float>>> allNoise (octaves, vector<vector<float>>(resWidth, vector<float>(resHeight, NULL)));
+	vector<vector<vector<float>>> allNoise (4, vector<vector<float>>(resWidth, vector<float>(resHeight, NULL)));
 
-	//for (int i = 0; i < octaves; i++) {
-		generateSmoothNoise(whiteNoise, &smoothNoise1, 0);
-		allNoise[0] = smoothNoise1;
-		generateSmoothNoise(whiteNoise, &smoothNoise2, 0);
-		allNoise[1] = smoothNoise2;
-		generateSmoothNoise(whiteNoise, &smoothNoise3, 0);
-		allNoise[2] = smoothNoise3;
-		generateSmoothNoise(whiteNoise, &smoothNoise4, 0);
-		allNoise[3] = smoothNoise4;
-		generateSmoothNoise(whiteNoise, &smoothNoise5, 0);
-		allNoise[4] = smoothNoise5;
-		generateSmoothNoise(whiteNoise, &smoothNoise6, 0);
-		allNoise[5] = smoothNoise6;
-		generateSmoothNoise(whiteNoise, &smoothNoise7, 0);
-		allNoise[6] = smoothNoise7;
-		generateSmoothNoise(whiteNoise, &smoothNoise8, 0);
-		allNoise[7] = smoothNoise8;
-	//}
+	generateSmoothNoise(whiteNoise, &smoothNoise1, 0);
+	allNoise[0] = smoothNoise1;
+	
+	generateSmoothNoise(whiteNoise, &smoothNoise2, 2);
+	allNoise[1] = smoothNoise2;
+	
+	generateSmoothNoise(whiteNoise, &smoothNoise3, 4);
+	allNoise[2] = smoothNoise3;
+	
+	generateSmoothNoise(whiteNoise, &smoothNoise4, 6);
+	allNoise[3] = smoothNoise4;
 
 	float totalAmplitude = 0.0f;
 
 	// blending
-	for (int o = octaves - 1; o > 0; o--) {
+	for (int oct = 0; oct < 4; oct++) {
 		amplitude *= persistance;
 		totalAmplitude += amplitude;
 
 		// add all octaves together
 		for (int x = 0; x < resWidth; x++) {
 			for (int y = 0; y < resHeight; y++) {
-				(*perlinNoise)[x][y] += allNoise[o][x][y] * amplitude;
+				(*perlinNoise)[x][y] += allNoise[oct][x][y] * amplitude;
 			}
 		}
 	}
@@ -74,7 +67,7 @@ void Noise::generateNoise(vector<vector<float>> *perlinNoise) {
 	// average amplitudes
 	for (int x = 0; x < resWidth; x++) {
 		for (int y = 0; y < resHeight; y++) {
-			(*perlinNoise)[x][y] /= totalAmplitude;
+			//(*perlinNoise)[x][y] /= totalAmplitude;
 		}
 	}
 }
