@@ -315,7 +315,7 @@ pull_to_hay (boid *current, flock *fl){
 		if (4.0f <= sheep_to_hay && sheep_to_hay < 20.0f)
 		{
 			pull_strength = (sheep_to_hay - 4.0f) /8.0f; // map 4-20 -> 0-2
-		 } //else if (16.0f <= sheep_to_hay && sheep_to_hay < 20.0f)
+		} //else if (16.0f <= sheep_to_hay && sheep_to_hay < 20.0f)
 		// {
 		// 	pull_strength = (((sheep_to_hay -14.0f)/6)*4); // map 8-10 -> 1-4
 		// }
@@ -326,6 +326,7 @@ pull_to_hay (boid *current, flock *fl){
 
 		hay_pull += to_hay; // add to vector to return
 		n++;
+		//TODO DECREMENT HAY 
 		//std::cout << "distance to hay: " << sheep_to_hay <<std::endl;
 	}
 	if (n> 0)

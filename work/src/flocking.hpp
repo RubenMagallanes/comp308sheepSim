@@ -61,7 +61,7 @@ struct boid
 	int bored = 630; // how bored of this patch is the sheep?
 };
 
-struct affector {
+struct affector {// TODO make hay expire
 	Geometry *model; 
 	int type; // 1 = hay, 2 = wolf
 	cgra::vec2 position; 
