@@ -5,12 +5,13 @@
 #define COHESION_FACTOR 0.05f
 
 #define SEPERATION_DISTANCE 8.0f
-#define COLLISION_THRESHOLD 2.0f
+#define COLLISION_THRESHOLD 2.3f
 #define SEPERATION_FACTOR 1.0f
 
 #define ALIGNMENT_FACTOR 0.4f
 
-#define MAX_SPEED 0.2f
+#define MAX_FLOCK_SPEED 0.2f
+#define MAX_EAT_SPEED 0.17f
 
 #define HAY_FACTOR 0.005f
 
@@ -54,9 +55,10 @@ struct boid
 	float rotation; 
 
 	/* for state machine impl */
-	char state = 'e'; //f=flocking e=eating p=panic
-	int cooldown=0; // ticks until can transition to next state
+	char state = 'e'; //f=flocking e=eating p=panic r=running
+	int timer=0; // ticks until can transition to next state
 	int lonely = 0; // how long has been alone?  
+	int bored = 630; // how bored of this patch is the sheep?
 };
 
 struct affector {
@@ -83,7 +85,7 @@ void init_flock (flock *, Geometry *, std::vector<affector> *);
 	boid will render using the supplied geo.
 	TODO: take x,z coords as arguments as position. 
  */
-void add_boid (flock *, float, float);
+void add_boid (flock *, float, float, float, float);
 
 /*
 	creates new affector with specified type, geometry, and location, 
@@ -110,6 +112,7 @@ void render_all (flock *);
  */
 void render (boid *);
 
+cgra::vec2 rand_vector (float);
 void check_state (boid *);
 
 /*	update specified boid's actions, influenced by each other boid

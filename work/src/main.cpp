@@ -696,25 +696,29 @@ int main(int argc, char **argv) {
 	
 	//initialise flock fl,  with geo_sheep as boid's geometry
 	init_flock(&herd, geo_sheep, &hay_set);
-	add_boid (&herd, 5.0f, 5.0f);
-	add_boid (&herd, -5.0f, -5.0f);
-	//add_boid (&herd, 5.0f, -5.0f);
-	//add_boid (&herd, -5.0f, 5.0f);
+	
+	//SIMPLE FLOCK WITH HAY OFF TO SIDE
+	/*
+	add_boid (&herd, 5.0f, 0.0f, 1, 0);
+	add_boid (&herd, -5.0f, 0.0f, -1, 0);
+	add_boid (&herd, 0.0f, 5.0f, 0, 1);
+	add_boid (&herd, 0.0f, -5.0f, 0, -1);
 
-	/*add_boid (&herd, 6.0f, 10.0f);
-	add_boid (&herd, -10.0f, -2.0f);*/
-	//add_boid (&herd, 2.0f, -2.0f);
-	//add_boid (&herd, -6.0f, 2.0f);
-
-	/*add_boid (&herd, 10.0f, 12.0f);
-	add_boid (&herd, -10.0f, -12.0f);
-	add_boid (&herd, 12.0f, -12.0f);
-	add_boid (&herd, -16.0f, 12.0f);*/
-
-	//create_affector(&hay_set, geo_hay, 1, 0.0f, 0.0f);
 	create_affector(&hay_set, geo_hay, 1, 20.0f, 10.0f);
+*/
+	//MORE COMPLEX FLOCK WITH 2 HAYS
+	add_boid (&herd, 5.1f, 0.1f, 1, 0);
+	add_boid (&herd, -5.1f, 0.1f, -1, 0);
+	add_boid (&herd, 0.1f, 5.1f, 0, 1);
+	add_boid (&herd, 0.1f, -5.1f, 0, -1);
 
+	add_boid (&herd, 3.0f, -1.0f, 1, 0);
+	add_boid (&herd, -8.0f, 0.3f, -1, 0);
+	add_boid (&herd, 0.0f, 12.0f, 0, 1);
+	add_boid (&herd, -3.0f, -10.0f, 0, -1);
 
+	create_affector (&hay_set, geo_hay, 1, 20.0f, 10.0f);
+	create_affector (&hay_set, geo_hay, 1, 30.0f, 20.0f);
 
 
 

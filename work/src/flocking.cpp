@@ -3,25 +3,29 @@
 #include "cgra_geometry.hpp"
 #include <iostream>
 
-static float f_sep_strength = 1.0f; // flocking
-static float f_coh_strength = 1.0f; // ^
-static float f_ali_strength = 0.9f; // ^
+
+static float f_sep_strength = 0.01f; // flocking seperation strength
+
+
 static float f_max_velocity = 0.7f; // decent - 1.4
 
-static float e_sep_strength = 1.0f; // eating- values are almost nonexistant
-static float e_coh_strength = 0.1f; // v
-static float e_ali_strength = 0.1f; // v
+static float e_sep_strength = 0.02f; // eating sep strength bigger 
+
+static float e_coh_strength = 0.3f; // v
+static float eating_alignment_scalar = 0.3;
 static float e_max_velocity = 0.2f; // slow  - 0.4
 
 static float p_sep_strength = 1.0f; // panic
 static float p_coh_strength = 0.3f; // v
-static float p_ali_strength = 1.2f; // ^^
+
 static float p_max_velocity = 1.0f; // fast - 2.0
 
 
-static float sep_strength =  0.003f; // for actual seperation, not collision
+//static float sep_strength =  0.003f; // for actual seperation, not collision
 
-static float DECEL = 0.0005F;
+
+static float e_DECEL = 0.001f; // eating lsows
+static float f_DECEL = 0.0001f;
 /*  ~  FLOCK FUNCTIONS  ~  */
 
 void /* initialise flock $fl with each boid using $model as their geometry */
@@ -33,13 +37,14 @@ init_flock (flock *fl,  Geometry *model_, std::vector<affector> *aff_)
 }
 
 void /* create and add a boid at position $x and $y to flock $fl */
-add_boid (flock *fl, float x_, float y_)
+add_boid (flock *fl, float x_, float y_, float vx_, float vy_)
 {
 	boid b = boid ();
 	b.model = fl->model;
 	b.position = cgra::vec2 (x_, y_);	
 
-	b.velocity = cgra::vec2 (0, 0.1);		
+	
+	b.velocity = cgra::vec2 (vx_, vy_);		
 	b.id = fl->id_index++;				//each boid should have unique id
 	b.rotation = 0;
 	fl->members.push_back (b);
@@ -135,12 +140,76 @@ boids_around (boid *b, flock *fl)
 
 }
 
+cgra::vec2 /* returns a random vector length not equal to zero */
+rand_vector (float length){
+	int neg =  0 + (rand() % 1); // 0 and 1
+	float x =  (float)(1.0f + (rand() % 10))/10.0f ; // 0.1 - 1
+	if (neg)
+		x = -x; // flip 50% of the time
+
+	neg =  0+ (rand() % 1); // 0 and 1
+	float y =  (float)(1.0f + (rand() % 10))/10.0f; // 0.1 - 1
+	if (neg)
+		y = -y; // flip 50% of the time
+
+	std::cout << x << ", " << y << std::endl;
+
+	cgra::vec2 ret = cgra::vec2(x, y);
+	ret = cgra::normalize (ret);
+	ret *= length;
+
+	
+	return ret;
+}
+
+
 void 
 check_state (boid *b, flock *fl)
 {
+	//std::cout << "state: " << b->state << std::endl;
 	int in_view = boids_around (b, fl); // in close proximity
-	if (in_view < 3)
-		std::cout << "less that 3 aHHHHHHHHH" << std::endl;
+	//implement pred check first
+	if (b->state == 'e')
+	{
+		if (in_view < 3) // not enough friends
+		{ 
+			b->lonely ++; 
+			 // state transition
+			if (b->lonely == 100) // alone for 1.6 seconds
+			{
+				std::cout << "state change to f" << std::endl;
+				b->state = 'f'; // flock to find friends
+				b->timer = 160; // wont stop flocking for at least 3 seconds
+			}
+		} else {
+			b->bored ++;
+			if(b->bored >= 700){ // wants to move
+				b->state = 'r';
+				b->bored =  0;
+				std::cout << "state change to r" << std::endl;
+				b->velocity = rand_vector(0.2);
+				b->timer = 400; //runs for 200 tickss
+			}
+		}
+	}
+	if (b->state == 'f'){
+		b->timer -- ; // 1 step closer to settling down
+		if  (in_view >= 3 && b->timer == 0){
+			std::cout << "state change to e" << std::endl;
+			b->state = 'e'; // enough other around to eat
+			b->lonely = 0;
+		}
+	}
+	if (b->state == 'r')//running
+	{
+		b->timer -- ;
+		if (b->timer == 0)
+		{
+			std::cout << "state change to e" << std::endl;
+			b->state = 'e';
+			b->bored = 0+ (rand() % 500); // randomize time to next boredom 0-500
+		}
+	}
 
 }
 
@@ -173,13 +242,21 @@ update (boid *b, flock *fl)
 
 	b->velocity += hay;
 
+
 	//std::cout << "vel of boi afte: " << cgra::length (b->velocity) << std::endl; 
 
 	/* clamp to $MAX_SPEED velocity */
-	b->velocity = cgra::clamp (b->velocity, -MAX_SPEED, MAX_SPEED);
-	//decelerate
+	if (b->state == 'f' || b->state == 'r')
+		b->velocity = cgra::clamp (b->velocity, -MAX_FLOCK_SPEED, MAX_FLOCK_SPEED);
+	else if (b->state == 'e')
+		b->velocity = cgra::clamp (b->velocity, -MAX_EAT_SPEED, MAX_EAT_SPEED);
+		
+	//decelerate depending on state
 	float speed = cgra::length (b->velocity);
-	speed -= DECEL; // slightly slower
+	if (b->state == 'e')
+		speed -= e_DECEL; 
+	else if (b->state == 'f')
+		speed -= f_DECEL;
 	cgra::vec2 b_vel = b->velocity;
 	b_vel = cgra::normalize (b_vel);
 	b_vel *= speed; 
@@ -244,12 +321,18 @@ pull_to_hay (boid *current, flock *fl){
 		// }
 		to_hay = cgra::normalize (to_hay);
 		to_hay *= pull_strength * HAY_FACTOR; 
+		if (current->state == 'f')
+			to_hay /= 2; // weaker if flocking to find friends
+
 		hay_pull += to_hay; // add to vector to return
 		n++;
 		//std::cout << "distance to hay: " << sheep_to_hay <<std::endl;
 	}
 	if (n> 0)
 		hay_pull /= n;
+
+
+
 	return hay_pull;
 }
 
@@ -277,10 +360,14 @@ seperation(boid *current, flock *fl){
 
 			seperation_force += push_vector; //add to one to be reurned
 			n++;
+			//std::cout << "repeling strongly" << std::endl; 
 			/* closer than 8, repel weakly */
 		} else if (cgra::distance (current->position, other->position) < SEPERATION_DISTANCE)
 		{
-			float push_scalar = sep_strength;
+
+			float push_scalar = f_sep_strength;
+			if (current->state == 'e') // should i use flocking speration strength?
+				push_scalar = e_sep_strength;
 			//push vector pushes away from other
 			cgra::vec2 push_vector = current->position - other->position;
 			//change magnitude to be push_scalar length
@@ -289,6 +376,7 @@ seperation(boid *current, flock *fl){
 
 			seperation_force += push_vector; //add to one to be reurned
 			n++;
+			//std::cout << "seperating weakly " << std::endl; 
 		}
 	}
 	if (n==0)
@@ -312,10 +400,11 @@ cohesion(boid *current, flock *fl){
 
 	for (boid *other : flock)						//iterate through each boid affecting this
 	{
-		
+		if (cgra::distance (other->position, current->position) < 40){ // if within reasonabel distance
 			average_position += other->position;	//add it's position to the average
 			n++;
-		
+			//std::cout << "attracting to other" << std::endl; 
+		}
 	}
 	if (n==0)
 	{	
@@ -331,6 +420,9 @@ cohesion(boid *current, flock *fl){
 	//it's magnitude needs to be scaled by a $factor so it only moves a small percent of the way towards the 
 	//ave position. 
 	cgra::vec2 ret = (average_position - current->position) * factor;
+
+	if (current->state == 'e' || current->state == 'r' )
+		ret *= e_coh_strength; // weak cohesion if eating
 	return ret;
 }
 
@@ -347,8 +439,11 @@ alignment(boid *current, flock *fl){
 
 	for (boid *other : flock)						//iterate through each boid affecting this
 	{
-		average_velocity += other->velocity;	//add it's position to the average
-		n++;
+		if (cgra::distance (other->position, current->position) < 15){ 
+			//std::cout << "aligning with other" << std::endl; 
+			average_velocity += other->velocity;	//add it's position to the average
+			n++;
+		}
 	}
 	if (n==0)
 	{	
@@ -356,7 +451,10 @@ alignment(boid *current, flock *fl){
 	}
 	average_velocity /= n;							//divide by num of velocities
 	float factor = (ALIGNMENT_FACTOR) / 100.0f;		//how much of ave vel to return
+
 	cgra::vec2 ret = average_velocity * factor;  	//scale
+	if (current->state == 'e' || current->state == 'r' )
+		ret *= eating_alignment_scalar; // if eating, dont really care about others
 	return ret; 
 }
 /*
