@@ -524,20 +524,20 @@ fps counter
 
 
 
-	// Sky blue background
-	glClearColor(0.53f, 0.81f, 0.98f, 0.1f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+    // Sky blue background
+    glClearColor(0.53f, 0.81f, 0.98f, 0.1f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
-	// Enable flags for normal rendering
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_LIGHTING);
-	glEnable(GL_NORMALIZE);
+    // Enable flags for normal rendering
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_NORMALIZE);
 
-	setupCamera(width, height);
+    setupCamera(width, height);
 
 
-	glLightfv(GL_LIGHT1, GL_POSITION, light_position1);// directional light
+    glLightfv(GL_LIGHT1, GL_POSITION, light_position1);// directional light
 
     // // DISABLE FOR COLORS SEt BY SET HAY COLOR
     glEnable(GL_COLOR_MATERIAL);
@@ -551,14 +551,14 @@ fps counter
     //geo_sphere->renderGeometry();
     glPopMatrix();
 
-	// draw ground terrain
-	glPushMatrix();
-	glScalef(100.0f, 100.0f, 100.0f);
-	float centerHeightGround = tGround->getHeightAt(0.0f, 0.0f);
-	glTranslatef(-((float)terrainSize / 2), -centerHeightGround * 2.0, -((float)terrainSize / 2));
-	//tGround->drawTerrain();
-	//geo_sphere->renderGeometry();
-	glPopMatrix();
+    // draw ground terrain
+    glPushMatrix();
+    glScalef(100.0f, 100.0f, 100.0f);
+    float centerHeightGround = tGround->getHeightAt(0.0f, 0.0f);
+    glTranslatef(-((float)terrainSize / 2), -centerHeightGround * 2.0, -((float)terrainSize / 2));
+    //tGround->drawTerrain();
+    //geo_sphere->renderGeometry();
+    glPopMatrix();
 
  //    //GOLD SPHERE
  //    GLfloat mat_ambientG  [] = {0.25, 0.2, 0.07, 1};
