@@ -43,7 +43,7 @@ Terrain *tGround = nullptr;
 // 
 float g_fovy = 20.0;
 float g_znear = 0.1;
-float g_zfar = 10000.0;
+float g_zfar = 100000.0;
 
 
 // Mouse controlled Camera values
@@ -141,7 +141,7 @@ void resetScreen(){
 //
 void scrollCallback(GLFWwindow *win, double xoffset, double yoffset) {
 	// cout << "Scroll Callback :: xoffset=" << xoffset << "yoffset=" << yoffset << endl;
-	//g_zoom -= yoffset * g_zoom * 0.2; // UNCOMMENT TO ENABLE MOUSE SCROLL ZOOMING
+	g_zoom -= yoffset * g_zoom * 0.2; // UNCOMMENT TO ENABLE MOUSE SCROLL ZOOMING
 }
 
 
@@ -463,7 +463,7 @@ void set_sheep_color (){
 	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW2);  
 	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW2);
 	GLfloat white2[] = {0.9f, 0.9f, 0.9f, 1.f};
-	GLfloat blue[] = {0.2, 0.2, 0.9, 1.f};
+	GLfloat blue[] = {0.7, 0.7, 0.7, 1.f};
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, blue);
 }
 void set_hay_color (){
@@ -547,7 +547,7 @@ fps counter
 	glScalef(100.0f, 100.0f, 100.0f);
 	float centerHeightMain = tMain->getHeightAt(0.0f, 0.0f);
     glTranslatef(-((float)terrainSize/2), -centerHeightMain * 8.0 - 1.0, -((float)terrainSize/2));
-    tMain->drawTerrain();
+   // tMain->drawTerrain();
     //geo_sphere->renderGeometry();
     glPopMatrix();
 
@@ -615,10 +615,15 @@ fps counter
         lastTime += 0.017f;
     }
     glDisable(GL_COLOR_MATERIAL);
+
+    cgra::cgraSphere (0.5);
+
     set_sheep_color();
     render_all(&herd);
+
 	set_hay_color();
 	render_affectors(&hay_set);
+	//cgra::cgraSphere (0.5);
 
 	glEnable(GL_COLOR_MATERIAL);
 
@@ -732,6 +737,7 @@ int main(int argc, char **argv) {
 	add_boid (&herd, 0.0f, 12.0f, 0, 1);
 	add_boid (&herd, -3.0f, -10.0f, 0, -1);
 
+	create_affector (&hay_set, geo_hay, 1, 0.0f, 0.0f);
 	create_affector (&hay_set, geo_hay, 1, 20.0f, 10.0f);
 	create_affector (&hay_set, geo_hay, 1, 30.0f, 20.0f);
 

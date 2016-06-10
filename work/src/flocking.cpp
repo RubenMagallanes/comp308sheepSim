@@ -72,9 +72,9 @@ render_affectors(std::vector<affector> *affectors)
 	{
 		glPushMatrix();
 		struct affector a = affectors->at(i);
-		
-		 glTranslatef(a.position.x, 1.0, a.position.y);//todo y value affected by terrain underneath
-		 a.model->renderGeometry();
+		glScalef (5.0, 5.0, 5.0);
+		glTranslatef(a.position.x, 1.0, a.position.y);//todo y value affected by terrain underneath
+		a.model->renderGeometry();
 		glPopMatrix();
 	}
 }
@@ -110,6 +110,7 @@ void
 render (boid *b)
 {
 	glPushMatrix();
+	
 	glTranslatef(b->position.x, 1.0, b->position.y); // z value based on terrain 
 
 	// rotate around y axis (-1 because vectors around wrong way)
