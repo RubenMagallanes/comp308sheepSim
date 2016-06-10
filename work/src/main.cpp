@@ -465,6 +465,8 @@ void set_sheep_color (){
 	GLfloat white2[] = {0.9f, 0.9f, 0.9f, 1.f};
 	GLfloat blue[] = {0.7, 0.7, 0.7, 1.f};
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, blue);
+
+	glColor3f(0.9f,0.9f,0.8f);
 }
 void set_hay_color (){
 	//colors for blue sheep material	
@@ -476,6 +478,8 @@ void set_hay_color (){
 	GLfloat white2[] = {0.9f, 0.9f, 0.9f, 1.f};
 	GLfloat yello[] = {0.6, 0.6, 0.2, 1.f};
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, yello);
+
+		glColor3f(0.7f,0.7f,0.2f);
 }
 
 GLenum tPolygonMode = GL_FILL;
@@ -546,9 +550,10 @@ fps counter
     glPushMatrix();
 	glScalef(100.0f, 100.0f, 100.0f);
 	float centerHeightMain = tMain->getHeightAt(0.0f, 0.0f);
-    glTranslatef(-((float)terrainSize/2), -centerHeightMain * 8.0 - 1.0, -((float)terrainSize/2));
-   // tMain->drawTerrain();
+    glTranslatef(-((float)terrainSize/2), -0.94f, -((float)terrainSize/2));
+    tMain->drawTerrain();
     //geo_sphere->renderGeometry();
+
     glPopMatrix();
 
     // draw ground terrain
@@ -614,15 +619,16 @@ fps counter
         update_all(&herd); // update all boids position and intention
         lastTime += 0.017f;
     }
-    glDisable(GL_COLOR_MATERIAL);
+    //glDisable(GL_COLOR_MATERIAL);
 
-    cgra::cgraSphere (0.5);
+    
 
 	set_hay_color();
 	render_affectors(&hay_set);
 	
+
     set_sheep_color();
-    render_all(&herd);
+    render_all(&herd, tMain);
 
 	
 	//cgra::cgraSphere (0.5);

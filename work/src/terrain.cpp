@@ -275,7 +275,8 @@ float Terrain::getHeightAt(float xRaw, float zRaw) {
 	int x = (int) floor(xPrime);
 	int z = (int) floor(zPrime);
 	
-	float totalHeight = noise[x][z] + noise[x+1][z] + noise[x][z+1] + noise[x+1][z+1]
+	float totalHeight = noise[x][z]*noise[x][z]*3 + noise[x+1][z]*noise[x+1][z]*3 +
+						noise[x][z+1]*noise[x][z+1]*3 + noise[x+1][z+1]*noise[x+1][z+1]*3;
 	float averageHeight = totalHeight / 4.0f;
 	
 	return averageHeight;

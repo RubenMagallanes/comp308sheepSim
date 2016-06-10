@@ -1,6 +1,7 @@
 #pragma once
 #include "cgra_math.hpp"
 #include "geometry.hpp"
+#include "terrain.hpp"
 
 #define COHESION_FACTOR 0.05f
 
@@ -103,14 +104,14 @@ void update_all (flock *);
 
 /*	tell each boid to render itself.
  */
-void render_all (flock *); 
+void render_all (flock *, Terrain *); 
 
 /*     BOID FUNCTIONS     */
 
 /*	render boid on the screen. 
 
  */
-void render (boid *);
+void render (boid *, Terrain *);
 
 cgra::vec2 rand_vector (float);
 void check_state (boid *);

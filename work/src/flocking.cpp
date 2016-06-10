@@ -1,6 +1,7 @@
 #include "cgra_math.hpp"
 #include "flocking.hpp"
 #include "cgra_geometry.hpp"
+
 #include <iostream>
 
 
@@ -67,13 +68,17 @@ create_affector (std::vector<affector> * list_, Geometry * geo_, int type_, floa
 void
 render_affectors(std::vector<affector> *affectors)
 {
+	//std::cout << "rendering affectors" << std::endl;
 	int i;
+	//std::cout << "size: "<<affectors->size() << std::endl;
 	for (i= 0; i< affectors->size(); i++)
 	{
+
 		glPushMatrix();
 		struct affector a = affectors->at(i);
 		glScalef (5.0, 5.0, 5.0);
 		glTranslatef(a.position.x, 1.0, a.position.y);//todo y value affected by terrain underneath
+		cgra::cgraSphere (0.5);
 		a.model->renderGeometry();
 		glPopMatrix();
 	}
@@ -93,13 +98,13 @@ update_all (flock *fl)
 }
 
 void
-render_all (flock *fl)
+render_all (flock *fl, Terrain *t_)
 {
 	
 	int i;
 	for (i= 0; i< fl->members.size(); i++)
 	{
-		render (&(fl->members[i]));
+		render (&(fl->members[i]), t_);
 	}
 }
 
@@ -107,20 +112,42 @@ render_all (flock *fl)
 
 
 void 
-render (boid *b)
+render (boid *b, Terrain *t_)
 {
 	glPushMatrix();
 	
-	glTranslatef(b->position.x, 1.0, b->position.y); // z value based on terrain 
+	float up = t_->getHeightAt(b->position.x, b->position.y);
+	//	10.0
+	std::cout << "height:" << up*8 << std::endl;//up*8 -20 // -80
+
+	glTranslatef(b->position.x, up*8 , b->position.y); // z value based on terrain 
 
 	// rotate around y axis (-1 because vectors around wrong way)
 	glRotatef (b->rotation , 0, -1, 0); 
 	
 	b->model->renderGeometry();
 
-	glTranslatef (0.0, 1.7, 0.0);
-	float velveclen =0.1+ cgra::length(b->velocity) * 10;
-	cgra::cgraCylinder (0.15, 0.0, velveclen);
+	//glTranslatef (0.0, 1.7, 0.0);
+	//float velveclen =0.1+ cgra::length(b->velocity) * 10;
+	glRotatef(90, 1, 0, 0);
+	//glTranslatef (-0.2, 0.2, 0.0);
+	cgra::cgraCylinder (0.15, 0.15, 100);//er (0.15, 15.0, velveclen);
+	glTranslatef(0, 0,10);
+	cgra::cgraSphere(0.5);
+	glTranslatef(0, 0,10);
+	cgra::cgraSphere(0.5);
+	glTranslatef(0, 0,10);
+	cgra::cgraSphere(0.5);
+	glTranslatef(0, 0,10);
+	cgra::cgraSphere(0.5);
+	glTranslatef(0, 0,10);
+	cgra::cgraSphere(0.5);
+	// glTranslatef (0.4, 0.0, 0.0);
+	// cgra::cgraCylinder (0.15, 0.15, 20);//er (0.15, 15.0, velveclen);
+	// glTranslatef (-0.0, -0.4, -0.0);
+	// cgra::cgraCylinder (0.15, 0.15, 20);//er (0.15, 15.0, velveclen);
+	// glTranslatef (-0.4, 0.0, 0.0);
+	// cgra::cgraCylinder (0.15, 0.15, 20);//er (0.15, 15.0, velveclen);
 	//draw forces affecting each boid 
 	glPopMatrix();
 
