@@ -268,6 +268,15 @@ float Terrain::getOffset(float v1, float v2, float valueDesired) { // ???
 	return (valueDesired - v1) / d;
 }
 
-float Terrain::getHeightAt(float x, float y) {
-	return noise[x][y];
+float Terrain::getHeightAt(float xRaw, float zRaw) {
+	float xPrime = xRaw + worldSize/2;
+	float zPrime = zRaw + worldSize/2;
+	
+	int x = (int) floor(xPrime);
+	int z = (int) floor(zPrime);
+	
+	float totalHeight = noise[x][z] + noise[x+1][z] + noise[x][z+1] + noise[x+1][z+1]
+	float averageHeight = totalHeight / 4.0f;
+	
+	return averageHeight;
 }
