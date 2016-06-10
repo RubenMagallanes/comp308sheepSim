@@ -25,5 +25,5 @@ public:
 	Noise(int, int, int, int);
 	~Noise();
 
-	void generateNoise(std::vector<std::vector<float>> *);
+	void generateNoise(float, std::vector<std::vector<float>> *, float *, float *);
 };

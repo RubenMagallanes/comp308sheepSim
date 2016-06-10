@@ -19,9 +19,12 @@ Noise::Noise(int w, int h, int r, int o) {
 
 Noise::~Noise() { }
 
-void Noise::generateNoise(vector<vector<float>> *perlinNoise) {
+void Noise::generateNoise(float numOct, vector<vector<float>> *finalNoise, float *min, float *max) {
 	float resWidth = width * resolution;
 	float resHeight = height * resolution;
+
+	*min = 999.9;
+	*max = -999.9;
 
 	vector<vector<float>> whiteNoise (resWidth, vector<float>(resHeight));
 	generateWhiteNoise(&whiteNoise);
@@ -35,9 +38,7 @@ void Noise::generateNoise(vector<vector<float>> *perlinNoise) {
 	vector<vector<float>> smoothNoise6(resWidth, vector<float>(resHeight));
 	vector<vector<float>> smoothNoise7(resWidth, vector<float>(resHeight));
 	vector<vector<float>> smoothNoise8(resWidth, vector<float>(resHeight));
-	vector<vector<vector<float>>> allNoise (8, vector<vector<float>>(resWidth, vector<float>(resHeight, NULL)));
-
-	int octaveTest = 0;
+	vector<vector<vector<float>>> allNoise (6, vector<vector<float>>(resWidth, vector<float>(resHeight, NULL)));
 	
 	generateSmoothNoise(whiteNoise, &smoothNoise1, 0);
 	allNoise[0] = smoothNoise1;
@@ -48,7 +49,7 @@ void Noise::generateNoise(vector<vector<float>> *perlinNoise) {
 	generateSmoothNoise(whiteNoise, &smoothNoise3, 2);
 	allNoise[2] = smoothNoise3;
 	
-	generateSmoothNoise(whiteNoise, &smoothNoise4, 6);
+	generateSmoothNoise(whiteNoise, &smoothNoise4, 3);
 	allNoise[3] = smoothNoise4;
 	
 	generateSmoothNoise(whiteNoise, &smoothNoise5, 4);
@@ -56,33 +57,33 @@ void Noise::generateNoise(vector<vector<float>> *perlinNoise) {
 	
 	generateSmoothNoise(whiteNoise, &smoothNoise6, 5);
 	allNoise[5] = smoothNoise6;
-	
-	generateSmoothNoise(whiteNoise, &smoothNoise7, 6);
-	allNoise[6] = smoothNoise7;
-	
-	generateSmoothNoise(whiteNoise, &smoothNoise8, 7);
-	allNoise[7] = smoothNoise8;
 
 	float totalAmplitude = 0.0f;
 
 	// blending
-	for (int oct = 3; oct >= 0; oct--) {
+	for (int oct = numOct-1; oct >= 0; oct--) {
 		amplitude *= persistance;
 		totalAmplitude += amplitude;
 
 		// add all octaves together
 		for (int x = 0; x < resWidth; x++) {
 			for (int y = 0; y < resHeight; y++) {
-				(*perlinNoise)[x][y] += allNoise[oct][x][y] * amplitude;
+				(*finalNoise)[x][y] += allNoise[oct][x][y] * amplitude;
 				//cout << allNoise[oct][x][y] * amplitude << endl;
 			}
 		}
 	}
-	
+
 	// average amplitudes
 	for (int x = 0; x < resWidth; x++) {
 		for (int y = 0; y < resHeight; y++) {
-			(*perlinNoise)[x][y] /= totalAmplitude;
+			(*finalNoise)[x][y] /= totalAmplitude;
+
+			if ((*finalNoise)[x][y] > *max)
+				*max = (*finalNoise)[x][y];
+
+			if ((*finalNoise)[x][y] < *min)
+				*min = (*finalNoise)[x][y];
 		}
 	}
 }

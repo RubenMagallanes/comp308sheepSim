@@ -36,13 +36,14 @@ GLFWwindow* g_window;
 
 // Terrain
 //
-Terrain *t = nullptr;
+Terrain *tMain = nullptr;
+Terrain *tGround = nullptr;
 
 // Projection values
 // 
 float g_fovy = 20.0;
 float g_znear = 0.1;
-float g_zfar = 1000.0;
+float g_zfar = 10000.0;
 
 
 // Mouse controlled Camera values
@@ -480,8 +481,11 @@ void set_hay_color (){
 GLenum tPolygonMode = GL_FILL;
 
 void initTerrain() {
-	t = new Terrain(terrainSize);
-	t->generate();
+	tMain = new Terrain(false, terrainSize);
+	tMain->generate();
+
+	tGround = new Terrain(true, terrainSize);
+	tGround->generate();
 }
 
 // Draw function
@@ -520,8 +524,8 @@ fps counter
 
 
 
-	// Grey/Blueish background
-	glClearColor(0.3f, 0.3f, 0.4f, 1.0f);
+	// Sky blue background
+	glClearColor(0.53f, 0.81f, 0.98f, 0.1f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
@@ -538,12 +542,23 @@ fps counter
     //glDisable(GL_COLOR_MATERIAL);
     glEnable(GL_COLOR_MATERIAL);
 
-    // draw terrain
+    // draw main terrain
     glPushMatrix();
-    glTranslatef(-((float)terrainSize/2), 0.0f, -((float)terrainSize/2));
-    t->drawTerrain();
+	glScalef(100.0f, 100.0f, 100.0f);
+	float centerHeightMain = tMain->getHeightAt(0.0f, 0.0f);
+    glTranslatef(-((float)terrainSize/2), -centerHeightMain * 8.0 - 1.0, -((float)terrainSize/2));
+    tMain->drawTerrain();
     //geo_sphere->renderGeometry();
     glPopMatrix();
+
+	// draw ground terrain
+	glPushMatrix();
+	glScalef(100.0f, 100.0f, 100.0f);
+	float centerHeightGround = tGround->getHeightAt(0.0f, 0.0f);
+	glTranslatef(-((float)terrainSize / 2), -centerHeightGround * 2.0, -((float)terrainSize / 2));
+	//tGround->drawTerrain();
+	//geo_sphere->renderGeometry();
+	glPopMatrix();
 
  //    //GOLD SPHERE
  //    GLfloat mat_ambientG  [] = {0.25, 0.2, 0.07, 1};
