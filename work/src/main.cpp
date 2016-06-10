@@ -618,11 +618,13 @@ fps counter
 
     cgra::cgraSphere (0.5);
 
+	set_hay_color();
+	render_affectors(&hay_set);
+	
     set_sheep_color();
     render_all(&herd);
 
-	set_hay_color();
-	render_affectors(&hay_set);
+	
 	//cgra::cgraSphere (0.5);
 
 	glEnable(GL_COLOR_MATERIAL);
