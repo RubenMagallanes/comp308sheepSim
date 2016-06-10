@@ -37,6 +37,9 @@ init_flock (flock *fl,  Geometry *model_, std::vector<affector> *aff_)
 	fl->affectors = aff_;
 }
 
+//void
+
+
 void /* create and add a boid at position $x and $y to flock $fl */
 add_boid (flock *fl, float x_, float y_, float vx_, float vy_)
 {
@@ -66,19 +69,21 @@ create_affector (std::vector<affector> * list_, Geometry * geo_, int type_, floa
 }
 
 void
-render_affectors(std::vector<affector> *affectors)
+render_affectors(std::vector<affector> *affectors, Terrain *t)
 {
 	//std::cout << "rendering affectors" << std::endl;
 	int i;
 	//std::cout << "size: "<<affectors->size() << std::endl;
 	for (i= 0; i< affectors->size(); i++)
-	{
-
+	{	
 		glPushMatrix();
 		struct affector a = affectors->at(i);
+		float up = t->getHeightAt(a.position.x, a.position.y);	
+		up *= 8;
+
 		glScalef (5.0, 5.0, 5.0);
-		glTranslatef(a.position.x, 1.0, a.position.y);//todo y value affected by terrain underneath
-		cgra::cgraSphere (0.5);
+		glTranslatef(a.position.x, up, a.position.y);//todo y value affected by terrain underneath
+		cgra::cgraSphere (3);
 		a.model->renderGeometry();
 		glPopMatrix();
 	}

@@ -104,7 +104,7 @@ int w_down=0, a_down=0, s_down=0, d_down=0,
 	q_down=0, e_down=0, 
 	f_down=0, c_down=0,
 	z_down=0, x_down=0,
-	p_down=0; 
+	p_down=1; 
 
 float sensitivity = 0.5; // how sensitive the mouse is 
 
@@ -186,7 +186,7 @@ void keyCallback(GLFWwindow *win, int key, int scancode, int action, int mods) {
 	 			x_down = action;
 	 		break;
 	 		case 'P':
-	 			p_down = action;
+	 			p_down = 1;// action
 	 		break;
 	 		case ' ':
 	 			if (action)
@@ -624,7 +624,7 @@ fps counter
     
 
 	set_hay_color();
-	render_affectors(&hay_set);
+	render_affectors(&hay_set, tMain);
 	
 
     set_sheep_color();
