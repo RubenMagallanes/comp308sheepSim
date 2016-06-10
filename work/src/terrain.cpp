@@ -17,9 +17,10 @@
 using namespace std;
 using namespace cgra;
 
-Terrain::Terrain(int size) {
+Terrain::Terrain(bool iG, int size) {
 	worldSize = size;
 	stepSize = 1.0 / worldSize;
+	isGround = iG;
 
 	n = new Noise(worldSize, worldSize, noiseResolution, 8);
 	noise.resize(worldSize * noiseResolution, vector<float>(worldSize * noiseResolution));
@@ -34,7 +35,8 @@ void Terrain::initialize() {
 void Terrain::generate() {
 	cout << "===== Generating Terrain =====" << endl;
 	
-	n->generateNoise(&noise);
+	n->generateNoise(5, &noise, &min, &max);
+
 	cout << "Generated " << noise.size() << " points of noise" << endl;
 	
 	if (m_displayList) glDeleteLists(m_displayList, 1);
@@ -54,12 +56,12 @@ void Terrain::generate() {
 			// |    /     | // two triangles
 			// |v4      v3| //
 			// +----------+ //
-		  
+
 			// calculate positions
-			vec3 v1p = { x/noiseResolution, noise[x][z], z/noiseResolution };
-			vec3 v2p = { x/noiseResolution, noise[x][z+1], (z+1)/noiseResolution };
-			vec3 v3p = { (x+1)/noiseResolution, noise[x+1][z+1], (z+1)/noiseResolution };
-			vec3 v4p = { (x+1)/noiseResolution, noise[x+1][z], z/noiseResolution };
+			vec3 v1p = { x/noiseResolution, noise[x][z] * (noise[x][z]*3), z/noiseResolution };
+			vec3 v2p = { x/noiseResolution, noise[x][z+1] * (noise[x][z+1]*3), (z+1)/noiseResolution };
+			vec3 v3p = { (x+1)/noiseResolution, noise[x+1][z+1] * (noise[x+1][z+1]*3), (z+1)/noiseResolution };
+			vec3 v4p = { (x+1)/noiseResolution, noise[x+1][z] * (noise[x+1][z]*3), z/noiseResolution };
 			
 			// calculate normals for each triangle based on v1 and v4
 			vec3 v1n = normalize(cross((v2p - v1p), (v4p - v1p)));
@@ -71,25 +73,35 @@ void Terrain::generate() {
 			vec3 t1n = (v1n + v2n + v4n) / 3.0f;
 			vec3 t2n = (v2n + v3n + v4n) / 3.0f;
 			
+			// calculate colour for triangle 1
+			vec3 t1c = { 0.0f, 1 - (((noise[x][z] + noise[x][z + 1] + noise[x + 1][z]) / 3.0f) - min) / max + 0.1f, 0.2f };
+			vec3 t2c = { 0.0f, 1 - (((noise[x+1][z+1] + noise[x][z + 1] + noise[x + 1][z]) / 3.0f) - min) / max + 0.1f, 0.2f };
+
 			// triangle 1
 			glVertex3f(v1p.x, v1p.y, v1p.z); // v1
 			glNormal3f(t1n.x, t1n.y, t1n.z);
+			glColor3f(t1c.x, t1c.y, t1c.z);
 			
 			glVertex3f(v2p.x, v2p.y, v2p.z); // v2
 			glNormal3f(t1n.x, t1n.y, t1n.z);
+			glColor3f(t1c.x, t1c.y, t1c.z);
 			
 			glVertex3f(v4p.x, v4p.y, v4p.z); // v4
 			glNormal3f(t1n.x, t1n.y, t1n.z);
+			glColor3f(t1c.x, t1c.y, t1c.z);
 			
 			// triangle 2
 			glVertex3f(v3p.x, v3p.y, v3p.z); // v3
 			glNormal3f(t2n.x, t2n.y, t2n.z);
+			glColor3f(t1c.x, t1c.y, t1c.z);
 			
 			glVertex3f(v2p.x, v2p.y, v2p.z); // v2
 			glNormal3f(t2n.x, t2n.y, t2n.z);
+			glColor3f(t1c.x, t1c.y, t1c.z);
 			
 			glVertex3f(v4p.x, v4p.y, v4p.z); // v4
 			glNormal3f(t2n.x, t2n.y, t2n.z);
+			glColor3f(t1c.x, t1c.y, t1c.z);
 		}
 	}
 	
@@ -254,4 +266,8 @@ float Terrain::getOffset(float v1, float v2, float valueDesired) { // ???
 		return 0.5;
 	}
 	return (valueDesired - v1) / d;
+}
+
+float Terrain::getHeightAt(float x, float y) {
+	return noise[x][y];
 }

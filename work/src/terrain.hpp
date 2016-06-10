@@ -335,10 +335,13 @@ private:
 	// Other Variables
 	int worldSize = 0;
 	float stepSize = 0;
+	bool isGround = false;
 
 	// Noise
 	Noise *n = nullptr;
 	vector<vector<float>> noise;
+	float min;
+	float max;
 
 	// Noise Variables
 	float noiseResolution = 4.0;
@@ -353,11 +356,12 @@ private:
 
 public:
 
-	Terrain(int);
+	Terrain(bool, int);
 	~Terrain();
 
 	void initialize();
 	void generate();
 	void drawTerrain();
 	void setTime(float);
+	float getHeightAt(float, float);
 };

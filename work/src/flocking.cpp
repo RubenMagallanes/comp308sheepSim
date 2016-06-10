@@ -59,7 +59,7 @@ create_affector (std::vector<affector> * list_, Geometry * geo_, int type_, floa
 	if (type_ == 1 || type_ == 2) // must match 
 		a.type = type_;
 	else 
-		1 /0; 
+		//1 /0; 
 
 	list_->push_back(a);
 }
