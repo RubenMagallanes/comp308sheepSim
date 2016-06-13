@@ -704,7 +704,7 @@ int main(int argc, char **argv) {
 	add_boid (&herd, 0.0f, 12.0f, 0, 1);
 	add_boid (&herd, -3.0f, -10.0f, 0, -1);
 
-
+	add_boid (&herd, -10.0f, 0.0f, 0, -1);
 
 	create_affector (&hay_set, geo_hay, 1, 0.0f, 0.0f); // center
 	
