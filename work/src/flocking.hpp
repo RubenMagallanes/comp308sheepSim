@@ -66,6 +66,8 @@ struct affector {// TODO make hay expire
 	Geometry *model; 
 	int type; // 1 = hay, 2 = wolf
 	cgra::vec2 position; 
+	int expired = 1; 
+	int eat = 0; 
 };
 
 struct flock {

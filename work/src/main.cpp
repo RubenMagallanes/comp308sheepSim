@@ -714,7 +714,7 @@ int main(int argc, char **argv) {
 
 	create_affector (&hay_set, geo_hay, 1, -30.0f, -30.0f); // b,l
 
-	create_affector (&hay_set, geo_hay, 1, -50.0f, 50.0f); // b,r
+	create_affector (&hay_set, geo_hay, 1, 0.0f, 40.0f); // m,r
 
 	// Loop until the user closes the window
 	while (!glfwWindowShouldClose(g_window)) {

@@ -101,8 +101,13 @@ render_affectors(std::vector<affector> *affectors, Terrain *t)
 	//std::cout << "size: "<<affectors->size() << std::endl;
 	for (i= 0; i< affectors->size(); i++)
 	{	
-		glPushMatrix();
+		
 		struct affector a = affectors->at(i);
+		if (a.expired == 0)
+		{
+			continue; // dont render this one
+		}
+		glPushMatrix();
 		float up = t->getHeightAt(a.position.x, a.position.y);	
 		up *= 8;
 		glTranslatef(a.position.x, up, a.position.y);//todo y value affected by terrain underneath
@@ -335,6 +340,8 @@ pull_to_hay (boid *current, flock *fl){
 	int n = 0; 
 	int i;
 	for (i=0; i< fl->affectors->size(); i++){ // loop for each affector // later also do if check if is hay
+		if (fl->affectors->at(i).expired == 0)
+			continue; // if its expired, dont pull to it
 		cgra::vec2 hay_pos = fl->affectors->at(i).position;
 		cgra::vec2 to_hay = hay_pos - current->position;
 		float sheep_to_hay = cgra::length (to_hay);
@@ -344,10 +351,7 @@ pull_to_hay (boid *current, flock *fl){
 		if (4.0f <= sheep_to_hay && sheep_to_hay < 20.0f)
 		{
 			pull_strength = (sheep_to_hay - 4.0f) /8.0f; // map 4-20 -> 0-2
-		} //else if (16.0f <= sheep_to_hay && sheep_to_hay < 20.0f)
-		// {
-		// 	pull_strength = (((sheep_to_hay -14.0f)/6)*4); // map 8-10 -> 1-4
-		// }
+		} 
 		to_hay = cgra::normalize (to_hay);
 		to_hay *= pull_strength * HAY_FACTOR; 
 		if (current->state == 'f')
@@ -355,6 +359,14 @@ pull_to_hay (boid *current, flock *fl){
 
 		hay_pull += to_hay; // add to vector to return
 		n++;
+
+		if (sheep_to_hay < 8.0f)
+			fl->affectors->at(i).eat ++; //increment eat
+		if (fl->affectors->at(i).eat > 500)
+		{
+			fl->affectors->at(i).expired = 0; 
+
+		}
 		//TODO DECREMENT HAY 
 		//std::cout << "distance to hay: " << sheep_to_hay <<std::endl;
 	}
