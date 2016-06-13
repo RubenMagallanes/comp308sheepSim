@@ -550,8 +550,9 @@ fps counter
     glPushMatrix();
 	glScalef(100.0f, 100.0f, 100.0f);
 	float centerHeightMain = tMain->getHeightAt(0.0f, 0.0f);
-	float down = -1.0;//0.94f;
-    glTranslatef(-((float)terrainSize/2), down, -((float)terrainSize/2));
+
+    glTranslatef(-((float)terrainSize/2), -(centerHeightMain * centerHeightMain * 3), -((float)terrainSize/2));
+
     tMain->drawTerrain();
     //geo_sphere->renderGeometry();
 
@@ -709,7 +710,7 @@ int main(int argc, char **argv) {
 	
 	create_affector (&hay_set, geo_hay, 1, 30.0f, 20.0f);
 
-	create_affector (&hay_set, geo_hay, 1, -40.0f, -40.0f);
+	create_affector (&hay_set, geo_hay, 1, -40.0f, 40.0f);
 
 	// Loop until the user closes the window
 	while (!glfwWindowShouldClose(g_window)) {

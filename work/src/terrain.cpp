@@ -73,7 +73,7 @@ void Terrain::generate() {
 			vec3 t1n = (v1n + v2n + v4n) / 3.0f;
 			vec3 t2n = (v2n + v3n + v4n) / 3.0f;
 			
-			// calculate colour for triangle 1
+			// calculate colour for triangles
 			vec3 t1c = { 0.0f, 1 - (((noise[x][z] + noise[x][z + 1] + noise[x + 1][z]) / 3.0f) - min) / max + 0.1f, 0.2f };
 			vec3 t2c = { 0.0f, 1 - (((noise[x+1][z+1] + noise[x][z + 1] + noise[x + 1][z]) / 3.0f) - min) / max + 0.1f, 0.2f };
 
@@ -151,24 +151,19 @@ void Terrain::processGridCell(float x, float y, float z, float scale) {
 	vec3 edgeVertices[12];
 
 	// Grab the values from each of the cube's vertices
+
+	// NOTE: The code here was left in for testing purposes, and should
+	// in theory just draw a flat terrain
 	if (y >= 0.5) {
 		for (int vSample = 0; vSample < 8; vSample++) {
-			/*vertexValues[vSample] = sample (x + vertexOffsetVectors[vSample][0] * scale,
-			y + vertexOffsetVectors[vSample][1] * scale,
-			z + vertexOffsetVectors[vSample][2] * scale);*/
-
 			vertexValues[vSample] = -1.0;
-			cout << "Above ground" << endl;
+			//cout << "Above ground" << endl;
 		}
 	}
 	else {
 		for (int vSample = 0; vSample < 8; vSample++) {
-			/*vertexValues[vSample] = sample (x + vertexOffsetVectors[vSample][0] * scale,
-			y + vertexOffsetVectors[vSample][1] * scale,
-			z + vertexOffsetVectors[vSample][2] * scale);*/
-
 			vertexValues[vSample] = 1.0;
-			cout << "============================ Below ground" << endl;
+			//cout << "============================ Below ground" << endl;
 		}
 	}
 
@@ -197,8 +192,6 @@ void Terrain::processGridCell(float x, float y, float z, float scale) {
 			edgeVertices[e].x = x + (vertexOffsetVectors[edgeConnections[e][0]][0] + offset * edgeDirections[e][0]) * scale;
 			edgeVertices[e].y = y + (vertexOffsetVectors[edgeConnections[e][0]][1] + offset * edgeDirections[e][1]) * scale;
 			edgeVertices[e].z = z + (vertexOffsetVectors[edgeConnections[e][0]][2] + offset * edgeDirections[e][2]) * scale;
-
-			// Calculate normals
 		}
 	}
 
@@ -210,10 +203,6 @@ void Terrain::processGridCell(float x, float y, float z, float scale) {
 		for (int c = 0; c < 3; c++) {
 			cout << "Drawing a triangle" << endl;
 			int corner = triangleTable[index][3 * t + c];
-
-			// Get colour
-			// Set colour
-			// Set normal
 			glVertex3f(edgeVertices[corner].x, edgeVertices[corner].y, edgeVertices[corner].z);
 		}
 	}
@@ -275,6 +264,7 @@ float Terrain::getHeightAt(float xRaw, float zRaw) {
 	int x = (int) floor(xPrime);
 	int z = (int) floor(zPrime);
 	
+	// average heights of vertices in the gridcell
 	float totalHeight = noise[x][z]*noise[x][z]*3 + noise[x+1][z]*noise[x+1][z]*3 +
 						noise[x][z+1]*noise[x][z+1]*3 + noise[x+1][z+1]*noise[x+1][z+1]*3;
 	float averageHeight = totalHeight / 4.0f;
