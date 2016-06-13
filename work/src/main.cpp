@@ -479,7 +479,7 @@ void set_hay_color (){
 	GLfloat yello[] = {0.6, 0.6, 0.2, 1.f};
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, yello);
 
-		glColor3f(0.7f,0.7f,0.2f);
+	glColor3f(0.7f,0.7f,0.2f);
 }
 
 GLenum tPolygonMode = GL_FILL;
@@ -550,7 +550,8 @@ fps counter
     glPushMatrix();
 	glScalef(100.0f, 100.0f, 100.0f);
 	float centerHeightMain = tMain->getHeightAt(0.0f, 0.0f);
-    glTranslatef(-((float)terrainSize/2), -0.94f, -((float)terrainSize/2));
+	float down = -1.0;//0.94f;
+    glTranslatef(-((float)terrainSize/2), down, -((float)terrainSize/2));
     tMain->drawTerrain();
     //geo_sphere->renderGeometry();
 
@@ -561,54 +562,10 @@ fps counter
     glScalef(100.0f, 100.0f, 100.0f);
     float centerHeightGround = tGround->getHeightAt(0.0f, 0.0f);
     glTranslatef(-((float)terrainSize / 2), -centerHeightGround * 2.0, -((float)terrainSize / 2));
-    //tGround->drawTerrain();
+   	//tGround->drawTerrain();
     //geo_sphere->renderGeometry();
     glPopMatrix();
 
- //    //GOLD SPHERE
- //    GLfloat mat_ambientG  [] = {0.25, 0.2, 0.07, 1};
- //    GLfloat mat_specularG [] = { 1.0,1.0,1.0 ,1};  
-	// GLfloat mat_shininessG[] = { 5 };  
-
-	// glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambientG);
-	// glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularG);  
-	// glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessG);
-	// GLfloat gold[] = {0.75, 0.61, 0.23, 1.f};
-	// glMaterialfv(GL_FRONT, GL_DIFFUSE, gold);
-
- //    glPushMatrix();
- //    glTranslatef(0.0,1.5,0.0);
- //    //geo_sphere->renderGeometry();
- //    glPopMatrix();
-
-	// GLfloat mat_specularW [] = { 1.0, 1.0, 1.0, 1.0 };
-	// GLfloat mat_shininessW[] = { 50.0 };  
-
-	// glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specularW);  
-	// glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininessW);
-	// GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.f};
-	// glMaterialfv(GL_FRONT, GL_DIFFUSE, white);
- //    glPushMatrix();
- //    glTranslatef(0.0f, -0.4f, 0.0f);
- //    // geo_table->renderGeometry();//TODO uncomment
- //    glPopMatrix();
-    //glDisable(GL_TEXTURE_2D);
-
-	//glLightfv(GL_LIGHT3, GL_POSITION, light_position3); // 
-
-	//glLightfv(GL_LIGHT2, GL_POSITION, light_position2); // spot
-	//glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, spot_direction2); // point
-	//glLightfv(GL_LIGHT1, GL_POSITION, light_position1);// directional light 
-	//glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, angle); // angle
-	// Without shaders
-/*
-	glLightfv(GL_LIGHT3, GL_POSITION, point_1_pos);
-	glLightfv(GL_LIGHT4, GL_POSITION, point_2_pos);
-	glLightfv(GL_LIGHT5, GL_POSITION, point_3_pos);
-	glLightfv(GL_LIGHT6, GL_POSITION, point_4_pos);*/
-
-    //temp_terrain(); // render my temp terrain enviro
-    //glDisable(GL_TEXTURE_2D);
 
     //RENDER FLOCK AND SHIT
       currentTime = glfwGetTime();
@@ -622,6 +579,7 @@ fps counter
     //glDisable(GL_COLOR_MATERIAL);
 
     
+    //temp_terrain();
 
 	set_hay_color();
 	render_affectors(&hay_set, tMain);
@@ -746,10 +704,12 @@ int main(int argc, char **argv) {
 	add_boid (&herd, -3.0f, -10.0f, 0, -1);
 
 	create_affector (&hay_set, geo_hay, 1, 0.0f, 0.0f);
+	
 	create_affector (&hay_set, geo_hay, 1, 20.0f, 10.0f);
+	
 	create_affector (&hay_set, geo_hay, 1, 30.0f, 20.0f);
 
-
+	create_affector (&hay_set, geo_hay, 1, -40.0f, -40.0f);
 
 	// Loop until the user closes the window
 	while (!glfwWindowShouldClose(g_window)) {
