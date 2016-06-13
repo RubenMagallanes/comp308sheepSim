@@ -74,7 +74,7 @@ void Noise::generateNoise(float numOct, vector<vector<float>> *finalNoise, float
 		}
 	}
 
-	// average amplitudes
+	// average amplitudes and set min/max
 	for (int x = 0; x < resWidth; x++) {
 		for (int y = 0; y < resHeight; y++) {
 			(*finalNoise)[x][y] /= totalAmplitude;
@@ -89,42 +89,44 @@ void Noise::generateNoise(float numOct, vector<vector<float>> *finalNoise, float
 }
 
 void Noise::generateWhiteNoise(vector<vector<float>> *noise) {
-	srand(static_cast <unsigned> (time(0)));
+	srand(static_cast <unsigned> (time(0))); // seed rand
 
 	for (int x = 0; x < (*noise).size(); x++) {
 		for (int y = 0; y < (*noise)[0].size(); y++) {
+			// generate random float between 0 - 1
 			(*noise)[x][y] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
 		}
 	}
 }
 
 void Noise::generateSmoothNoise(vector<vector<float>> baseNoise, vector<vector<float>> *smoothNoise, int octave) {
-	int samplePeriod = 1 << octave;
-	float sampleFrequency = 1.0f / samplePeriod;
+	int samplePeriod = pow(2, octave); // 2^octave
+	float sampleFrequency = 1.0f / samplePeriod; // f = 1/T
 
-	for (int i = 0; i < (*smoothNoise).size(); i++) {
-		// horizontal sampling indices
-		int samplei0 = (i / samplePeriod) * samplePeriod;
-		int samplei1 = (samplei0 + samplePeriod) % (*smoothNoise).size();
-		float horizBlend = (i - samplei0) * sampleFrequency;
+	for (int x = 0; x < (*smoothNoise).size(); x++) {
+		// sample horizontal points
+		int samplex0 = (x / samplePeriod) * samplePeriod;
+		int samplex1 = (samplex0 + samplePeriod) % (*smoothNoise).size();
+		float horizBlend = (x - samplex0) * sampleFrequency;
 
-		for (int j = 0; j < (*smoothNoise)[0].size(); j++) {
-			// vertical sampling indices
-			int samplej0 = (j / samplePeriod) * samplePeriod;
-			int samplej1 = (samplej0 + samplePeriod) % (*smoothNoise)[0].size();
-			float vertBlend = (j - samplej0) * sampleFrequency;
+		for (int y = 0; y < (*smoothNoise)[0].size(); y++) {
+			// sample vertical points
+			int sampley0 = (y / samplePeriod) * samplePeriod;
+			int sampley1 = (sampley0 + samplePeriod) % (*smoothNoise)[0].size();
+			float vertBlend = (y - sampley0) * sampleFrequency;
 
-			float top = interpolate(	baseNoise[samplei0][samplej0],
-							baseNoise[samplei1][samplej0], horizBlend);
+			float top = interpolate(	baseNoise[samplex0][sampley0],
+							baseNoise[samplex1][sampley0], horizBlend);
 
-			float bottom = interpolate(	baseNoise[samplei0][samplej1],
-							baseNoise[samplei1][samplej1], horizBlend);
+			float bottom = interpolate(	baseNoise[samplex0][sampley1],
+							baseNoise[samplex1][sampley1], horizBlend);
 
-			(*smoothNoise)[i][j] = interpolate(top, bottom, vertBlend);
+			(*smoothNoise)[x][y] = interpolate(top, bottom, vertBlend);
 		}
 	}
 }
 
+// interpolate along the edges depending on the weightings - can be used for FBM also
 float Noise::interpolate(float v1, float v2, float d) {
 	return v1 * (1 - d) + d * v2;
 }

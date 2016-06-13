@@ -550,7 +550,7 @@ fps counter
     glPushMatrix();
 	glScalef(100.0f, 100.0f, 100.0f);
 	float centerHeightMain = tMain->getHeightAt(0.0f, 0.0f);
-    glTranslatef(-((float)terrainSize/2), -0.94f, -((float)terrainSize/2));
+    glTranslatef(-((float)terrainSize/2), -(centerHeightMain * centerHeightMain * 3), -((float)terrainSize/2));
     tMain->drawTerrain();
     //geo_sphere->renderGeometry();
 

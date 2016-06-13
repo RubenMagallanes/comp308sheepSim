@@ -125,7 +125,7 @@ render (boid *b, Terrain *t_)
 	//	10.0
 	std::cout << "height:" << up*8 << std::endl;//up*8 -20 // -80
 
-	glTranslatef(b->position.x, up*8 , b->position.y); // z value based on terrain 
+	glTranslatef(b->position.x, up * up * 3, b->position.y); // z value based on terrain 
 
 	// rotate around y axis (-1 because vectors around wrong way)
 	glRotatef (b->rotation , 0, -1, 0); 
