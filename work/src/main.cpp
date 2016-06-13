@@ -704,13 +704,17 @@ int main(int argc, char **argv) {
 	add_boid (&herd, 0.0f, 12.0f, 0, 1);
 	add_boid (&herd, -3.0f, -10.0f, 0, -1);
 
-	create_affector (&hay_set, geo_hay, 1, 0.0f, 0.0f);
-	
-	create_affector (&hay_set, geo_hay, 1, 20.0f, 10.0f);
-	
-	create_affector (&hay_set, geo_hay, 1, 30.0f, 20.0f);
 
-	create_affector (&hay_set, geo_hay, 1, -40.0f, 40.0f);
+
+	create_affector (&hay_set, geo_hay, 1, 0.0f, 0.0f); // center
+	
+	create_affector (&hay_set, geo_hay, 1, 10.0f, 10.0f); // f,r
+	
+	create_affector (&hay_set, geo_hay, 1, 20.0f, -20.0f); // f,l,
+
+	create_affector (&hay_set, geo_hay, 1, -30.0f, -30.0f); // b,l
+
+	create_affector (&hay_set, geo_hay, 1, -50.0f, 50.0f); // b,r
 
 	// Loop until the user closes the window
 	while (!glfwWindowShouldClose(g_window)) {
