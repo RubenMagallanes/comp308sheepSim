@@ -62,32 +62,11 @@ create_affector (std::vector<affector> * list_, Geometry * geo_, int type_, floa
 	a.position = cgra::vec2 (x_, y_);
 	if (type_ == 1 || type_ == 2) // must match 
 		a.type = type_;
-	else 
-		//1 /0; 
+	
 
 	list_->push_back(a);
 }
 
-void
-render_affectors(std::vector<affector> *affectors, Terrain *t)
-{
-	//std::cout << "rendering affectors" << std::endl;
-	int i;
-	//std::cout << "size: "<<affectors->size() << std::endl;
-	for (i= 0; i< affectors->size(); i++)
-	{	
-		glPushMatrix();
-		struct affector a = affectors->at(i);
-		float up = t->getHeightAt(a.position.x, a.position.y);	
-		up *= 8;
-
-		glScalef (5.0, 5.0, 5.0);
-		glTranslatef(a.position.x, up, a.position.y);//todo y value affected by terrain underneath
-		cgra::cgraSphere (3);
-		a.model->renderGeometry();
-		glPopMatrix();
-	}
-}
 
 
 /* 'all' functions */
@@ -114,6 +93,24 @@ render_all (flock *fl, Terrain *t_)
 }
 
 /*  ~  INDIVIDUAL BOID FUNCTIONS  ~  */
+void
+render_affectors(std::vector<affector> *affectors, Terrain *t)
+{
+	//std::cout << "rendering affectors" << std::endl;
+	int i;
+	//std::cout << "size: "<<affectors->size() << std::endl;
+	for (i= 0; i< affectors->size(); i++)
+	{	
+		glPushMatrix();
+		struct affector a = affectors->at(i);
+		float up = t->getHeightAt(a.position.x, a.position.y);	
+		up *= 8;
+		glTranslatef(a.position.x, up, a.position.y);//todo y value affected by terrain underneath
+		//cgra::cgraSphere (3);
+		a.model->renderGeometry();
+		glPopMatrix();
+	}
+}
 
 
 void 
@@ -122,10 +119,8 @@ render (boid *b, Terrain *t_)
 	glPushMatrix();
 	
 	float up = t_->getHeightAt(b->position.x, b->position.y);
-	//	10.0
-	std::cout << "height:" << up*8 << std::endl;//up*8 -20 // -80
-
-	glTranslatef(b->position.x, up*8 , b->position.y); // z value based on terrain 
+	up *= 8; 
+	glTranslatef(b->position.x, up , b->position.y); // z value based on terrain 
 
 	// rotate around y axis (-1 because vectors around wrong way)
 	glRotatef (b->rotation , 0, -1, 0); 
@@ -136,6 +131,8 @@ render (boid *b, Terrain *t_)
 	//float velveclen =0.1+ cgra::length(b->velocity) * 10;
 	glRotatef(90, 1, 0, 0);
 	//glTranslatef (-0.2, 0.2, 0.0);
+	
+/*	uncomment to draw boids 'on a stick' to see what terrain their over
 	cgra::cgraCylinder (0.15, 0.15, 100);//er (0.15, 15.0, velveclen);
 	glTranslatef(0, 0,10);
 	cgra::cgraSphere(0.5);
@@ -147,13 +144,8 @@ render (boid *b, Terrain *t_)
 	cgra::cgraSphere(0.5);
 	glTranslatef(0, 0,10);
 	cgra::cgraSphere(0.5);
-	// glTranslatef (0.4, 0.0, 0.0);
-	// cgra::cgraCylinder (0.15, 0.15, 20);//er (0.15, 15.0, velveclen);
-	// glTranslatef (-0.0, -0.4, -0.0);
-	// cgra::cgraCylinder (0.15, 0.15, 20);//er (0.15, 15.0, velveclen);
-	// glTranslatef (-0.4, 0.0, 0.0);
-	// cgra::cgraCylinder (0.15, 0.15, 20);//er (0.15, 15.0, velveclen);
-	//draw forces affecting each boid 
+	*/
+	
 	glPopMatrix();
 
 }
@@ -185,7 +177,7 @@ rand_vector (float length){
 	if (neg)
 		y = -y; // flip 50% of the time
 
-	std::cout << x << ", " << y << std::endl;
+	//std::cout << x << ", " << y << std::endl;
 
 	cgra::vec2 ret = cgra::vec2(x, y);
 	ret = cgra::normalize (ret);
